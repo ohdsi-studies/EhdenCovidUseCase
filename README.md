@@ -17,6 +17,7 @@ The aim of this study is to estimate treatment effects for COVID-19 treatments u
 Primary objectives: 
 1) To assess comparative effectiveness and safety among Tocilizumab and Baricitinib in hospitalised patients
 2) To assess comparative effectiveness and safety among Aspirin and Heparin in hospitalised patients 
+
 Subgroup Analyses:
 1) Effectiveness and safety in ICU patients  
 2) Effectiveness and safety in patients receiving corticosteroids
