@@ -13,6 +13,6 @@ EHDEN Use Case=============
 - Publications: **-**
 - Results explorer: **-**
 
-[Description (single paragraph)]
+The aim of this study is to estimate treatment effects for COVID-19 treatments using data from the EHDEN network and to combine these observational results with data from randomised studies.
 
 [You can add other text at this point]
