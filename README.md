@@ -10,7 +10,7 @@ EHDEN Use Case
 - Study lead forums tag: **[[Lead tag]](https://forums.ohdsi.org/u/[Lead tag])**
 - Study start date: **-**
 - Study end date: **-**
-- Protocol: **-**
+- Protocol: [EHDEN Use Case Protocol.pdf](https://github.com/christinaread/EHDENUseCase/files/9027963/EHDEN.Use.Case.Protocol.pdf)
 - Results explorer: **-**
 
 The aim of this study is to estimate treatment effects for COVID-19 treatments using data from the EHDEN network and to combine these observational results with data from randomised studies.
