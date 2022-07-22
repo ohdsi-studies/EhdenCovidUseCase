@@ -1,0 +1,23 @@
+atlasId,atlasName,cohortId,name
+1779652,Aspirin Cohort (EHDEN Use Case),1779652,Aspirin_Cohort_EHDEN_Use_Case
+1779668,Heparin Cohort (EHDEN Use Case),1779668,Heparin_Cohort_EHDEN_Use_Case
+1779680,Death (EHDEN Use Case),1779680,Death_EHDEN_Use_Case
+1779682,Sepsis (EHDEN Use Case),1779682,Sepsis_EHDEN_Use_Case
+1779681,Discharge from Hospitalization (EHDEN Use Case),1779681,Discharge_from_Hospitalization_EHDEN_Use_Case
+1779684,Respiratory Tract Infection (EHDEN Use Case),1779684,Respiratory_Tract_Infection_EHDEN_Use_Case
+1779685,Cardiovascular Events (EHDEN Use Case),1779685,Cardiovascular_Events_EHDEN_Use_Case
+1779686,Venous Thromboembolism (EHDEN Use Case),1779686,Venous_Thromboembolism_EHDEN_Use_Case
+1779666,Aspirin Cohort Intensive Services (EHDEN Use Case),1779666,Aspirin_Cohort_Intensive_Services_EHDEN_Use_Case
+1779669,Heparin Cohort Intensive Services (EHDEN Use Case),1779669,Heparin_Cohort_Intensive_Services_EHDEN_Use_Case
+1779665,Aspirin Cohort Oxygen Users (EHDEN Use Case),1779665,Aspirin_Cohort_Oxygen_Users_EHDEN_Use_Case
+1779670,Heparin Cohort Oxygen Users (EHDEN Use Case),1779670,Heparin_Cohort_Oxygen_Users_EHDEN_Use_Case
+1779667,Aspirin Cohort Receiving Corticosteroids (EHDEN Use Case),1779667,Aspirin_Cohort_Receiving_Corticosteroids_EHDEN_Use_Case
+1779671,Heparin Cohort Receiving Corticosteroids (EHDEN Use Case),1779671,Heparin_Cohort_Receiving_Corticosteroids_EHDEN_Use_Case
+1779673,Baricitinib Cohort (EHDEN Use Case),1779673,Baricitinib_Cohort_EHDEN_Use_Case
+1779672,Tocilizumab Cohort (EHDEN Use Case),1779672,Tocilizumab_Cohort_EHDEN_Use_Case
+1779675,Baricitinib Cohort Intensive Services (EHDEN Use Case),1779675,Baricitinib_Cohort_Intensive_Services_EHDEN_Use_Case
+1779674,Tocilizumab Cohort Intensive Services (EHDEN Use Case),1779674,Tocilizumab_Cohort_Intensive_Services_EHDEN_Use_Case
+1779677,Baricitinib Cohort Oxygen Users (EHDEN Use Case),1779677,Baricitinib_Cohort_Oxygen_Users_EHDEN_Use_Case
+1779676,Tocilizumab Cohort Oxygen Users (EHDEN Use Case),1779676,Tocilizumab_Cohort_Oxygen_Users_EHDEN_Use_Case
+1779679,Baricitinib Cohort Receiving Corticosteroids (EHDEN Use Case),1779679,Baricitinib_Cohort_Receiving_Corticosteroids_EHDEN_Use_Case
+1779678,Tocilizumab Cohort Receiving Corticosteroids (EHDEN Use Case),1779678,Tocilizumab_Cohort_Receiving_Corticosteroids_EHDEN_Use_Case
