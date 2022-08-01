@@ -50,8 +50,8 @@ How to run
 	```r
 	library(EHDENCOVIDUseCase)
 	
-  # Optional: specify where the temporary files (used by the Andromeda package) will be created:
-  options(andromedaTempFolder = "c:/andromedaTemp")
+  Optional: specify where the temporary files (used by the Andromeda package) will be created:
+    options(andromedaTempFolder = "c:/andromedaTemp")
 	
 	# Maximum number of cores to be used:
 	maxCores <- parallel::detectCores()
