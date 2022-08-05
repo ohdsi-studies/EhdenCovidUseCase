@@ -1,10 +1,10 @@
 EHDEN COVID Use Case
 =============
 
-<img src="https://img.shields.io/badge/Study%20Status-Repo%20Created-lightgray.svg" alt="Study Status: Study Package Available for Cohort Diagnostics">
+<img src="https://img.shields.io/badge/Study%20Status-Started-blue.svg" alt="Study Status: Started">
 
 - Analytics use case(s): Estimation
-- Study type: Use Case, Clinical Application
+- Study type: Clinical Application
 - Tags: OHDSI, COVID-19
 - Study lead: **-**
 - Study lead forums tag: **[[Lead tag]](https://forums.ohdsi.org/u/[Lead tag])**
