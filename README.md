@@ -7,7 +7,7 @@ EHDEN COVID Use Case
 - Study type: Clinical Application
 - Tags: OHDSI, COVID-19
 - Study lead: **-**
-- Study lead forums tag: **[Christina Read](https://forums.ohdsi.org/u/christina_read) , [lead](https://forums.ohdsi.org/)]**
+- Study lead forums tag: **[Ravinder Claire](https://forums.ohdsi.org/u/ravclaire) , [Christina Read](https://forums.ohdsi.org/u/christina_read) , [lead](https://forums.ohdsi.org/)]**
 - Study start date: **-**
 - Study end date: **-**
 - Protocol: [EHDEN Use Case Protocol.pdf](https://github.com/christinaread/EHDENUseCase/files/9027963/EHDEN.Use.Case.Protocol.pdf)
