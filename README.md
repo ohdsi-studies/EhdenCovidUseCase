@@ -1,7 +1,7 @@
 EHDEN COVID Use Case
 =============
 
-<img src="https://img.shields.io/badge/Study%20Status-Started-blue.svg" alt="Study Status: Started">
+<img src="https://img.shields.io/badge/Study%20Status-Started-blue.svg" alt="Study Status: Protocol in Progress">
 
 - Analytics use case(s): Estimation
 - Study type: Clinical Application
