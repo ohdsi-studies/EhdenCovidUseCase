@@ -24,6 +24,7 @@ Subgroup Analyses:
 2) Effectiveness and safety in patients receiving corticosteroids
 3) Effectiveness and safety in patients receiving oxygen
 
+
 Requirements
 ============
 
@@ -48,10 +49,10 @@ How to run
 3. Once installed, you can execute the study by modifying and using the code below. For your convenience, this code is also provided under `extras/CodeToRun.R`:
 
 	```r
-	library(EHDENCOVIDUseCase)
+	library(EHDENCOVIDUseCase2)
 	
-  Optional: specify where the temporary files (used by the Andromeda package) will be created:
-    options(andromedaTempFolder = "c:/andromedaTemp")
+  # Optional: specify where the temporary files (used by the Andromeda package) will be created:
+  options(andromedaTempFolder = "c:/andromedaTemp")
 	
 	# Maximum number of cores to be used:
 	maxCores <- parallel::detectCores()
@@ -60,7 +61,7 @@ How to run
 	minCellCount <- 5
 	
 	# The folder where the study intermediate and result files will be written:
-	outputFolder <- "c:/EHDENCOVIDUseCase"
+	outputFolder <- "c:/EHDENCOVIDUseCase2"
 	
 	# Details for connecting to the server:
 	# See ?DatabaseConnector::createConnectionDetails for help
@@ -101,7 +102,7 @@ How to run
 	```
 
 4. Email results to christina.read@nice.org.uk
-		
+
 5. To view the results, use the Shiny app:
 
 	```r
@@ -113,12 +114,9 @@ How to run
 
 License
 =======
-The EHDENCOVIDUseCase package is licensed under Apache License 2.0
+The EHDENCOVIDUseCase2 package is licensed under Apache License 2.0
 
 Development
 ===========
-EHDENCOVIDUseCase was developed in ATLAS and R Studio.
+EHDENCOVIDUseCase2 was developed in ATLAS and R Studio.
 
-### Development status
-
-Unknown
