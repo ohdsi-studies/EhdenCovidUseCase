@@ -16,7 +16,7 @@ EHDEN COVID Use Case
 The aim of this study is to estimate treatment effects for COVID-19 treatments using data from the EHDEN network and to combine these observational results with data from randomised studies.
 
 Primary objectives: 
-1) To assess comparative effectiveness and safety among Tocilizumab and Baricitinib in hospitalised patients
+1) To assess comparative effectiveness and safety among Tocilizumab, Baricitinib, and Remdesivir in hospitalised patients
 2) To assess comparative effectiveness and safety among Aspirin and Heparin in hospitalised patients 
 
 Subgroup Analyses:
