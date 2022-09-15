@@ -1,0 +1,3179 @@
+{
+  "ExpressionLimit": {"Type": "First"},
+  "CollapseSettings": {
+    "CollapseType": "ERA",
+    "EraPad": 0
+  },
+  "CensorWindow": {
+    "StartDate": null,
+    "EndDate": null
+  },
+  "ConceptSets": [
+    {
+      "expression": {"items": [
+        {
+          "isExcluded": false,
+          "concept": {
+            "INVALID_REASON_CAPTION": "Valid",
+            "CONCEPT_ID": 262,
+            "STANDARD_CONCEPT": "S",
+            "CONCEPT_CODE": "ERIP",
+            "VOCABULARY_ID": "Visit",
+            "CONCEPT_NAME": "Emergency Room and Inpatient Visit",
+            "DOMAIN_ID": "Visit",
+            "STANDARD_CONCEPT_CAPTION": "Standard",
+            "CONCEPT_CLASS_ID": "Visit",
+            "INVALID_REASON": "V"
+          },
+          "includeMapped": false,
+          "includeDescendants": true
+        },
+        {
+          "isExcluded": false,
+          "concept": {
+            "INVALID_REASON_CAPTION": "Valid",
+            "CONCEPT_ID": 9201,
+            "STANDARD_CONCEPT": "S",
+            "CONCEPT_CODE": "IP",
+            "VOCABULARY_ID": "Visit",
+            "CONCEPT_NAME": "Inpatient Visit",
+            "DOMAIN_ID": "Visit",
+            "STANDARD_CONCEPT_CAPTION": "Standard",
+            "CONCEPT_CLASS_ID": "Visit",
+            "INVALID_REASON": "V"
+          },
+          "includeMapped": false,
+          "includeDescendants": true
+        }
+      ]},
+      "name": "Inpatient Visit (EHDEN Use Case)",
+      "id": 1
+    },
+    {
+      "expression": {"items": [{
+        "isExcluded": false,
+        "concept": {
+          "INVALID_REASON_CAPTION": "Valid",
+          "CONCEPT_ID": 4203130,
+          "STANDARD_CONCEPT": "S",
+          "CONCEPT_CODE": "308283009",
+          "VOCABULARY_ID": "SNOMED",
+          "CONCEPT_NAME": "Discharge from hospital",
+          "DOMAIN_ID": "Observation",
+          "STANDARD_CONCEPT_CAPTION": "Standard",
+          "CONCEPT_CLASS_ID": "Procedure",
+          "INVALID_REASON": "V"
+        },
+        "includeMapped": false,
+        "includeDescendants": true
+      }]},
+      "name": "Discharge from Hospital (EHDEN Use Case)",
+      "id": 4
+    },
+    {
+      "expression": {"items": [{
+        "isExcluded": false,
+        "concept": {
+          "INVALID_REASON_CAPTION": "Valid",
+          "CONCEPT_ID": 37310282,
+          "STANDARD_CONCEPT": "N",
+          "CONCEPT_CODE": "1240581000000104",
+          "VOCABULARY_ID": "SNOMED",
+          "CONCEPT_NAME": "Severe acute respiratory syndrome coronavirus 2 detected",
+          "DOMAIN_ID": "Measurement",
+          "STANDARD_CONCEPT_CAPTION": "Non-Standard",
+          "CONCEPT_CLASS_ID": "Clinical Finding",
+          "INVALID_REASON": "V"
+        },
+        "includeMapped": false,
+        "includeDescendants": true
+      }]},
+      "name": "SARS-CoV-2 positive test measurement pre-coordinated (EHDEN Use Case)",
+      "id": 5
+    },
+    {
+      "expression": {"items": [
+        {
+          "isExcluded": false,
+          "concept": {
+            "INVALID_REASON_CAPTION": "Valid",
+            "CONCEPT_ID": 756055,
+            "STANDARD_CONCEPT": "S",
+            "CONCEPT_CODE": "OMOP4873969",
+            "VOCABULARY_ID": "OMOP Extension",
+            "CONCEPT_NAME": "Measurement of Severe acute respiratory syndrome coronavirus 2 (SARS-CoV-2)",
+            "DOMAIN_ID": "Measurement",
+            "STANDARD_CONCEPT_CAPTION": "Standard",
+            "CONCEPT_CLASS_ID": "Lab Test",
+            "INVALID_REASON": "V"
+          },
+          "includeMapped": false,
+          "includeDescendants": true
+        },
+        {
+          "isExcluded": true,
+          "concept": {
+            "INVALID_REASON_CAPTION": "Valid",
+            "CONCEPT_ID": 37310281,
+            "STANDARD_CONCEPT": "N",
+            "CONCEPT_CODE": "1240591000000102",
+            "VOCABULARY_ID": "SNOMED",
+            "CONCEPT_NAME": "Severe acute respiratory syndrome coronavirus 2 not detected",
+            "DOMAIN_ID": "Measurement",
+            "STANDARD_CONCEPT_CAPTION": "Non-Standard",
+            "CONCEPT_CLASS_ID": "Clinical Finding",
+            "INVALID_REASON": "V"
+          },
+          "includeMapped": false,
+          "includeDescendants": true
+        }
+      ]},
+      "name": "SARS-CoV-2 test measurement (EHDEN Use Case)",
+      "id": 6
+    },
+    {
+      "expression": {"items": [
+        {
+          "isExcluded": false,
+          "concept": {
+            "INVALID_REASON_CAPTION": "Valid",
+            "CONCEPT_ID": 37311061,
+            "STANDARD_CONCEPT": "S",
+            "CONCEPT_CODE": "840539006",
+            "VOCABULARY_ID": "SNOMED",
+            "CONCEPT_NAME": "COVID-19",
+            "DOMAIN_ID": "Condition",
+            "STANDARD_CONCEPT_CAPTION": "Standard",
+            "CONCEPT_CLASS_ID": "Clinical Finding",
+            "INVALID_REASON": "V"
+          },
+          "includeMapped": false,
+          "includeDescendants": true
+        },
+        {
+          "isExcluded": false,
+          "concept": {
+            "INVALID_REASON_CAPTION": "Valid",
+            "CONCEPT_ID": 4100065,
+            "STANDARD_CONCEPT": "S",
+            "CONCEPT_CODE": "27619001",
+            "VOCABULARY_ID": "SNOMED",
+            "CONCEPT_NAME": "Disease due to Coronaviridae",
+            "DOMAIN_ID": "Condition",
+            "STANDARD_CONCEPT_CAPTION": "Standard",
+            "CONCEPT_CLASS_ID": "Clinical Finding",
+            "INVALID_REASON": "V"
+          },
+          "includeMapped": false,
+          "includeDescendants": true
+        },
+        {
+          "isExcluded": false,
+          "concept": {
+            "INVALID_REASON_CAPTION": "Valid",
+            "CONCEPT_ID": 439676,
+            "STANDARD_CONCEPT": "S",
+            "CONCEPT_CODE": "186747009",
+            "VOCABULARY_ID": "SNOMED",
+            "CONCEPT_NAME": "Coronavirus infection",
+            "DOMAIN_ID": "Condition",
+            "STANDARD_CONCEPT_CAPTION": "Standard",
+            "CONCEPT_CLASS_ID": "Clinical Finding",
+            "INVALID_REASON": "V"
+          },
+          "includeMapped": false,
+          "includeDescendants": true
+        },
+        {
+          "isExcluded": false,
+          "concept": {
+            "INVALID_REASON_CAPTION": "Valid",
+            "CONCEPT_ID": 37311060,
+            "STANDARD_CONCEPT": "S",
+            "CONCEPT_CODE": "840544004",
+            "VOCABULARY_ID": "SNOMED",
+            "CONCEPT_NAME": "Suspected COVID-19",
+            "DOMAIN_ID": "Observation",
+            "STANDARD_CONCEPT_CAPTION": "Standard",
+            "CONCEPT_CLASS_ID": "Context-dependent",
+            "INVALID_REASON": "V"
+          },
+          "includeMapped": false,
+          "includeDescendants": true
+        }
+      ]},
+      "name": "COVID-19 conditions (EHDEN Use Case)",
+      "id": 7
+    },
+    {
+      "expression": {"items": [{
+        "isExcluded": false,
+        "concept": {
+          "INVALID_REASON_CAPTION": "Valid",
+          "CONCEPT_ID": 19025274,
+          "STANDARD_CONCEPT": "S",
+          "CONCEPT_CODE": "7806",
+          "VOCABULARY_ID": "RxNorm",
+          "CONCEPT_NAME": "oxygen",
+          "DOMAIN_ID": "Drug",
+          "STANDARD_CONCEPT_CAPTION": "Standard",
+          "CONCEPT_CLASS_ID": "Ingredient",
+          "INVALID_REASON": "V"
+        },
+        "includeMapped": false,
+        "includeDescendants": true
+      }]},
+      "name": "Oxygen as Drug (EHDEN Use Case)",
+      "id": 8
+    },
+    {
+      "expression": {"items": [
+        {
+          "isExcluded": false,
+          "concept": {
+            "INVALID_REASON_CAPTION": "Valid",
+            "CONCEPT_ID": 1510627,
+            "STANDARD_CONCEPT": "S",
+            "CONCEPT_CODE": "2047232",
+            "VOCABULARY_ID": "RxNorm",
+            "CONCEPT_NAME": "baricitinib",
+            "DOMAIN_ID": "Drug",
+            "STANDARD_CONCEPT_CAPTION": "Standard",
+            "CONCEPT_CLASS_ID": "Ingredient",
+            "INVALID_REASON": "V"
+          },
+          "includeMapped": false,
+          "includeDescendants": false
+        },
+        {
+          "isExcluded": false,
+          "concept": {
+            "INVALID_REASON_CAPTION": "Valid",
+            "CONCEPT_ID": 958843,
+            "STANDARD_CONCEPT": "N",
+            "CONCEPT_CODE": "C000596027",
+            "VOCABULARY_ID": "MeSH",
+            "CONCEPT_NAME": "baricitinib",
+            "DOMAIN_ID": "Drug",
+            "STANDARD_CONCEPT_CAPTION": "Non-Standard",
+            "CONCEPT_CLASS_ID": "Suppl Concept",
+            "INVALID_REASON": "V"
+          },
+          "includeMapped": false,
+          "includeDescendants": false
+        },
+        {
+          "isExcluded": false,
+          "concept": {
+            "INVALID_REASON_CAPTION": "Valid",
+            "CONCEPT_ID": 43045764,
+            "STANDARD_CONCEPT": "N",
+            "CONCEPT_CODE": "27201",
+            "VOCABULARY_ID": "BDPM",
+            "CONCEPT_NAME": "Baricitinib",
+            "DOMAIN_ID": "Drug",
+            "STANDARD_CONCEPT_CAPTION": "Non-Standard",
+            "CONCEPT_CLASS_ID": "Ingredient",
+            "INVALID_REASON": "V"
+          },
+          "includeMapped": false,
+          "includeDescendants": false
+        },
+        {
+          "isExcluded": false,
+          "concept": {
+            "INVALID_REASON_CAPTION": "Valid",
+            "CONCEPT_ID": 37103776,
+            "STANDARD_CONCEPT": "N",
+            "CONCEPT_CODE": "34345911000001107",
+            "VOCABULARY_ID": "SNOMED",
+            "CONCEPT_NAME": "Baricitinib",
+            "DOMAIN_ID": "Drug",
+            "STANDARD_CONCEPT_CAPTION": "Non-Standard",
+            "CONCEPT_CLASS_ID": "Pharma/Biol Product",
+            "INVALID_REASON": "V"
+          },
+          "includeMapped": false,
+          "includeDescendants": false
+        },
+        {
+          "isExcluded": false,
+          "concept": {
+            "INVALID_REASON_CAPTION": "Valid",
+            "CONCEPT_ID": 37111518,
+            "STANDARD_CONCEPT": "N",
+            "CONCEPT_CODE": "726518002",
+            "VOCABULARY_ID": "SNOMED",
+            "CONCEPT_NAME": "Baricitinib",
+            "DOMAIN_ID": "Drug",
+            "STANDARD_CONCEPT_CAPTION": "Non-Standard",
+            "CONCEPT_CLASS_ID": "Substance",
+            "INVALID_REASON": "V"
+          },
+          "includeMapped": false,
+          "includeDescendants": false
+        },
+        {
+          "isExcluded": false,
+          "concept": {
+            "INVALID_REASON_CAPTION": "Valid",
+            "CONCEPT_ID": 40701753,
+            "STANDARD_CONCEPT": "N",
+            "CONCEPT_CODE": "726518002",
+            "VOCABULARY_ID": "dm+d",
+            "CONCEPT_NAME": "Baricitinib",
+            "DOMAIN_ID": "Drug",
+            "STANDARD_CONCEPT_CAPTION": "Non-Standard",
+            "CONCEPT_CLASS_ID": "Ingredient",
+            "INVALID_REASON": "V"
+          },
+          "includeMapped": false,
+          "includeDescendants": false
+        },
+        {
+          "isExcluded": false,
+          "concept": {
+            "INVALID_REASON_CAPTION": "Invalid",
+            "CONCEPT_ID": 44157647,
+            "STANDARD_CONCEPT": "N",
+            "CONCEPT_CODE": "OMOP3095289",
+            "VOCABULARY_ID": "RxNorm Extension",
+            "CONCEPT_NAME": "Baricitinib",
+            "DOMAIN_ID": "Drug",
+            "STANDARD_CONCEPT_CAPTION": "Non-Standard",
+            "CONCEPT_CLASS_ID": "Ingredient",
+            "INVALID_REASON": "U"
+          },
+          "includeMapped": false,
+          "includeDescendants": false
+        },
+        {
+          "isExcluded": false,
+          "concept": {
+            "INVALID_REASON_CAPTION": "Invalid",
+            "CONCEPT_ID": 42687705,
+            "STANDARD_CONCEPT": "N",
+            "CONCEPT_CODE": "34306611000001101",
+            "VOCABULARY_ID": "SNOMED",
+            "CONCEPT_NAME": "Baricitinib",
+            "DOMAIN_ID": "Drug",
+            "STANDARD_CONCEPT_CAPTION": "Non-Standard",
+            "CONCEPT_CLASS_ID": "Substance",
+            "INVALID_REASON": "U"
+          },
+          "includeMapped": false,
+          "includeDescendants": false
+        },
+        {
+          "isExcluded": false,
+          "concept": {
+            "INVALID_REASON_CAPTION": "Valid",
+            "CONCEPT_ID": 3198592,
+            "STANDARD_CONCEPT": "N",
+            "CONCEPT_CODE": "726518002",
+            "VOCABULARY_ID": "Nebraska Lexicon",
+            "CONCEPT_NAME": "Baricitinib",
+            "DOMAIN_ID": "Drug",
+            "STANDARD_CONCEPT_CAPTION": "Non-Standard",
+            "CONCEPT_CLASS_ID": "Substance",
+            "INVALID_REASON": "V"
+          },
+          "includeMapped": false,
+          "includeDescendants": false
+        },
+        {
+          "isExcluded": false,
+          "concept": {
+            "INVALID_REASON_CAPTION": "Valid",
+            "CONCEPT_ID": 37497352,
+            "STANDARD_CONCEPT": "S",
+            "CONCEPT_CODE": "2205471",
+            "VOCABULARY_ID": "RxNorm",
+            "CONCEPT_NAME": "baricitinib 1 MG",
+            "DOMAIN_ID": "Drug",
+            "STANDARD_CONCEPT_CAPTION": "Standard",
+            "CONCEPT_CLASS_ID": "Clinical Drug Comp",
+            "INVALID_REASON": "V"
+          },
+          "includeMapped": false,
+          "includeDescendants": false
+        },
+        {
+          "isExcluded": false,
+          "concept": {
+            "INVALID_REASON_CAPTION": "Valid",
+            "CONCEPT_ID": 37295866,
+            "STANDARD_CONCEPT": "C",
+            "CONCEPT_CODE": "5efe615c-e3b3-4c37-95c8-4895a8451ec0",
+            "VOCABULARY_ID": "SPL",
+            "CONCEPT_NAME": "baricitinib 1mg/1 / 2mg/1 ORAL TABLET, FILM COATED [olumiant]",
+            "DOMAIN_ID": "Drug",
+            "STANDARD_CONCEPT_CAPTION": "Classification",
+            "CONCEPT_CLASS_ID": "Prescription Drug",
+            "INVALID_REASON": "V"
+          },
+          "includeMapped": false,
+          "includeDescendants": false
+        },
+        {
+          "isExcluded": false,
+          "concept": {
+            "INVALID_REASON_CAPTION": "Valid",
+            "CONCEPT_ID": 1184818,
+            "STANDARD_CONCEPT": "C",
+            "CONCEPT_CODE": "b6bc442c-4c14-47c2-b9c5-890334a23b16",
+            "VOCABULARY_ID": "SPL",
+            "CONCEPT_NAME": "baricitinib 1mg/1 / 2mg/1 ORAL TABLET, FILM COATED [olumiant]",
+            "DOMAIN_ID": "Drug",
+            "STANDARD_CONCEPT_CAPTION": "Classification",
+            "CONCEPT_CLASS_ID": "Prescription Drug",
+            "INVALID_REASON": "V"
+          },
+          "includeMapped": false,
+          "includeDescendants": false
+        },
+        {
+          "isExcluded": false,
+          "concept": {
+            "INVALID_REASON_CAPTION": "Valid",
+            "CONCEPT_ID": 1207952,
+            "STANDARD_CONCEPT": "C",
+            "CONCEPT_CODE": "6e005767-d3b3-4489-a919-e3acf097dd4d",
+            "VOCABULARY_ID": "SPL",
+            "CONCEPT_NAME": "baricitinib 1mg/1 / 2mg/1 ORAL TABLET, FILM COATED [olumiant]",
+            "DOMAIN_ID": "Drug",
+            "STANDARD_CONCEPT_CAPTION": "Classification",
+            "CONCEPT_CLASS_ID": "Prescription Drug",
+            "INVALID_REASON": "V"
+          },
+          "includeMapped": false,
+          "includeDescendants": false
+        },
+        {
+          "isExcluded": false,
+          "concept": {
+            "INVALID_REASON_CAPTION": "Valid",
+            "CONCEPT_ID": 43557203,
+            "STANDARD_CONCEPT": "C",
+            "CONCEPT_CODE": "ca3b1930-328c-41b3-9717-28970179720b",
+            "VOCABULARY_ID": "SPL",
+            "CONCEPT_NAME": "baricitinib 1mg/1 / 2mg/1 ORAL TABLET, FILM COATED [olumiant]",
+            "DOMAIN_ID": "Drug",
+            "STANDARD_CONCEPT_CAPTION": "Classification",
+            "CONCEPT_CLASS_ID": "Prescription Drug",
+            "INVALID_REASON": "V"
+          },
+          "includeMapped": false,
+          "includeDescendants": false
+        },
+        {
+          "isExcluded": false,
+          "concept": {
+            "INVALID_REASON_CAPTION": "Valid",
+            "CONCEPT_ID": 36108881,
+            "STANDARD_CONCEPT": "C",
+            "CONCEPT_CODE": "efe8ef9d-73c0-47bd-bd81-36ae30d4e571",
+            "VOCABULARY_ID": "SPL",
+            "CONCEPT_NAME": "baricitinib 1mg/1 / 2mg/1 ORAL TABLET, FILM COATED [olumiant]",
+            "DOMAIN_ID": "Drug",
+            "STANDARD_CONCEPT_CAPTION": "Classification",
+            "CONCEPT_CLASS_ID": "Prescription Drug",
+            "INVALID_REASON": "V"
+          },
+          "includeMapped": false,
+          "includeDescendants": false
+        },
+        {
+          "isExcluded": false,
+          "concept": {
+            "INVALID_REASON_CAPTION": "Valid",
+            "CONCEPT_ID": 36108952,
+            "STANDARD_CONCEPT": "N",
+            "CONCEPT_CODE": "000024732",
+            "VOCABULARY_ID": "NDC",
+            "CONCEPT_NAME": "baricitinib 1mg/1 ORAL TABLET, FILM COATED",
+            "DOMAIN_ID": "Drug",
+            "STANDARD_CONCEPT_CAPTION": "Non-Standard",
+            "CONCEPT_CLASS_ID": "9-digit NDC",
+            "INVALID_REASON": "V"
+          },
+          "includeMapped": false,
+          "includeDescendants": false
+        },
+        {
+          "isExcluded": false,
+          "concept": {
+            "INVALID_REASON_CAPTION": "Valid",
+            "CONCEPT_ID": 37497354,
+            "STANDARD_CONCEPT": "S",
+            "CONCEPT_CODE": "2205473",
+            "VOCABULARY_ID": "RxNorm",
+            "CONCEPT_NAME": "baricitinib 1 MG [Olumiant]",
+            "DOMAIN_ID": "Drug",
+            "STANDARD_CONCEPT_CAPTION": "Standard",
+            "CONCEPT_CLASS_ID": "Branded Drug Comp",
+            "INVALID_REASON": "V"
+          },
+          "includeMapped": false,
+          "includeDescendants": false
+        },
+        {
+          "isExcluded": false,
+          "concept": {
+            "INVALID_REASON_CAPTION": "Valid",
+            "CONCEPT_ID": 37497353,
+            "STANDARD_CONCEPT": "S",
+            "CONCEPT_CODE": "2205472",
+            "VOCABULARY_ID": "RxNorm",
+            "CONCEPT_NAME": "baricitinib 1 MG Oral Tablet",
+            "DOMAIN_ID": "Drug",
+            "STANDARD_CONCEPT_CAPTION": "Standard",
+            "CONCEPT_CLASS_ID": "Clinical Drug",
+            "INVALID_REASON": "V"
+          },
+          "includeMapped": false,
+          "includeDescendants": false
+        },
+        {
+          "isExcluded": false,
+          "concept": {
+            "INVALID_REASON_CAPTION": "Valid",
+            "CONCEPT_ID": 37497355,
+            "STANDARD_CONCEPT": "S",
+            "CONCEPT_CODE": "2205474",
+            "VOCABULARY_ID": "RxNorm",
+            "CONCEPT_NAME": "baricitinib 1 MG Oral Tablet [Olumiant]",
+            "DOMAIN_ID": "Drug",
+            "STANDARD_CONCEPT_CAPTION": "Standard",
+            "CONCEPT_CLASS_ID": "Branded Drug",
+            "INVALID_REASON": "V"
+          },
+          "includeMapped": false,
+          "includeDescendants": false
+        },
+        {
+          "isExcluded": false,
+          "concept": {
+            "INVALID_REASON_CAPTION": "Valid",
+            "CONCEPT_ID": 36109358,
+            "STANDARD_CONCEPT": "N",
+            "CONCEPT_CODE": "00002473230",
+            "VOCABULARY_ID": "NDC",
+            "CONCEPT_NAME": "baricitinib 1 MG Oral Tablet [Olumiant]",
+            "DOMAIN_ID": "Drug",
+            "STANDARD_CONCEPT_CAPTION": "Non-Standard",
+            "CONCEPT_CLASS_ID": "11-digit NDC",
+            "INVALID_REASON": "V"
+          },
+          "includeMapped": false,
+          "includeDescendants": false
+        },
+        {
+          "isExcluded": false,
+          "concept": {
+            "INVALID_REASON_CAPTION": "Valid",
+            "CONCEPT_ID": 1510628,
+            "STANDARD_CONCEPT": "S",
+            "CONCEPT_CODE": "2047237",
+            "VOCABULARY_ID": "RxNorm",
+            "CONCEPT_NAME": "baricitinib 2 MG",
+            "DOMAIN_ID": "Drug",
+            "STANDARD_CONCEPT_CAPTION": "Standard",
+            "CONCEPT_CLASS_ID": "Clinical Drug Comp",
+            "INVALID_REASON": "V"
+          },
+          "includeMapped": false,
+          "includeDescendants": false
+        },
+        {
+          "isExcluded": false,
+          "concept": {
+            "INVALID_REASON_CAPTION": "Invalid",
+            "CONCEPT_ID": 44168096,
+            "STANDARD_CONCEPT": "N",
+            "CONCEPT_CODE": "OMOP3044819",
+            "VOCABULARY_ID": "RxNorm Extension",
+            "CONCEPT_NAME": "Baricitinib 2 MG",
+            "DOMAIN_ID": "Drug",
+            "STANDARD_CONCEPT_CAPTION": "Non-Standard",
+            "CONCEPT_CLASS_ID": "Clinical Drug Comp",
+            "INVALID_REASON": "U"
+          },
+          "includeMapped": false,
+          "includeDescendants": false
+        },
+        {
+          "isExcluded": false,
+          "concept": {
+            "INVALID_REASON_CAPTION": "Valid",
+            "CONCEPT_ID": 36189182,
+            "STANDARD_CONCEPT": "N",
+            "CONCEPT_CODE": "000024182",
+            "VOCABULARY_ID": "NDC",
+            "CONCEPT_NAME": "baricitinib 2mg/1 ORAL TABLET, FILM COATED",
+            "DOMAIN_ID": "Drug",
+            "STANDARD_CONCEPT_CAPTION": "Non-Standard",
+            "CONCEPT_CLASS_ID": "9-digit NDC",
+            "INVALID_REASON": "V"
+          },
+          "includeMapped": false,
+          "includeDescendants": false
+        },
+        {
+          "isExcluded": false,
+          "concept": {
+            "INVALID_REASON_CAPTION": "Valid",
+            "CONCEPT_ID": 36160510,
+            "STANDARD_CONCEPT": "C",
+            "CONCEPT_CODE": "1606b529-d77d-41d8-9379-094caf0241c2",
+            "VOCABULARY_ID": "SPL",
+            "CONCEPT_NAME": "baricitinib 2mg/1 ORAL TABLET, FILM COATED [olumiant]",
+            "DOMAIN_ID": "Drug",
+            "STANDARD_CONCEPT_CAPTION": "Classification",
+            "CONCEPT_CLASS_ID": "Prescription Drug",
+            "INVALID_REASON": "V"
+          },
+          "includeMapped": false,
+          "includeDescendants": false
+        },
+        {
+          "isExcluded": false,
+          "concept": {
+            "INVALID_REASON_CAPTION": "Valid",
+            "CONCEPT_ID": 36787582,
+            "STANDARD_CONCEPT": "S",
+            "CONCEPT_CODE": "OMOP4775847",
+            "VOCABULARY_ID": "RxNorm Extension",
+            "CONCEPT_NAME": "baricitinib 2 MG Delayed Release Oral Tablet",
+            "DOMAIN_ID": "Drug",
+            "STANDARD_CONCEPT_CAPTION": "Standard",
+            "CONCEPT_CLASS_ID": "Clinical Drug",
+            "INVALID_REASON": "V"
+          },
+          "includeMapped": false,
+          "includeDescendants": false
+        },
+        {
+          "isExcluded": false,
+          "concept": {
+            "INVALID_REASON_CAPTION": "Valid",
+            "CONCEPT_ID": 36787581,
+            "STANDARD_CONCEPT": "S",
+            "CONCEPT_CODE": "OMOP4775846",
+            "VOCABULARY_ID": "RxNorm Extension",
+            "CONCEPT_NAME": "baricitinib 2 MG Delayed Release Oral Tablet Box of 28",
+            "DOMAIN_ID": "Drug",
+            "STANDARD_CONCEPT_CAPTION": "Standard",
+            "CONCEPT_CLASS_ID": "Clinical Drug Box",
+            "INVALID_REASON": "V"
+          },
+          "includeMapped": false,
+          "includeDescendants": false
+        },
+        {
+          "isExcluded": false,
+          "concept": {
+            "INVALID_REASON_CAPTION": "Valid",
+            "CONCEPT_ID": 36787580,
+            "STANDARD_CONCEPT": "S",
+            "CONCEPT_CODE": "OMOP4775845",
+            "VOCABULARY_ID": "RxNorm Extension",
+            "CONCEPT_NAME": "baricitinib 2 MG Delayed Release Oral Tablet Box of 84",
+            "DOMAIN_ID": "Drug",
+            "STANDARD_CONCEPT_CAPTION": "Standard",
+            "CONCEPT_CLASS_ID": "Clinical Drug Box",
+            "INVALID_REASON": "V"
+          },
+          "includeMapped": false,
+          "includeDescendants": false
+        },
+        {
+          "isExcluded": false,
+          "concept": {
+            "INVALID_REASON_CAPTION": "Valid",
+            "CONCEPT_ID": 42875510,
+            "STANDARD_CONCEPT": "S",
+            "CONCEPT_CODE": "OMOP4872624",
+            "VOCABULARY_ID": "RxNorm Extension",
+            "CONCEPT_NAME": "baricitinib 2 MG Delayed Release Oral Tablet Box of 98",
+            "DOMAIN_ID": "Drug",
+            "STANDARD_CONCEPT_CAPTION": "Standard",
+            "CONCEPT_CLASS_ID": "Clinical Drug Box",
+            "INVALID_REASON": "V"
+          },
+          "includeMapped": false,
+          "includeDescendants": false
+        },
+        {
+          "isExcluded": false,
+          "concept": {
+            "INVALID_REASON_CAPTION": "Valid",
+            "CONCEPT_ID": 36787579,
+            "STANDARD_CONCEPT": "S",
+            "CONCEPT_CODE": "OMOP4775844",
+            "VOCABULARY_ID": "RxNorm Extension",
+            "CONCEPT_NAME": "baricitinib 2 MG Delayed Release Oral Tablet [Olumiant]",
+            "DOMAIN_ID": "Drug",
+            "STANDARD_CONCEPT_CAPTION": "Standard",
+            "CONCEPT_CLASS_ID": "Branded Drug",
+            "INVALID_REASON": "V"
+          },
+          "includeMapped": false,
+          "includeDescendants": false
+        },
+        {
+          "isExcluded": false,
+          "concept": {
+            "INVALID_REASON_CAPTION": "Valid",
+            "CONCEPT_ID": 36787578,
+            "STANDARD_CONCEPT": "S",
+            "CONCEPT_CODE": "OMOP4775843",
+            "VOCABULARY_ID": "RxNorm Extension",
+            "CONCEPT_NAME": "baricitinib 2 MG Delayed Release Oral Tablet [Olumiant] Box of 28",
+            "DOMAIN_ID": "Drug",
+            "STANDARD_CONCEPT_CAPTION": "Standard",
+            "CONCEPT_CLASS_ID": "Branded Drug Box",
+            "INVALID_REASON": "V"
+          },
+          "includeMapped": false,
+          "includeDescendants": false
+        },
+        {
+          "isExcluded": false,
+          "concept": {
+            "INVALID_REASON_CAPTION": "Valid",
+            "CONCEPT_ID": 36787577,
+            "STANDARD_CONCEPT": "S",
+            "CONCEPT_CODE": "OMOP4775842",
+            "VOCABULARY_ID": "RxNorm Extension",
+            "CONCEPT_NAME": "baricitinib 2 MG Delayed Release Oral Tablet [Olumiant] Box of 28 by Eli Lilly",
+            "DOMAIN_ID": "Drug",
+            "STANDARD_CONCEPT_CAPTION": "Standard",
+            "CONCEPT_CLASS_ID": "Marketed Product",
+            "INVALID_REASON": "V"
+          },
+          "includeMapped": false,
+          "includeDescendants": false
+        },
+        {
+          "isExcluded": false,
+          "concept": {
+            "INVALID_REASON_CAPTION": "Valid",
+            "CONCEPT_ID": 42875511,
+            "STANDARD_CONCEPT": "S",
+            "CONCEPT_CODE": "OMOP4872625",
+            "VOCABULARY_ID": "RxNorm Extension",
+            "CONCEPT_NAME": "baricitinib 2 MG Delayed Release Oral Tablet [Olumiant] Box of 28 by Orifarm Leverkus",
+            "DOMAIN_ID": "Drug",
+            "STANDARD_CONCEPT_CAPTION": "Standard",
+            "CONCEPT_CLASS_ID": "Marketed Product",
+            "INVALID_REASON": "V"
+          },
+          "includeMapped": false,
+          "includeDescendants": false
+        },
+        {
+          "isExcluded": false,
+          "concept": {
+            "INVALID_REASON_CAPTION": "Valid",
+            "CONCEPT_ID": 36787576,
+            "STANDARD_CONCEPT": "S",
+            "CONCEPT_CODE": "OMOP4775841",
+            "VOCABULARY_ID": "RxNorm Extension",
+            "CONCEPT_NAME": "baricitinib 2 MG Delayed Release Oral Tablet [Olumiant] Box of 84",
+            "DOMAIN_ID": "Drug",
+            "STANDARD_CONCEPT_CAPTION": "Standard",
+            "CONCEPT_CLASS_ID": "Branded Drug Box",
+            "INVALID_REASON": "V"
+          },
+          "includeMapped": false,
+          "includeDescendants": false
+        },
+        {
+          "isExcluded": false,
+          "concept": {
+            "INVALID_REASON_CAPTION": "Valid",
+            "CONCEPT_ID": 36787575,
+            "STANDARD_CONCEPT": "S",
+            "CONCEPT_CODE": "OMOP4775840",
+            "VOCABULARY_ID": "RxNorm Extension",
+            "CONCEPT_NAME": "baricitinib 2 MG Delayed Release Oral Tablet [Olumiant] Box of 84 by Eli Lilly",
+            "DOMAIN_ID": "Drug",
+            "STANDARD_CONCEPT_CAPTION": "Standard",
+            "CONCEPT_CLASS_ID": "Marketed Product",
+            "INVALID_REASON": "V"
+          },
+          "includeMapped": false,
+          "includeDescendants": false
+        },
+        {
+          "isExcluded": false,
+          "concept": {
+            "INVALID_REASON_CAPTION": "Valid",
+            "CONCEPT_ID": 42875512,
+            "STANDARD_CONCEPT": "S",
+            "CONCEPT_CODE": "OMOP4872626",
+            "VOCABULARY_ID": "RxNorm Extension",
+            "CONCEPT_NAME": "baricitinib 2 MG Delayed Release Oral Tablet [Olumiant] Box of 98",
+            "DOMAIN_ID": "Drug",
+            "STANDARD_CONCEPT_CAPTION": "Standard",
+            "CONCEPT_CLASS_ID": "Branded Drug Box",
+            "INVALID_REASON": "V"
+          },
+          "includeMapped": false,
+          "includeDescendants": false
+        },
+        {
+          "isExcluded": false,
+          "concept": {
+            "INVALID_REASON_CAPTION": "Valid",
+            "CONCEPT_ID": 42875513,
+            "STANDARD_CONCEPT": "S",
+            "CONCEPT_CODE": "OMOP4872627",
+            "VOCABULARY_ID": "RxNorm Extension",
+            "CONCEPT_NAME": "baricitinib 2 MG Delayed Release Oral Tablet [Olumiant] Box of 98 by Cc",
+            "DOMAIN_ID": "Drug",
+            "STANDARD_CONCEPT_CAPTION": "Standard",
+            "CONCEPT_CLASS_ID": "Marketed Product",
+            "INVALID_REASON": "V"
+          },
+          "includeMapped": false,
+          "includeDescendants": false
+        },
+        {
+          "isExcluded": false,
+          "concept": {
+            "INVALID_REASON_CAPTION": "Valid",
+            "CONCEPT_ID": 36503766,
+            "STANDARD_CONCEPT": "S",
+            "CONCEPT_CODE": "OMOP4835612",
+            "VOCABULARY_ID": "RxNorm Extension",
+            "CONCEPT_NAME": "baricitinib 2 MG Delayed Release Oral Tablet [Olumiant] by Cc",
+            "DOMAIN_ID": "Drug",
+            "STANDARD_CONCEPT_CAPTION": "Standard",
+            "CONCEPT_CLASS_ID": "Marketed Product",
+            "INVALID_REASON": "V"
+          },
+          "includeMapped": false,
+          "includeDescendants": false
+        },
+        {
+          "isExcluded": false,
+          "concept": {
+            "INVALID_REASON_CAPTION": "Valid",
+            "CONCEPT_ID": 36504859,
+            "STANDARD_CONCEPT": "S",
+            "CONCEPT_CODE": "OMOP4836091",
+            "VOCABULARY_ID": "RxNorm Extension",
+            "CONCEPT_NAME": "baricitinib 2 MG Delayed Release Oral Tablet [Olumiant] by Kohlpharma",
+            "DOMAIN_ID": "Drug",
+            "STANDARD_CONCEPT_CAPTION": "Standard",
+            "CONCEPT_CLASS_ID": "Marketed Product",
+            "INVALID_REASON": "V"
+          },
+          "includeMapped": false,
+          "includeDescendants": false
+        },
+        {
+          "isExcluded": false,
+          "concept": {
+            "INVALID_REASON_CAPTION": "Valid",
+            "CONCEPT_ID": 36504599,
+            "STANDARD_CONCEPT": "S",
+            "CONCEPT_CODE": "OMOP4836338",
+            "VOCABULARY_ID": "RxNorm Extension",
+            "CONCEPT_NAME": "baricitinib 2 MG Delayed Release Oral Tablet [Olumiant] by Orifarm Leverkus",
+            "DOMAIN_ID": "Drug",
+            "STANDARD_CONCEPT_CAPTION": "Standard",
+            "CONCEPT_CLASS_ID": "Marketed Product",
+            "INVALID_REASON": "V"
+          },
+          "includeMapped": false,
+          "includeDescendants": false
+        },
+        {
+          "isExcluded": false,
+          "concept": {
+            "INVALID_REASON_CAPTION": "Valid",
+            "CONCEPT_ID": 36508742,
+            "STANDARD_CONCEPT": "S",
+            "CONCEPT_CODE": "OMOP4836614",
+            "VOCABULARY_ID": "RxNorm Extension",
+            "CONCEPT_NAME": "baricitinib 2 MG Delayed Release Oral Tablet [Olumiant] by Paranova Pack",
+            "DOMAIN_ID": "Drug",
+            "STANDARD_CONCEPT_CAPTION": "Standard",
+            "CONCEPT_CLASS_ID": "Marketed Product",
+            "INVALID_REASON": "V"
+          },
+          "includeMapped": false,
+          "includeDescendants": false
+        },
+        {
+          "isExcluded": false,
+          "concept": {
+            "INVALID_REASON_CAPTION": "Valid",
+            "CONCEPT_ID": 1510634,
+            "STANDARD_CONCEPT": "S",
+            "CONCEPT_CODE": "2047243",
+            "VOCABULARY_ID": "RxNorm",
+            "CONCEPT_NAME": "baricitinib 2 MG [Olumiant]",
+            "DOMAIN_ID": "Drug",
+            "STANDARD_CONCEPT_CAPTION": "Standard",
+            "CONCEPT_CLASS_ID": "Branded Drug Comp",
+            "INVALID_REASON": "V"
+          },
+          "includeMapped": false,
+          "includeDescendants": false
+        },
+        {
+          "isExcluded": false,
+          "concept": {
+            "INVALID_REASON_CAPTION": "Invalid",
+            "CONCEPT_ID": 44183141,
+            "STANDARD_CONCEPT": "N",
+            "CONCEPT_CODE": "OMOP3059864",
+            "VOCABULARY_ID": "RxNorm Extension",
+            "CONCEPT_NAME": "Baricitinib 2 MG [Olumiant]",
+            "DOMAIN_ID": "Drug",
+            "STANDARD_CONCEPT_CAPTION": "Non-Standard",
+            "CONCEPT_CLASS_ID": "Branded Drug Comp",
+            "INVALID_REASON": "U"
+          },
+          "includeMapped": false,
+          "includeDescendants": false
+        },
+        {
+          "isExcluded": false,
+          "concept": {
+            "INVALID_REASON_CAPTION": "Valid",
+            "CONCEPT_ID": 1510632,
+            "STANDARD_CONCEPT": "S",
+            "CONCEPT_CODE": "2047241",
+            "VOCABULARY_ID": "RxNorm",
+            "CONCEPT_NAME": "baricitinib 2 MG Oral Tablet",
+            "DOMAIN_ID": "Drug",
+            "STANDARD_CONCEPT_CAPTION": "Standard",
+            "CONCEPT_CLASS_ID": "Clinical Drug",
+            "INVALID_REASON": "V"
+          },
+          "includeMapped": false,
+          "includeDescendants": false
+        },
+        {
+          "isExcluded": false,
+          "concept": {
+            "INVALID_REASON_CAPTION": "Invalid",
+            "CONCEPT_ID": 44176006,
+            "STANDARD_CONCEPT": "N",
+            "CONCEPT_CODE": "OMOP3052729",
+            "VOCABULARY_ID": "RxNorm Extension",
+            "CONCEPT_NAME": "Baricitinib 2 MG Oral Tablet",
+            "DOMAIN_ID": "Drug",
+            "STANDARD_CONCEPT_CAPTION": "Non-Standard",
+            "CONCEPT_CLASS_ID": "Clinical Drug",
+            "INVALID_REASON": "U"
+          },
+          "includeMapped": false,
+          "includeDescendants": false
+        },
+        {
+          "isExcluded": false,
+          "concept": {
+            "INVALID_REASON_CAPTION": "Valid",
+            "CONCEPT_ID": 44187244,
+            "STANDARD_CONCEPT": "S",
+            "CONCEPT_CODE": "OMOP3063967",
+            "VOCABULARY_ID": "RxNorm Extension",
+            "CONCEPT_NAME": "baricitinib 2 MG Oral Tablet Box of 28",
+            "DOMAIN_ID": "Drug",
+            "STANDARD_CONCEPT_CAPTION": "Standard",
+            "CONCEPT_CLASS_ID": "Clinical Drug Box",
+            "INVALID_REASON": "V"
+          },
+          "includeMapped": false,
+          "includeDescendants": false
+        },
+        {
+          "isExcluded": false,
+          "concept": {
+            "INVALID_REASON_CAPTION": "Valid",
+            "CONCEPT_ID": 36787574,
+            "STANDARD_CONCEPT": "S",
+            "CONCEPT_CODE": "OMOP4775839",
+            "VOCABULARY_ID": "RxNorm Extension",
+            "CONCEPT_NAME": "baricitinib 2 MG Oral Tablet Box of 84",
+            "DOMAIN_ID": "Drug",
+            "STANDARD_CONCEPT_CAPTION": "Standard",
+            "CONCEPT_CLASS_ID": "Clinical Drug Box",
+            "INVALID_REASON": "V"
+          },
+          "includeMapped": false,
+          "includeDescendants": false
+        },
+        {
+          "isExcluded": false,
+          "concept": {
+            "INVALID_REASON_CAPTION": "Valid",
+            "CONCEPT_ID": 44187243,
+            "STANDARD_CONCEPT": "S",
+            "CONCEPT_CODE": "OMOP3063966",
+            "VOCABULARY_ID": "RxNorm Extension",
+            "CONCEPT_NAME": "baricitinib 2 MG Oral Tablet Box of 98",
+            "DOMAIN_ID": "Drug",
+            "STANDARD_CONCEPT_CAPTION": "Standard",
+            "CONCEPT_CLASS_ID": "Clinical Drug Box",
+            "INVALID_REASON": "V"
+          },
+          "includeMapped": false,
+          "includeDescendants": false
+        },
+        {
+          "isExcluded": false,
+          "concept": {
+            "INVALID_REASON_CAPTION": "Valid",
+            "CONCEPT_ID": 36175651,
+            "STANDARD_CONCEPT": "N",
+            "CONCEPT_CODE": "00002418261",
+            "VOCABULARY_ID": "NDC",
+            "CONCEPT_NAME": "baricitinib 2 MG Oral Tablet [Olumiant]",
+            "DOMAIN_ID": "Drug",
+            "STANDARD_CONCEPT_CAPTION": "Non-Standard",
+            "CONCEPT_CLASS_ID": "11-digit NDC",
+            "INVALID_REASON": "V"
+          },
+          "includeMapped": false,
+          "includeDescendants": false
+        },
+        {
+          "isExcluded": false,
+          "concept": {
+            "INVALID_REASON_CAPTION": "Valid",
+            "CONCEPT_ID": 1510638,
+            "STANDARD_CONCEPT": "S",
+            "CONCEPT_CODE": "2047247",
+            "VOCABULARY_ID": "RxNorm",
+            "CONCEPT_NAME": "baricitinib 2 MG Oral Tablet [Olumiant]",
+            "DOMAIN_ID": "Drug",
+            "STANDARD_CONCEPT_CAPTION": "Standard",
+            "CONCEPT_CLASS_ID": "Branded Drug",
+            "INVALID_REASON": "V"
+          },
+          "includeMapped": false,
+          "includeDescendants": false
+        },
+        {
+          "isExcluded": false,
+          "concept": {
+            "INVALID_REASON_CAPTION": "Valid",
+            "CONCEPT_ID": 36175650,
+            "STANDARD_CONCEPT": "N",
+            "CONCEPT_CODE": "00002418230",
+            "VOCABULARY_ID": "NDC",
+            "CONCEPT_NAME": "baricitinib 2 MG Oral Tablet [Olumiant]",
+            "DOMAIN_ID": "Drug",
+            "STANDARD_CONCEPT_CAPTION": "Non-Standard",
+            "CONCEPT_CLASS_ID": "11-digit NDC",
+            "INVALID_REASON": "V"
+          },
+          "includeMapped": false,
+          "includeDescendants": false
+        },
+        {
+          "isExcluded": false,
+          "concept": {
+            "INVALID_REASON_CAPTION": "Invalid",
+            "CONCEPT_ID": 44161445,
+            "STANDARD_CONCEPT": "N",
+            "CONCEPT_CODE": "OMOP3038168",
+            "VOCABULARY_ID": "RxNorm Extension",
+            "CONCEPT_NAME": "Baricitinib 2 MG Oral Tablet [Olumiant]",
+            "DOMAIN_ID": "Drug",
+            "STANDARD_CONCEPT_CAPTION": "Non-Standard",
+            "CONCEPT_CLASS_ID": "Branded Drug",
+            "INVALID_REASON": "U"
+          },
+          "includeMapped": false,
+          "includeDescendants": false
+        },
+        {
+          "isExcluded": false,
+          "concept": {
+            "INVALID_REASON_CAPTION": "Valid",
+            "CONCEPT_ID": 44180263,
+            "STANDARD_CONCEPT": "S",
+            "CONCEPT_CODE": "OMOP3056986",
+            "VOCABULARY_ID": "RxNorm Extension",
+            "CONCEPT_NAME": "baricitinib 2 MG Oral Tablet [Olumiant] Box of 28",
+            "DOMAIN_ID": "Drug",
+            "STANDARD_CONCEPT_CAPTION": "Standard",
+            "CONCEPT_CLASS_ID": "Branded Drug Box",
+            "INVALID_REASON": "V"
+          },
+          "includeMapped": false,
+          "includeDescendants": false
+        },
+        {
+          "isExcluded": false,
+          "concept": {
+            "INVALID_REASON_CAPTION": "Valid",
+            "CONCEPT_ID": 40743761,
+            "STANDARD_CONCEPT": "S",
+            "CONCEPT_CODE": "OMOP4713286",
+            "VOCABULARY_ID": "RxNorm Extension",
+            "CONCEPT_NAME": "baricitinib 2 MG Oral Tablet [Olumiant] Box of 28",
+            "DOMAIN_ID": "Drug",
+            "STANDARD_CONCEPT_CAPTION": "Standard",
+            "CONCEPT_CLASS_ID": "Branded Drug Box",
+            "INVALID_REASON": "V"
+          },
+          "includeMapped": false,
+          "includeDescendants": false
+        },
+        {
+          "isExcluded": false,
+          "concept": {
+            "INVALID_REASON_CAPTION": "Valid",
+            "CONCEPT_ID": 40743760,
+            "STANDARD_CONCEPT": "S",
+            "CONCEPT_CODE": "OMOP4713287",
+            "VOCABULARY_ID": "RxNorm Extension",
+            "CONCEPT_NAME": "baricitinib 2 MG Oral Tablet [Olumiant] Box of 28 by Eli Lilly",
+            "DOMAIN_ID": "Drug",
+            "STANDARD_CONCEPT_CAPTION": "Standard",
+            "CONCEPT_CLASS_ID": "Marketed Product",
+            "INVALID_REASON": "V"
+          },
+          "includeMapped": false,
+          "includeDescendants": false
+        },
+        {
+          "isExcluded": false,
+          "concept": {
+            "INVALID_REASON_CAPTION": "Valid",
+            "CONCEPT_ID": 44166708,
+            "STANDARD_CONCEPT": "S",
+            "CONCEPT_CODE": "OMOP3043431",
+            "VOCABULARY_ID": "RxNorm Extension",
+            "CONCEPT_NAME": "baricitinib 2 MG Oral Tablet [Olumiant] Box of 28 by Lilly",
+            "DOMAIN_ID": "Drug",
+            "STANDARD_CONCEPT_CAPTION": "Standard",
+            "CONCEPT_CLASS_ID": "Marketed Product",
+            "INVALID_REASON": "V"
+          },
+          "includeMapped": false,
+          "includeDescendants": false
+        },
+        {
+          "isExcluded": false,
+          "concept": {
+            "INVALID_REASON_CAPTION": "Valid",
+            "CONCEPT_ID": 42875514,
+            "STANDARD_CONCEPT": "S",
+            "CONCEPT_CODE": "OMOP4872628",
+            "VOCABULARY_ID": "RxNorm Extension",
+            "CONCEPT_NAME": "baricitinib 2 MG Oral Tablet [Olumiant] Box of 28 by Orifarm Leverkus",
+            "DOMAIN_ID": "Drug",
+            "STANDARD_CONCEPT_CAPTION": "Standard",
+            "CONCEPT_CLASS_ID": "Marketed Product",
+            "INVALID_REASON": "V"
+          },
+          "includeMapped": false,
+          "includeDescendants": false
+        },
+        {
+          "isExcluded": false,
+          "concept": {
+            "INVALID_REASON_CAPTION": "Valid",
+            "CONCEPT_ID": 36787573,
+            "STANDARD_CONCEPT": "S",
+            "CONCEPT_CODE": "OMOP4775838",
+            "VOCABULARY_ID": "RxNorm Extension",
+            "CONCEPT_NAME": "baricitinib 2 MG Oral Tablet [Olumiant] Box of 84",
+            "DOMAIN_ID": "Drug",
+            "STANDARD_CONCEPT_CAPTION": "Standard",
+            "CONCEPT_CLASS_ID": "Branded Drug Box",
+            "INVALID_REASON": "V"
+          },
+          "includeMapped": false,
+          "includeDescendants": false
+        },
+        {
+          "isExcluded": false,
+          "concept": {
+            "INVALID_REASON_CAPTION": "Valid",
+            "CONCEPT_ID": 36787572,
+            "STANDARD_CONCEPT": "S",
+            "CONCEPT_CODE": "OMOP4775837",
+            "VOCABULARY_ID": "RxNorm Extension",
+            "CONCEPT_NAME": "baricitinib 2 MG Oral Tablet [Olumiant] Box of 84 by Eli Lilly",
+            "DOMAIN_ID": "Drug",
+            "STANDARD_CONCEPT_CAPTION": "Standard",
+            "CONCEPT_CLASS_ID": "Marketed Product",
+            "INVALID_REASON": "V"
+          },
+          "includeMapped": false,
+          "includeDescendants": false
+        },
+        {
+          "isExcluded": false,
+          "concept": {
+            "INVALID_REASON_CAPTION": "Valid",
+            "CONCEPT_ID": 44169060,
+            "STANDARD_CONCEPT": "S",
+            "CONCEPT_CODE": "OMOP3045783",
+            "VOCABULARY_ID": "RxNorm Extension",
+            "CONCEPT_NAME": "baricitinib 2 MG Oral Tablet [Olumiant] Box of 98",
+            "DOMAIN_ID": "Drug",
+            "STANDARD_CONCEPT_CAPTION": "Standard",
+            "CONCEPT_CLASS_ID": "Branded Drug Box",
+            "INVALID_REASON": "V"
+          },
+          "includeMapped": false,
+          "includeDescendants": false
+        },
+        {
+          "isExcluded": false,
+          "concept": {
+            "INVALID_REASON_CAPTION": "Valid",
+            "CONCEPT_ID": 36421026,
+            "STANDARD_CONCEPT": "S",
+            "CONCEPT_CODE": "OMOP4763307",
+            "VOCABULARY_ID": "RxNorm Extension",
+            "CONCEPT_NAME": "baricitinib 2 MG Oral Tablet [Olumiant] Box of 98",
+            "DOMAIN_ID": "Drug",
+            "STANDARD_CONCEPT_CAPTION": "Standard",
+            "CONCEPT_CLASS_ID": "Branded Drug Box",
+            "INVALID_REASON": "V"
+          },
+          "includeMapped": false,
+          "includeDescendants": false
+        },
+        {
+          "isExcluded": false,
+          "concept": {
+            "INVALID_REASON_CAPTION": "Valid",
+            "CONCEPT_ID": 42875515,
+            "STANDARD_CONCEPT": "S",
+            "CONCEPT_CODE": "OMOP4872629",
+            "VOCABULARY_ID": "RxNorm Extension",
+            "CONCEPT_NAME": "baricitinib 2 MG Oral Tablet [Olumiant] Box of 98 by Cc",
+            "DOMAIN_ID": "Drug",
+            "STANDARD_CONCEPT_CAPTION": "Standard",
+            "CONCEPT_CLASS_ID": "Marketed Product",
+            "INVALID_REASON": "V"
+          },
+          "includeMapped": false,
+          "includeDescendants": false
+        },
+        {
+          "isExcluded": false,
+          "concept": {
+            "INVALID_REASON_CAPTION": "Valid",
+            "CONCEPT_ID": 44185375,
+            "STANDARD_CONCEPT": "S",
+            "CONCEPT_CODE": "OMOP3062098",
+            "VOCABULARY_ID": "RxNorm Extension",
+            "CONCEPT_NAME": "baricitinib 2 MG Oral Tablet [Olumiant] Box of 98 by Lilly",
+            "DOMAIN_ID": "Drug",
+            "STANDARD_CONCEPT_CAPTION": "Standard",
+            "CONCEPT_CLASS_ID": "Marketed Product",
+            "INVALID_REASON": "V"
+          },
+          "includeMapped": false,
+          "includeDescendants": false
+        },
+        {
+          "isExcluded": false,
+          "concept": {
+            "INVALID_REASON_CAPTION": "Valid",
+            "CONCEPT_ID": 994801,
+            "STANDARD_CONCEPT": "S",
+            "CONCEPT_CODE": "OMOP4821313",
+            "VOCABULARY_ID": "RxNorm Extension",
+            "CONCEPT_NAME": "baricitinib 2 MG Oral Tablet [Olumiant] by Abacus Medicine",
+            "DOMAIN_ID": "Drug",
+            "STANDARD_CONCEPT_CAPTION": "Standard",
+            "CONCEPT_CLASS_ID": "Marketed Product",
+            "INVALID_REASON": "V"
+          },
+          "includeMapped": false,
+          "includeDescendants": false
+        },
+        {
+          "isExcluded": false,
+          "concept": {
+            "INVALID_REASON_CAPTION": "Valid",
+            "CONCEPT_ID": 36508651,
+            "STANDARD_CONCEPT": "S",
+            "CONCEPT_CODE": "OMOP4835152",
+            "VOCABULARY_ID": "RxNorm Extension",
+            "CONCEPT_NAME": "baricitinib 2 MG Oral Tablet [Olumiant] by Cc",
+            "DOMAIN_ID": "Drug",
+            "STANDARD_CONCEPT_CAPTION": "Standard",
+            "CONCEPT_CLASS_ID": "Marketed Product",
+            "INVALID_REASON": "V"
+          },
+          "includeMapped": false,
+          "includeDescendants": false
+        },
+        {
+          "isExcluded": false,
+          "concept": {
+            "INVALID_REASON_CAPTION": "Valid",
+            "CONCEPT_ID": 40743762,
+            "STANDARD_CONCEPT": "S",
+            "CONCEPT_CODE": "OMOP4713285",
+            "VOCABULARY_ID": "RxNorm Extension",
+            "CONCEPT_NAME": "baricitinib 2 MG Oral Tablet [Olumiant] by Eli Lilly",
+            "DOMAIN_ID": "Drug",
+            "STANDARD_CONCEPT_CAPTION": "Standard",
+            "CONCEPT_CLASS_ID": "Marketed Product",
+            "INVALID_REASON": "V"
+          },
+          "includeMapped": false,
+          "includeDescendants": false
+        },
+        {
+          "isExcluded": false,
+          "concept": {
+            "INVALID_REASON_CAPTION": "Valid",
+            "CONCEPT_ID": 37592678,
+            "STANDARD_CONCEPT": "S",
+            "CONCEPT_CODE": "OMOP4782123",
+            "VOCABULARY_ID": "RxNorm Extension",
+            "CONCEPT_NAME": "baricitinib 2 MG Oral Tablet [Olumiant] by Haematogmbh",
+            "DOMAIN_ID": "Drug",
+            "STANDARD_CONCEPT_CAPTION": "Standard",
+            "CONCEPT_CLASS_ID": "Marketed Product",
+            "INVALID_REASON": "V"
+          },
+          "includeMapped": false,
+          "includeDescendants": false
+        },
+        {
+          "isExcluded": false,
+          "concept": {
+            "INVALID_REASON_CAPTION": "Valid",
+            "CONCEPT_ID": 994802,
+            "STANDARD_CONCEPT": "S",
+            "CONCEPT_CODE": "OMOP4821314",
+            "VOCABULARY_ID": "RxNorm Extension",
+            "CONCEPT_NAME": "baricitinib 2 MG Oral Tablet [Olumiant] by Kohlpharma",
+            "DOMAIN_ID": "Drug",
+            "STANDARD_CONCEPT_CAPTION": "Standard",
+            "CONCEPT_CLASS_ID": "Marketed Product",
+            "INVALID_REASON": "V"
+          },
+          "includeMapped": false,
+          "includeDescendants": false
+        },
+        {
+          "isExcluded": false,
+          "concept": {
+            "INVALID_REASON_CAPTION": "Valid",
+            "CONCEPT_ID": 2056664,
+            "STANDARD_CONCEPT": "S",
+            "CONCEPT_CODE": "OMOP4957502",
+            "VOCABULARY_ID": "RxNorm Extension",
+            "CONCEPT_NAME": "baricitinib 2 MG Oral Tablet [Olumiant] by Lilly",
+            "DOMAIN_ID": "Drug",
+            "STANDARD_CONCEPT_CAPTION": "Standard",
+            "CONCEPT_CLASS_ID": "Marketed Product",
+            "INVALID_REASON": "V"
+          },
+          "includeMapped": false,
+          "includeDescendants": false
+        },
+        {
+          "isExcluded": false,
+          "concept": {
+            "INVALID_REASON_CAPTION": "Valid",
+            "CONCEPT_ID": 36508730,
+            "STANDARD_CONCEPT": "S",
+            "CONCEPT_CODE": "OMOP4835227",
+            "VOCABULARY_ID": "RxNorm Extension",
+            "CONCEPT_NAME": "baricitinib 2 MG Oral Tablet [Olumiant] by Orifarm Leverkus",
+            "DOMAIN_ID": "Drug",
+            "STANDARD_CONCEPT_CAPTION": "Standard",
+            "CONCEPT_CLASS_ID": "Marketed Product",
+            "INVALID_REASON": "V"
+          },
+          "includeMapped": false,
+          "includeDescendants": false
+        },
+        {
+          "isExcluded": false,
+          "concept": {
+            "INVALID_REASON_CAPTION": "Valid",
+            "CONCEPT_ID": 36506007,
+            "STANDARD_CONCEPT": "S",
+            "CONCEPT_CODE": "OMOP4834844",
+            "VOCABULARY_ID": "RxNorm Extension",
+            "CONCEPT_NAME": "baricitinib 2 MG Oral Tablet [Olumiant] by Paranova Pack",
+            "DOMAIN_ID": "Drug",
+            "STANDARD_CONCEPT_CAPTION": "Standard",
+            "CONCEPT_CLASS_ID": "Marketed Product",
+            "INVALID_REASON": "V"
+          },
+          "includeMapped": false,
+          "includeDescendants": false
+        },
+        {
+          "isExcluded": false,
+          "concept": {
+            "INVALID_REASON_CAPTION": "Valid",
+            "CONCEPT_ID": 42520701,
+            "STANDARD_CONCEPT": "N",
+            "CONCEPT_CODE": "77570021",
+            "VOCABULARY_ID": "Gemscript",
+            "CONCEPT_NAME": "Baricitinib 2mg tablets",
+            "DOMAIN_ID": "Drug",
+            "STANDARD_CONCEPT_CAPTION": "Non-Standard",
+            "CONCEPT_CLASS_ID": "Gemscript",
+            "INVALID_REASON": "V"
+          },
+          "includeMapped": false,
+          "includeDescendants": false
+        },
+        {
+          "isExcluded": false,
+          "concept": {
+            "INVALID_REASON_CAPTION": "Valid",
+            "CONCEPT_ID": 37103890,
+            "STANDARD_CONCEPT": "N",
+            "CONCEPT_CODE": "34625211000001109",
+            "VOCABULARY_ID": "SNOMED",
+            "CONCEPT_NAME": "Baricitinib 2mg tablets",
+            "DOMAIN_ID": "Drug",
+            "STANDARD_CONCEPT_CAPTION": "Non-Standard",
+            "CONCEPT_CLASS_ID": "Pharma/Biol Product",
+            "INVALID_REASON": "V"
+          },
+          "includeMapped": false,
+          "includeDescendants": false
+        },
+        {
+          "isExcluded": false,
+          "concept": {
+            "INVALID_REASON_CAPTION": "Valid",
+            "CONCEPT_ID": 40701752,
+            "STANDARD_CONCEPT": "N",
+            "CONCEPT_CODE": "34625211000001109",
+            "VOCABULARY_ID": "dm+d",
+            "CONCEPT_NAME": "Baricitinib 2mg tablets",
+            "DOMAIN_ID": "Drug",
+            "STANDARD_CONCEPT_CAPTION": "Non-Standard",
+            "CONCEPT_CLASS_ID": "VMP",
+            "INVALID_REASON": "V"
+          },
+          "includeMapped": false,
+          "includeDescendants": false
+        },
+        {
+          "isExcluded": false,
+          "concept": {
+            "INVALID_REASON_CAPTION": "Valid",
+            "CONCEPT_ID": 42523151,
+            "STANDARD_CONCEPT": "N",
+            "CONCEPT_CODE": "22429978",
+            "VOCABULARY_ID": "Gemscript",
+            "CONCEPT_NAME": "Baricitinib 2mg tablets",
+            "DOMAIN_ID": "Drug",
+            "STANDARD_CONCEPT_CAPTION": "Non-Standard",
+            "CONCEPT_CLASS_ID": "Gemscript THIN",
+            "INVALID_REASON": "V"
+          },
+          "includeMapped": false,
+          "includeDescendants": false
+        },
+        {
+          "isExcluded": false,
+          "concept": {
+            "INVALID_REASON_CAPTION": "Valid",
+            "CONCEPT_ID": 37106183,
+            "STANDARD_CONCEPT": "N",
+            "CONCEPT_CODE": "34621011000001101",
+            "VOCABULARY_ID": "SNOMED",
+            "CONCEPT_NAME": "Baricitinib 2mg tablets 28 tablet",
+            "DOMAIN_ID": "Drug",
+            "STANDARD_CONCEPT_CAPTION": "Non-Standard",
+            "CONCEPT_CLASS_ID": "Pharma/Biol Product",
+            "INVALID_REASON": "V"
+          },
+          "includeMapped": false,
+          "includeDescendants": false
+        },
+        {
+          "isExcluded": false,
+          "concept": {
+            "INVALID_REASON_CAPTION": "Valid",
+            "CONCEPT_ID": 40701751,
+            "STANDARD_CONCEPT": "N",
+            "CONCEPT_CODE": "34621011000001101",
+            "VOCABULARY_ID": "dm+d",
+            "CONCEPT_NAME": "Baricitinib 2mg tablets 28 tablet",
+            "DOMAIN_ID": "Drug",
+            "STANDARD_CONCEPT_CAPTION": "Non-Standard",
+            "CONCEPT_CLASS_ID": "VMPP",
+            "INVALID_REASON": "V"
+          },
+          "includeMapped": false,
+          "includeDescendants": false
+        },
+        {
+          "isExcluded": false,
+          "concept": {
+            "INVALID_REASON_CAPTION": "Valid",
+            "CONCEPT_ID": 44160497,
+            "STANDARD_CONCEPT": "S",
+            "CONCEPT_CODE": "OMOP3037220",
+            "VOCABULARY_ID": "RxNorm Extension",
+            "CONCEPT_NAME": "baricitinib 4 MG",
+            "DOMAIN_ID": "Drug",
+            "STANDARD_CONCEPT_CAPTION": "Standard",
+            "CONCEPT_CLASS_ID": "Clinical Drug Comp",
+            "INVALID_REASON": "V"
+          },
+          "includeMapped": false,
+          "includeDescendants": false
+        },
+        {
+          "isExcluded": false,
+          "concept": {
+            "INVALID_REASON_CAPTION": "Valid",
+            "CONCEPT_ID": 36787589,
+            "STANDARD_CONCEPT": "S",
+            "CONCEPT_CODE": "OMOP4775855",
+            "VOCABULARY_ID": "RxNorm Extension",
+            "CONCEPT_NAME": "baricitinib 4 MG Delayed Release Oral Tablet",
+            "DOMAIN_ID": "Drug",
+            "STANDARD_CONCEPT_CAPTION": "Standard",
+            "CONCEPT_CLASS_ID": "Clinical Drug",
+            "INVALID_REASON": "V"
+          },
+          "includeMapped": false,
+          "includeDescendants": false
+        },
+        {
+          "isExcluded": false,
+          "concept": {
+            "INVALID_REASON_CAPTION": "Valid",
+            "CONCEPT_ID": 36787588,
+            "STANDARD_CONCEPT": "S",
+            "CONCEPT_CODE": "OMOP4775854",
+            "VOCABULARY_ID": "RxNorm Extension",
+            "CONCEPT_NAME": "baricitinib 4 MG Delayed Release Oral Tablet Box of 28",
+            "DOMAIN_ID": "Drug",
+            "STANDARD_CONCEPT_CAPTION": "Standard",
+            "CONCEPT_CLASS_ID": "Clinical Drug Box",
+            "INVALID_REASON": "V"
+          },
+          "includeMapped": false,
+          "includeDescendants": false
+        },
+        {
+          "isExcluded": false,
+          "concept": {
+            "INVALID_REASON_CAPTION": "Valid",
+            "CONCEPT_ID": 36787587,
+            "STANDARD_CONCEPT": "S",
+            "CONCEPT_CODE": "OMOP4775853",
+            "VOCABULARY_ID": "RxNorm Extension",
+            "CONCEPT_NAME": "baricitinib 4 MG Delayed Release Oral Tablet Box of 84",
+            "DOMAIN_ID": "Drug",
+            "STANDARD_CONCEPT_CAPTION": "Standard",
+            "CONCEPT_CLASS_ID": "Clinical Drug Box",
+            "INVALID_REASON": "V"
+          },
+          "includeMapped": false,
+          "includeDescendants": false
+        },
+        {
+          "isExcluded": false,
+          "concept": {
+            "INVALID_REASON_CAPTION": "Valid",
+            "CONCEPT_ID": 36787586,
+            "STANDARD_CONCEPT": "S",
+            "CONCEPT_CODE": "OMOP4775852",
+            "VOCABULARY_ID": "RxNorm Extension",
+            "CONCEPT_NAME": "baricitinib 4 MG Delayed Release Oral Tablet [Olumiant]",
+            "DOMAIN_ID": "Drug",
+            "STANDARD_CONCEPT_CAPTION": "Standard",
+            "CONCEPT_CLASS_ID": "Branded Drug",
+            "INVALID_REASON": "V"
+          },
+          "includeMapped": false,
+          "includeDescendants": false
+        },
+        {
+          "isExcluded": false,
+          "concept": {
+            "INVALID_REASON_CAPTION": "Valid",
+            "CONCEPT_ID": 36787537,
+            "STANDARD_CONCEPT": "S",
+            "CONCEPT_CODE": "OMOP4775851",
+            "VOCABULARY_ID": "RxNorm Extension",
+            "CONCEPT_NAME": "baricitinib 4 MG Delayed Release Oral Tablet [Olumiant] Box of 28",
+            "DOMAIN_ID": "Drug",
+            "STANDARD_CONCEPT_CAPTION": "Standard",
+            "CONCEPT_CLASS_ID": "Branded Drug Box",
+            "INVALID_REASON": "V"
+          },
+          "includeMapped": false,
+          "includeDescendants": false
+        },
+        {
+          "isExcluded": false,
+          "concept": {
+            "INVALID_REASON_CAPTION": "Valid",
+            "CONCEPT_ID": 36787585,
+            "STANDARD_CONCEPT": "S",
+            "CONCEPT_CODE": "OMOP4775850",
+            "VOCABULARY_ID": "RxNorm Extension",
+            "CONCEPT_NAME": "baricitinib 4 MG Delayed Release Oral Tablet [Olumiant] Box of 28 by Eli Lilly",
+            "DOMAIN_ID": "Drug",
+            "STANDARD_CONCEPT_CAPTION": "Standard",
+            "CONCEPT_CLASS_ID": "Marketed Product",
+            "INVALID_REASON": "V"
+          },
+          "includeMapped": false,
+          "includeDescendants": false
+        },
+        {
+          "isExcluded": false,
+          "concept": {
+            "INVALID_REASON_CAPTION": "Valid",
+            "CONCEPT_ID": 36787584,
+            "STANDARD_CONCEPT": "S",
+            "CONCEPT_CODE": "OMOP4775849",
+            "VOCABULARY_ID": "RxNorm Extension",
+            "CONCEPT_NAME": "baricitinib 4 MG Delayed Release Oral Tablet [Olumiant] Box of 84",
+            "DOMAIN_ID": "Drug",
+            "STANDARD_CONCEPT_CAPTION": "Standard",
+            "CONCEPT_CLASS_ID": "Branded Drug Box",
+            "INVALID_REASON": "V"
+          },
+          "includeMapped": false,
+          "includeDescendants": false
+        },
+        {
+          "isExcluded": false,
+          "concept": {
+            "INVALID_REASON_CAPTION": "Valid",
+            "CONCEPT_ID": 36787583,
+            "STANDARD_CONCEPT": "S",
+            "CONCEPT_CODE": "OMOP4775848",
+            "VOCABULARY_ID": "RxNorm Extension",
+            "CONCEPT_NAME": "baricitinib 4 MG Delayed Release Oral Tablet [Olumiant] Box of 84 by Eli Lilly",
+            "DOMAIN_ID": "Drug",
+            "STANDARD_CONCEPT_CAPTION": "Standard",
+            "CONCEPT_CLASS_ID": "Marketed Product",
+            "INVALID_REASON": "V"
+          },
+          "includeMapped": false,
+          "includeDescendants": false
+        },
+        {
+          "isExcluded": false,
+          "concept": {
+            "INVALID_REASON_CAPTION": "Valid",
+            "CONCEPT_ID": 36509872,
+            "STANDARD_CONCEPT": "S",
+            "CONCEPT_CODE": "OMOP4836398",
+            "VOCABULARY_ID": "RxNorm Extension",
+            "CONCEPT_NAME": "baricitinib 4 MG Delayed Release Oral Tablet [Olumiant] by Kohlpharma",
+            "DOMAIN_ID": "Drug",
+            "STANDARD_CONCEPT_CAPTION": "Standard",
+            "CONCEPT_CLASS_ID": "Marketed Product",
+            "INVALID_REASON": "V"
+          },
+          "includeMapped": false,
+          "includeDescendants": false
+        },
+        {
+          "isExcluded": false,
+          "concept": {
+            "INVALID_REASON_CAPTION": "Valid",
+            "CONCEPT_ID": 44171917,
+            "STANDARD_CONCEPT": "S",
+            "CONCEPT_CODE": "OMOP3048640",
+            "VOCABULARY_ID": "RxNorm Extension",
+            "CONCEPT_NAME": "baricitinib 4 MG [Olumiant]",
+            "DOMAIN_ID": "Drug",
+            "STANDARD_CONCEPT_CAPTION": "Standard",
+            "CONCEPT_CLASS_ID": "Branded Drug Comp",
+            "INVALID_REASON": "V"
+          },
+          "includeMapped": false,
+          "includeDescendants": false
+        },
+        {
+          "isExcluded": false,
+          "concept": {
+            "INVALID_REASON_CAPTION": "Valid",
+            "CONCEPT_ID": 40743770,
+            "STANDARD_CONCEPT": "S",
+            "CONCEPT_CODE": "OMOP4713277",
+            "VOCABULARY_ID": "RxNorm Extension",
+            "CONCEPT_NAME": "baricitinib 4 MG [Olumiant]",
+            "DOMAIN_ID": "Drug",
+            "STANDARD_CONCEPT_CAPTION": "Standard",
+            "CONCEPT_CLASS_ID": "Branded Drug Comp",
+            "INVALID_REASON": "V"
+          },
+          "includeMapped": false,
+          "includeDescendants": false
+        },
+        {
+          "isExcluded": false,
+          "concept": {
+            "INVALID_REASON_CAPTION": "Valid",
+            "CONCEPT_ID": 44164714,
+            "STANDARD_CONCEPT": "S",
+            "CONCEPT_CODE": "OMOP3041437",
+            "VOCABULARY_ID": "RxNorm Extension",
+            "CONCEPT_NAME": "baricitinib 4 MG Oral Tablet",
+            "DOMAIN_ID": "Drug",
+            "STANDARD_CONCEPT_CAPTION": "Standard",
+            "CONCEPT_CLASS_ID": "Clinical Drug",
+            "INVALID_REASON": "V"
+          },
+          "includeMapped": false,
+          "includeDescendants": false
+        },
+        {
+          "isExcluded": false,
+          "concept": {
+            "INVALID_REASON_CAPTION": "Valid",
+            "CONCEPT_ID": 44176005,
+            "STANDARD_CONCEPT": "S",
+            "CONCEPT_CODE": "OMOP3052728",
+            "VOCABULARY_ID": "RxNorm Extension",
+            "CONCEPT_NAME": "baricitinib 4 MG Oral Tablet Box of 28",
+            "DOMAIN_ID": "Drug",
+            "STANDARD_CONCEPT_CAPTION": "Standard",
+            "CONCEPT_CLASS_ID": "Clinical Drug Box",
+            "INVALID_REASON": "V"
+          },
+          "includeMapped": false,
+          "includeDescendants": false
+        },
+        {
+          "isExcluded": false,
+          "concept": {
+            "INVALID_REASON_CAPTION": "Valid",
+            "CONCEPT_ID": 40743769,
+            "STANDARD_CONCEPT": "S",
+            "CONCEPT_CODE": "OMOP4713278",
+            "VOCABULARY_ID": "RxNorm Extension",
+            "CONCEPT_NAME": "baricitinib 4 MG Oral Tablet Box of 84",
+            "DOMAIN_ID": "Drug",
+            "STANDARD_CONCEPT_CAPTION": "Standard",
+            "CONCEPT_CLASS_ID": "Clinical Drug Box",
+            "INVALID_REASON": "V"
+          },
+          "includeMapped": false,
+          "includeDescendants": false
+        },
+        {
+          "isExcluded": false,
+          "concept": {
+            "INVALID_REASON_CAPTION": "Valid",
+            "CONCEPT_ID": 44187242,
+            "STANDARD_CONCEPT": "S",
+            "CONCEPT_CODE": "OMOP3063965",
+            "VOCABULARY_ID": "RxNorm Extension",
+            "CONCEPT_NAME": "baricitinib 4 MG Oral Tablet Box of 98",
+            "DOMAIN_ID": "Drug",
+            "STANDARD_CONCEPT_CAPTION": "Standard",
+            "CONCEPT_CLASS_ID": "Clinical Drug Box",
+            "INVALID_REASON": "V"
+          },
+          "includeMapped": false,
+          "includeDescendants": false
+        },
+        {
+          "isExcluded": false,
+          "concept": {
+            "INVALID_REASON_CAPTION": "Valid",
+            "CONCEPT_ID": 40743768,
+            "STANDARD_CONCEPT": "S",
+            "CONCEPT_CODE": "OMOP4713279",
+            "VOCABULARY_ID": "RxNorm Extension",
+            "CONCEPT_NAME": "baricitinib 4 MG Oral Tablet [Olumiant]",
+            "DOMAIN_ID": "Drug",
+            "STANDARD_CONCEPT_CAPTION": "Standard",
+            "CONCEPT_CLASS_ID": "Branded Drug",
+            "INVALID_REASON": "V"
+          },
+          "includeMapped": false,
+          "includeDescendants": false
+        },
+        {
+          "isExcluded": false,
+          "concept": {
+            "INVALID_REASON_CAPTION": "Valid",
+            "CONCEPT_ID": 44161444,
+            "STANDARD_CONCEPT": "S",
+            "CONCEPT_CODE": "OMOP3038167",
+            "VOCABULARY_ID": "RxNorm Extension",
+            "CONCEPT_NAME": "baricitinib 4 MG Oral Tablet [Olumiant]",
+            "DOMAIN_ID": "Drug",
+            "STANDARD_CONCEPT_CAPTION": "Standard",
+            "CONCEPT_CLASS_ID": "Branded Drug",
+            "INVALID_REASON": "V"
+          },
+          "includeMapped": false,
+          "includeDescendants": false
+        },
+        {
+          "isExcluded": false,
+          "concept": {
+            "INVALID_REASON_CAPTION": "Valid",
+            "CONCEPT_ID": 40743766,
+            "STANDARD_CONCEPT": "S",
+            "CONCEPT_CODE": "OMOP4713281",
+            "VOCABULARY_ID": "RxNorm Extension",
+            "CONCEPT_NAME": "baricitinib 4 MG Oral Tablet [Olumiant] Box of 28",
+            "DOMAIN_ID": "Drug",
+            "STANDARD_CONCEPT_CAPTION": "Standard",
+            "CONCEPT_CLASS_ID": "Branded Drug Box",
+            "INVALID_REASON": "V"
+          },
+          "includeMapped": false,
+          "includeDescendants": false
+        },
+        {
+          "isExcluded": false,
+          "concept": {
+            "INVALID_REASON_CAPTION": "Valid",
+            "CONCEPT_ID": 44187757,
+            "STANDARD_CONCEPT": "S",
+            "CONCEPT_CODE": "OMOP3064480",
+            "VOCABULARY_ID": "RxNorm Extension",
+            "CONCEPT_NAME": "baricitinib 4 MG Oral Tablet [Olumiant] Box of 28",
+            "DOMAIN_ID": "Drug",
+            "STANDARD_CONCEPT_CAPTION": "Standard",
+            "CONCEPT_CLASS_ID": "Branded Drug Box",
+            "INVALID_REASON": "V"
+          },
+          "includeMapped": false,
+          "includeDescendants": false
+        },
+        {
+          "isExcluded": false,
+          "concept": {
+            "INVALID_REASON_CAPTION": "Valid",
+            "CONCEPT_ID": 40743765,
+            "STANDARD_CONCEPT": "S",
+            "CONCEPT_CODE": "OMOP4713282",
+            "VOCABULARY_ID": "RxNorm Extension",
+            "CONCEPT_NAME": "baricitinib 4 MG Oral Tablet [Olumiant] Box of 28 by Eli Lilly",
+            "DOMAIN_ID": "Drug",
+            "STANDARD_CONCEPT_CAPTION": "Standard",
+            "CONCEPT_CLASS_ID": "Marketed Product",
+            "INVALID_REASON": "V"
+          },
+          "includeMapped": false,
+          "includeDescendants": false
+        },
+        {
+          "isExcluded": false,
+          "concept": {
+            "INVALID_REASON_CAPTION": "Valid",
+            "CONCEPT_ID": 44189254,
+            "STANDARD_CONCEPT": "S",
+            "CONCEPT_CODE": "OMOP3065977",
+            "VOCABULARY_ID": "RxNorm Extension",
+            "CONCEPT_NAME": "baricitinib 4 MG Oral Tablet [Olumiant] Box of 28 by Lilly",
+            "DOMAIN_ID": "Drug",
+            "STANDARD_CONCEPT_CAPTION": "Standard",
+            "CONCEPT_CLASS_ID": "Marketed Product",
+            "INVALID_REASON": "V"
+          },
+          "includeMapped": false,
+          "includeDescendants": false
+        },
+        {
+          "isExcluded": false,
+          "concept": {
+            "INVALID_REASON_CAPTION": "Valid",
+            "CONCEPT_ID": 40743764,
+            "STANDARD_CONCEPT": "S",
+            "CONCEPT_CODE": "OMOP4713283",
+            "VOCABULARY_ID": "RxNorm Extension",
+            "CONCEPT_NAME": "baricitinib 4 MG Oral Tablet [Olumiant] Box of 84",
+            "DOMAIN_ID": "Drug",
+            "STANDARD_CONCEPT_CAPTION": "Standard",
+            "CONCEPT_CLASS_ID": "Branded Drug Box",
+            "INVALID_REASON": "V"
+          },
+          "includeMapped": false,
+          "includeDescendants": false
+        },
+        {
+          "isExcluded": false,
+          "concept": {
+            "INVALID_REASON_CAPTION": "Valid",
+            "CONCEPT_ID": 40743763,
+            "STANDARD_CONCEPT": "S",
+            "CONCEPT_CODE": "OMOP4713284",
+            "VOCABULARY_ID": "RxNorm Extension",
+            "CONCEPT_NAME": "baricitinib 4 MG Oral Tablet [Olumiant] Box of 84 by Eli Lilly",
+            "DOMAIN_ID": "Drug",
+            "STANDARD_CONCEPT_CAPTION": "Standard",
+            "CONCEPT_CLASS_ID": "Marketed Product",
+            "INVALID_REASON": "V"
+          },
+          "includeMapped": false,
+          "includeDescendants": false
+        },
+        {
+          "isExcluded": false,
+          "concept": {
+            "INVALID_REASON_CAPTION": "Valid",
+            "CONCEPT_ID": 36421027,
+            "STANDARD_CONCEPT": "S",
+            "CONCEPT_CODE": "OMOP4763308",
+            "VOCABULARY_ID": "RxNorm Extension",
+            "CONCEPT_NAME": "baricitinib 4 MG Oral Tablet [Olumiant] Box of 98",
+            "DOMAIN_ID": "Drug",
+            "STANDARD_CONCEPT_CAPTION": "Standard",
+            "CONCEPT_CLASS_ID": "Branded Drug Box",
+            "INVALID_REASON": "V"
+          },
+          "includeMapped": false,
+          "includeDescendants": false
+        },
+        {
+          "isExcluded": false,
+          "concept": {
+            "INVALID_REASON_CAPTION": "Valid",
+            "CONCEPT_ID": 44161443,
+            "STANDARD_CONCEPT": "S",
+            "CONCEPT_CODE": "OMOP3038166",
+            "VOCABULARY_ID": "RxNorm Extension",
+            "CONCEPT_NAME": "baricitinib 4 MG Oral Tablet [Olumiant] Box of 98",
+            "DOMAIN_ID": "Drug",
+            "STANDARD_CONCEPT_CAPTION": "Standard",
+            "CONCEPT_CLASS_ID": "Branded Drug Box",
+            "INVALID_REASON": "V"
+          },
+          "includeMapped": false,
+          "includeDescendants": false
+        },
+        {
+          "isExcluded": false,
+          "concept": {
+            "INVALID_REASON_CAPTION": "Valid",
+            "CONCEPT_ID": 44170432,
+            "STANDARD_CONCEPT": "S",
+            "CONCEPT_CODE": "OMOP3047155",
+            "VOCABULARY_ID": "RxNorm Extension",
+            "CONCEPT_NAME": "baricitinib 4 MG Oral Tablet [Olumiant] Box of 98 by Lilly",
+            "DOMAIN_ID": "Drug",
+            "STANDARD_CONCEPT_CAPTION": "Standard",
+            "CONCEPT_CLASS_ID": "Marketed Product",
+            "INVALID_REASON": "V"
+          },
+          "includeMapped": false,
+          "includeDescendants": false
+        },
+        {
+          "isExcluded": false,
+          "concept": {
+            "INVALID_REASON_CAPTION": "Valid",
+            "CONCEPT_ID": 42875516,
+            "STANDARD_CONCEPT": "S",
+            "CONCEPT_CODE": "OMOP4872630",
+            "VOCABULARY_ID": "RxNorm Extension",
+            "CONCEPT_NAME": "baricitinib 4 MG Oral Tablet [Olumiant] Box of 98 by Orifarm Leverkus",
+            "DOMAIN_ID": "Drug",
+            "STANDARD_CONCEPT_CAPTION": "Standard",
+            "CONCEPT_CLASS_ID": "Marketed Product",
+            "INVALID_REASON": "V"
+          },
+          "includeMapped": false,
+          "includeDescendants": false
+        },
+        {
+          "isExcluded": false,
+          "concept": {
+            "INVALID_REASON_CAPTION": "Valid",
+            "CONCEPT_ID": 37592675,
+            "STANDARD_CONCEPT": "S",
+            "CONCEPT_CODE": "OMOP4782120",
+            "VOCABULARY_ID": "RxNorm Extension",
+            "CONCEPT_NAME": "baricitinib 4 MG Oral Tablet [Olumiant] by Abacus Medicine",
+            "DOMAIN_ID": "Drug",
+            "STANDARD_CONCEPT_CAPTION": "Standard",
+            "CONCEPT_CLASS_ID": "Marketed Product",
+            "INVALID_REASON": "V"
+          },
+          "includeMapped": false,
+          "includeDescendants": false
+        },
+        {
+          "isExcluded": false,
+          "concept": {
+            "INVALID_REASON_CAPTION": "Valid",
+            "CONCEPT_ID": 37592676,
+            "STANDARD_CONCEPT": "S",
+            "CONCEPT_CODE": "OMOP4782121",
+            "VOCABULARY_ID": "RxNorm Extension",
+            "CONCEPT_NAME": "baricitinib 4 MG Oral Tablet [Olumiant] by Cc",
+            "DOMAIN_ID": "Drug",
+            "STANDARD_CONCEPT_CAPTION": "Standard",
+            "CONCEPT_CLASS_ID": "Marketed Product",
+            "INVALID_REASON": "V"
+          },
+          "includeMapped": false,
+          "includeDescendants": false
+        },
+        {
+          "isExcluded": false,
+          "concept": {
+            "INVALID_REASON_CAPTION": "Valid",
+            "CONCEPT_ID": 40743767,
+            "STANDARD_CONCEPT": "S",
+            "CONCEPT_CODE": "OMOP4713280",
+            "VOCABULARY_ID": "RxNorm Extension",
+            "CONCEPT_NAME": "baricitinib 4 MG Oral Tablet [Olumiant] by Eli Lilly",
+            "DOMAIN_ID": "Drug",
+            "STANDARD_CONCEPT_CAPTION": "Standard",
+            "CONCEPT_CLASS_ID": "Marketed Product",
+            "INVALID_REASON": "V"
+          },
+          "includeMapped": false,
+          "includeDescendants": false
+        },
+        {
+          "isExcluded": false,
+          "concept": {
+            "INVALID_REASON_CAPTION": "Valid",
+            "CONCEPT_ID": 37592677,
+            "STANDARD_CONCEPT": "S",
+            "CONCEPT_CODE": "OMOP4782122",
+            "VOCABULARY_ID": "RxNorm Extension",
+            "CONCEPT_NAME": "baricitinib 4 MG Oral Tablet [Olumiant] by Haematogmbh",
+            "DOMAIN_ID": "Drug",
+            "STANDARD_CONCEPT_CAPTION": "Standard",
+            "CONCEPT_CLASS_ID": "Marketed Product",
+            "INVALID_REASON": "V"
+          },
+          "includeMapped": false,
+          "includeDescendants": false
+        },
+        {
+          "isExcluded": false,
+          "concept": {
+            "INVALID_REASON_CAPTION": "Valid",
+            "CONCEPT_ID": 994803,
+            "STANDARD_CONCEPT": "S",
+            "CONCEPT_CODE": "OMOP4821315",
+            "VOCABULARY_ID": "RxNorm Extension",
+            "CONCEPT_NAME": "baricitinib 4 MG Oral Tablet [Olumiant] by Kohlpharma",
+            "DOMAIN_ID": "Drug",
+            "STANDARD_CONCEPT_CAPTION": "Standard",
+            "CONCEPT_CLASS_ID": "Marketed Product",
+            "INVALID_REASON": "V"
+          },
+          "includeMapped": false,
+          "includeDescendants": false
+        },
+        {
+          "isExcluded": false,
+          "concept": {
+            "INVALID_REASON_CAPTION": "Valid",
+            "CONCEPT_ID": 2056663,
+            "STANDARD_CONCEPT": "S",
+            "CONCEPT_CODE": "OMOP4957501",
+            "VOCABULARY_ID": "RxNorm Extension",
+            "CONCEPT_NAME": "baricitinib 4 MG Oral Tablet [Olumiant] by Lilly",
+            "DOMAIN_ID": "Drug",
+            "STANDARD_CONCEPT_CAPTION": "Standard",
+            "CONCEPT_CLASS_ID": "Marketed Product",
+            "INVALID_REASON": "V"
+          },
+          "includeMapped": false,
+          "includeDescendants": false
+        },
+        {
+          "isExcluded": false,
+          "concept": {
+            "INVALID_REASON_CAPTION": "Valid",
+            "CONCEPT_ID": 40701750,
+            "STANDARD_CONCEPT": "N",
+            "CONCEPT_CODE": "34346011000001104",
+            "VOCABULARY_ID": "dm+d",
+            "CONCEPT_NAME": "Baricitinib 4mg tablets",
+            "DOMAIN_ID": "Drug",
+            "STANDARD_CONCEPT_CAPTION": "Non-Standard",
+            "CONCEPT_CLASS_ID": "VMP",
+            "INVALID_REASON": "V"
+          },
+          "includeMapped": false,
+          "includeDescendants": false
+        },
+        {
+          "isExcluded": false,
+          "concept": {
+            "INVALID_REASON_CAPTION": "Valid",
+            "CONCEPT_ID": 37104009,
+            "STANDARD_CONCEPT": "N",
+            "CONCEPT_CODE": "34346011000001104",
+            "VOCABULARY_ID": "SNOMED",
+            "CONCEPT_NAME": "Baricitinib 4mg tablets",
+            "DOMAIN_ID": "Drug",
+            "STANDARD_CONCEPT_CAPTION": "Non-Standard",
+            "CONCEPT_CLASS_ID": "Pharma/Biol Product",
+            "INVALID_REASON": "V"
+          },
+          "includeMapped": false,
+          "includeDescendants": false
+        },
+        {
+          "isExcluded": false,
+          "concept": {
+            "INVALID_REASON_CAPTION": "Valid",
+            "CONCEPT_ID": 42523077,
+            "STANDARD_CONCEPT": "N",
+            "CONCEPT_CODE": "24035978",
+            "VOCABULARY_ID": "Gemscript",
+            "CONCEPT_NAME": "Baricitinib 4mg tablets",
+            "DOMAIN_ID": "Drug",
+            "STANDARD_CONCEPT_CAPTION": "Non-Standard",
+            "CONCEPT_CLASS_ID": "Gemscript THIN",
+            "INVALID_REASON": "V"
+          },
+          "includeMapped": false,
+          "includeDescendants": false
+        },
+        {
+          "isExcluded": false,
+          "concept": {
+            "INVALID_REASON_CAPTION": "Valid",
+            "CONCEPT_ID": 42520682,
+            "STANDARD_CONCEPT": "N",
+            "CONCEPT_CODE": "75964021",
+            "VOCABULARY_ID": "Gemscript",
+            "CONCEPT_NAME": "Baricitinib 4mg tablets",
+            "DOMAIN_ID": "Drug",
+            "STANDARD_CONCEPT_CAPTION": "Non-Standard",
+            "CONCEPT_CLASS_ID": "Gemscript",
+            "INVALID_REASON": "V"
+          },
+          "includeMapped": false,
+          "includeDescendants": false
+        },
+        {
+          "isExcluded": false,
+          "concept": {
+            "INVALID_REASON_CAPTION": "Valid",
+            "CONCEPT_ID": 40701749,
+            "STANDARD_CONCEPT": "N",
+            "CONCEPT_CODE": "34345611000001101",
+            "VOCABULARY_ID": "dm+d",
+            "CONCEPT_NAME": "Baricitinib 4mg tablets 28 tablet",
+            "DOMAIN_ID": "Drug",
+            "STANDARD_CONCEPT_CAPTION": "Non-Standard",
+            "CONCEPT_CLASS_ID": "VMPP",
+            "INVALID_REASON": "V"
+          },
+          "includeMapped": false,
+          "includeDescendants": false
+        },
+        {
+          "isExcluded": false,
+          "concept": {
+            "INVALID_REASON_CAPTION": "Valid",
+            "CONCEPT_ID": 37106363,
+            "STANDARD_CONCEPT": "N",
+            "CONCEPT_CODE": "34345611000001101",
+            "VOCABULARY_ID": "SNOMED",
+            "CONCEPT_NAME": "Baricitinib 4mg tablets 28 tablet",
+            "DOMAIN_ID": "Drug",
+            "STANDARD_CONCEPT_CAPTION": "Non-Standard",
+            "CONCEPT_CLASS_ID": "Pharma/Biol Product",
+            "INVALID_REASON": "V"
+          },
+          "includeMapped": false,
+          "includeDescendants": false
+        },
+        {
+          "isExcluded": false,
+          "concept": {
+            "INVALID_REASON_CAPTION": "Valid",
+            "CONCEPT_ID": 40701748,
+            "STANDARD_CONCEPT": "N",
+            "CONCEPT_CODE": "34817511000001104",
+            "VOCABULARY_ID": "dm+d",
+            "CONCEPT_NAME": "Baricitinib 4mg tablets 84 tablet",
+            "DOMAIN_ID": "Drug",
+            "STANDARD_CONCEPT_CAPTION": "Non-Standard",
+            "CONCEPT_CLASS_ID": "VMPP",
+            "INVALID_REASON": "V"
+          },
+          "includeMapped": false,
+          "includeDescendants": false
+        },
+        {
+          "isExcluded": false,
+          "concept": {
+            "INVALID_REASON_CAPTION": "Valid",
+            "CONCEPT_ID": 42533663,
+            "STANDARD_CONCEPT": "N",
+            "CONCEPT_CODE": "34817511000001104",
+            "VOCABULARY_ID": "SNOMED",
+            "CONCEPT_NAME": "Baricitinib 4mg tablets 84 tablet",
+            "DOMAIN_ID": "Drug",
+            "STANDARD_CONCEPT_CAPTION": "Non-Standard",
+            "CONCEPT_CLASS_ID": "Pharma/Biol Product",
+            "INVALID_REASON": "V"
+          },
+          "includeMapped": false,
+          "includeDescendants": false
+        },
+        {
+          "isExcluded": false,
+          "concept": {
+            "INVALID_REASON_CAPTION": "Valid",
+            "CONCEPT_ID": 35622296,
+            "STANDARD_CONCEPT": "N",
+            "CONCEPT_CODE": "763701005",
+            "VOCABULARY_ID": "SNOMED",
+            "CONCEPT_NAME": "Baricitinib-containing product",
+            "DOMAIN_ID": "Drug",
+            "STANDARD_CONCEPT_CAPTION": "Non-Standard",
+            "CONCEPT_CLASS_ID": "Pharma/Biol Product",
+            "INVALID_REASON": "V"
+          },
+          "includeMapped": false,
+          "includeDescendants": false
+        },
+        {
+          "isExcluded": false,
+          "concept": {
+            "INVALID_REASON_CAPTION": "Valid",
+            "CONCEPT_ID": 35622583,
+            "STANDARD_CONCEPT": "N",
+            "CONCEPT_CODE": "764370002",
+            "VOCABULARY_ID": "SNOMED",
+            "CONCEPT_NAME": "Baricitinib-containing product in oral dose form",
+            "DOMAIN_ID": "Drug",
+            "STANDARD_CONCEPT_CAPTION": "Non-Standard",
+            "CONCEPT_CLASS_ID": "Clinical Drug Form",
+            "INVALID_REASON": "V"
+          },
+          "includeMapped": false,
+          "includeDescendants": false
+        },
+        {
+          "isExcluded": false,
+          "concept": {
+            "INVALID_REASON_CAPTION": "Valid",
+            "CONCEPT_ID": 36787591,
+            "STANDARD_CONCEPT": "S",
+            "CONCEPT_CODE": "OMOP4775857",
+            "VOCABULARY_ID": "RxNorm Extension",
+            "CONCEPT_NAME": "baricitinib Delayed Release Oral Tablet",
+            "DOMAIN_ID": "Drug",
+            "STANDARD_CONCEPT_CAPTION": "Standard",
+            "CONCEPT_CLASS_ID": "Clinical Drug Form",
+            "INVALID_REASON": "V"
+          },
+          "includeMapped": false,
+          "includeDescendants": false
+        },
+        {
+          "isExcluded": false,
+          "concept": {
+            "INVALID_REASON_CAPTION": "Valid",
+            "CONCEPT_ID": 36787590,
+            "STANDARD_CONCEPT": "S",
+            "CONCEPT_CODE": "OMOP4775856",
+            "VOCABULARY_ID": "RxNorm Extension",
+            "CONCEPT_NAME": "baricitinib Delayed Release Oral Tablet [Olumiant]",
+            "DOMAIN_ID": "Drug",
+            "STANDARD_CONCEPT_CAPTION": "Standard",
+            "CONCEPT_CLASS_ID": "Branded Drug Form",
+            "INVALID_REASON": "V"
+          },
+          "includeMapped": false,
+          "includeDescendants": false
+        },
+        {
+          "isExcluded": false,
+          "concept": {
+            "INVALID_REASON_CAPTION": "Valid",
+            "CONCEPT_ID": 36677336,
+            "STANDARD_CONCEPT": "N",
+            "CONCEPT_CODE": "774738004",
+            "VOCABULARY_ID": "SNOMED",
+            "CONCEPT_NAME": "Baricitinib only product",
+            "DOMAIN_ID": "Drug",
+            "STANDARD_CONCEPT_CAPTION": "Non-Standard",
+            "CONCEPT_CLASS_ID": "Pharma/Biol Product",
+            "INVALID_REASON": "V"
+          },
+          "includeMapped": false,
+          "includeDescendants": false
+        },
+        {
+          "isExcluded": false,
+          "concept": {
+            "INVALID_REASON_CAPTION": "Valid",
+            "CONCEPT_ID": 36680862,
+            "STANDARD_CONCEPT": "N",
+            "CONCEPT_CODE": "778429009",
+            "VOCABULARY_ID": "SNOMED",
+            "CONCEPT_NAME": "Baricitinib only product in oral dose form",
+            "DOMAIN_ID": "Drug",
+            "STANDARD_CONCEPT_CAPTION": "Non-Standard",
+            "CONCEPT_CLASS_ID": "Clinical Drug Form",
+            "INVALID_REASON": "V"
+          },
+          "includeMapped": false,
+          "includeDescendants": false
+        },
+        {
+          "isExcluded": false,
+          "concept": {
+            "INVALID_REASON_CAPTION": "Valid",
+            "CONCEPT_ID": 1123897,
+            "STANDARD_CONCEPT": "C",
+            "CONCEPT_CODE": "L04AA37",
+            "VOCABULARY_ID": "ATC",
+            "CONCEPT_NAME": "baricitinib; oral",
+            "DOMAIN_ID": "Drug",
+            "STANDARD_CONCEPT_CAPTION": "Classification",
+            "CONCEPT_CLASS_ID": "ATC 5th",
+            "INVALID_REASON": "V"
+          },
+          "includeMapped": false,
+          "includeDescendants": false
+        },
+        {
+          "isExcluded": false,
+          "concept": {
+            "INVALID_REASON_CAPTION": "Valid",
+            "CONCEPT_ID": 1510629,
+            "STANDARD_CONCEPT": "C",
+            "CONCEPT_CODE": "2047238",
+            "VOCABULARY_ID": "RxNorm",
+            "CONCEPT_NAME": "baricitinib Oral Product",
+            "DOMAIN_ID": "Drug",
+            "STANDARD_CONCEPT_CAPTION": "Classification",
+            "CONCEPT_CLASS_ID": "Clinical Dose Group",
+            "INVALID_REASON": "V"
+          },
+          "includeMapped": false,
+          "includeDescendants": false
+        },
+        {
+          "isExcluded": false,
+          "concept": {
+            "INVALID_REASON_CAPTION": "Valid",
+            "CONCEPT_ID": 1510631,
+            "STANDARD_CONCEPT": "S",
+            "CONCEPT_CODE": "2047240",
+            "VOCABULARY_ID": "RxNorm",
+            "CONCEPT_NAME": "baricitinib Oral Tablet",
+            "DOMAIN_ID": "Drug",
+            "STANDARD_CONCEPT_CAPTION": "Standard",
+            "CONCEPT_CLASS_ID": "Clinical Drug Form",
+            "INVALID_REASON": "V"
+          },
+          "includeMapped": false,
+          "includeDescendants": false
+        },
+        {
+          "isExcluded": false,
+          "concept": {
+            "INVALID_REASON_CAPTION": "Invalid",
+            "CONCEPT_ID": 44183234,
+            "STANDARD_CONCEPT": "N",
+            "CONCEPT_CODE": "OMOP3059957",
+            "VOCABULARY_ID": "RxNorm Extension",
+            "CONCEPT_NAME": "Baricitinib Oral Tablet",
+            "DOMAIN_ID": "Drug",
+            "STANDARD_CONCEPT_CAPTION": "Non-Standard",
+            "CONCEPT_CLASS_ID": "Clinical Drug Form",
+            "INVALID_REASON": "U"
+          },
+          "includeMapped": false,
+          "includeDescendants": false
+        },
+        {
+          "isExcluded": false,
+          "concept": {
+            "INVALID_REASON_CAPTION": "Valid",
+            "CONCEPT_ID": 1510635,
+            "STANDARD_CONCEPT": "S",
+            "CONCEPT_CODE": "2047244",
+            "VOCABULARY_ID": "RxNorm",
+            "CONCEPT_NAME": "baricitinib Oral Tablet [Olumiant]",
+            "DOMAIN_ID": "Drug",
+            "STANDARD_CONCEPT_CAPTION": "Standard",
+            "CONCEPT_CLASS_ID": "Branded Drug Form",
+            "INVALID_REASON": "V"
+          },
+          "includeMapped": false,
+          "includeDescendants": false
+        },
+        {
+          "isExcluded": false,
+          "concept": {
+            "INVALID_REASON_CAPTION": "Invalid",
+            "CONCEPT_ID": 44179594,
+            "STANDARD_CONCEPT": "N",
+            "CONCEPT_CODE": "OMOP3056317",
+            "VOCABULARY_ID": "RxNorm Extension",
+            "CONCEPT_NAME": "Baricitinib Oral Tablet [Olumiant]",
+            "DOMAIN_ID": "Drug",
+            "STANDARD_CONCEPT_CAPTION": "Non-Standard",
+            "CONCEPT_CLASS_ID": "Branded Drug Form",
+            "INVALID_REASON": "U"
+          },
+          "includeMapped": false,
+          "includeDescendants": false
+        },
+        {
+          "isExcluded": false,
+          "concept": {
+            "INVALID_REASON_CAPTION": "Valid",
+            "CONCEPT_ID": 1510630,
+            "STANDARD_CONCEPT": "C",
+            "CONCEPT_CODE": "2047239",
+            "VOCABULARY_ID": "RxNorm",
+            "CONCEPT_NAME": "baricitinib Pill",
+            "DOMAIN_ID": "Drug",
+            "STANDARD_CONCEPT_CAPTION": "Classification",
+            "CONCEPT_CLASS_ID": "Clinical Dose Group",
+            "INVALID_REASON": "V"
+          },
+          "includeMapped": false,
+          "includeDescendants": false
+        },
+        {
+          "isExcluded": false,
+          "concept": {
+            "INVALID_REASON_CAPTION": "Valid",
+            "CONCEPT_ID": 42639793,
+            "STANDARD_CONCEPT": "N",
+            "CONCEPT_CODE": "XW0H7M6",
+            "VOCABULARY_ID": "ICD10PCS",
+            "CONCEPT_NAME": "Introduction of baricitinib into lower GI, via natural or artificial opening, new technology group 6",
+            "DOMAIN_ID": "Drug",
+            "STANDARD_CONCEPT_CAPTION": "Non-Standard",
+            "CONCEPT_CLASS_ID": "ICD10PCS",
+            "INVALID_REASON": "V"
+          },
+          "includeMapped": false,
+          "includeDescendants": false
+        },
+        {
+          "isExcluded": false,
+          "concept": {
+            "INVALID_REASON_CAPTION": "Valid",
+            "CONCEPT_ID": 42639791,
+            "STANDARD_CONCEPT": "N",
+            "CONCEPT_CODE": "XW0DXM6",
+            "VOCABULARY_ID": "ICD10PCS",
+            "CONCEPT_NAME": "Introduction of baricitinib into mouth and pharynx, external approach, new technology group 6",
+            "DOMAIN_ID": "Drug",
+            "STANDARD_CONCEPT_CAPTION": "Non-Standard",
+            "CONCEPT_CLASS_ID": "ICD10PCS",
+            "INVALID_REASON": "V"
+          },
+          "includeMapped": false,
+          "includeDescendants": false
+        },
+        {
+          "isExcluded": false,
+          "concept": {
+            "INVALID_REASON_CAPTION": "Valid",
+            "CONCEPT_ID": 42639792,
+            "STANDARD_CONCEPT": "N",
+            "CONCEPT_CODE": "XW0G7M6",
+            "VOCABULARY_ID": "ICD10PCS",
+            "CONCEPT_NAME": "Introduction of baricitinib into upper GI, via natural or artificial opening, new technology group 6",
+            "DOMAIN_ID": "Drug",
+            "STANDARD_CONCEPT_CAPTION": "Non-Standard",
+            "CONCEPT_CLASS_ID": "ICD10PCS",
+            "INVALID_REASON": "V"
+          },
+          "includeMapped": false,
+          "includeDescendants": false
+        },
+        {
+          "isExcluded": false,
+          "concept": {
+            "INVALID_REASON_CAPTION": "Valid",
+            "CONCEPT_ID": 36151100,
+            "STANDARD_CONCEPT": "C",
+            "CONCEPT_CODE": "866e9f35-9035-4581-a4b1-75a621ab55cf",
+            "VOCABULARY_ID": "SPL",
+            "CONCEPT_NAME": "OLUMIANT - baricitinib tablet, film coated",
+            "DOMAIN_ID": "Drug",
+            "STANDARD_CONCEPT_CAPTION": "Classification",
+            "CONCEPT_CLASS_ID": "Prescription Drug",
+            "INVALID_REASON": "V"
+          },
+          "includeMapped": false,
+          "includeDescendants": false
+        }
+      ]},
+      "name": "baricitinib (EHDEN Use Case)",
+      "id": 10
+    }
+  ],
+  "EndStrategy": {"CustomEra": {
+    "DrugCodesetId": 10,
+    "DaysSupplyOverride": null,
+    "GapDays": 30,
+    "Offset": 0
+  }},
+  "cdmVersionRange": ">=5.0.0",
+  "CensoringCriteria": [],
+  "QualifiedLimit": {"Type": "First"},
+  "InclusionRules": [
+    {
+      "expression": {
+        "CriteriaList": [{
+          "RestrictVisit": false,
+          "StartWindow": {
+            "UseEventEnd": false,
+            "Start": {
+              "Days": 365,
+              "Coeff": -1
+            },
+            "End": {
+              "Days": 1,
+              "Coeff": -1
+            },
+            "UseIndexEnd": false
+          },
+          "IgnoreObservationPeriod": false,
+          "EndWindow": null,
+          "Criteria": {"DrugExposure": {
+            "OccurrenceEndDate": null,
+            "CorrelatedCriteria": null,
+            "DrugSourceConcept": null,
+            "CodesetId": 10,
+            "DrugTypeExclude": false,
+            "Quantity": null,
+            "DrugType": null,
+            "ProviderSpecialty": null,
+            "EffectiveDrugDose": null,
+            "Gender": null,
+            "DaysSupply": null,
+            "DoseUnit": null,
+            "VisitType": null,
+            "Refills": null,
+            "First": null,
+            "OccurrenceStartDate": null,
+            "RouteConcept": null,
+            "StopReason": null,
+            "LotNumber": null,
+            "Age": null
+          }},
+          "Occurrence": {
+            "Type": 0,
+            "CountColumn": null,
+            "IsDistinct": false,
+            "Count": 0
+          }
+        }],
+        "Type": "ALL",
+        "DemographicCriteriaList": [],
+        "Groups": [],
+        "Count": null
+      },
+      "name": "no drugs in 365 days prior to index",
+      "description": null
+    },
+    {
+      "expression": {
+        "CriteriaList": [{
+          "RestrictVisit": false,
+          "StartWindow": {
+            "UseEventEnd": false,
+            "Start": {
+              "Days": 30,
+              "Coeff": -1
+            },
+            "End": {
+              "Days": 0,
+              "Coeff": 1
+            },
+            "UseIndexEnd": false
+          },
+          "IgnoreObservationPeriod": false,
+          "EndWindow": null,
+          "Criteria": {"VisitOccurrence": {
+            "OccurrenceEndDate": null,
+            "VisitLength": null,
+            "CorrelatedCriteria": null,
+            "VisitSourceConcept": null,
+            "CodesetId": 1,
+            "VisitTypeExclude": false,
+            "ProviderSpecialty": null,
+            "Gender": null,
+            "PlaceOfServiceLocation": null,
+            "PlaceOfService": null,
+            "VisitType": null,
+            "First": null,
+            "OccurrenceStartDate": null,
+            "Age": null
+          }},
+          "Occurrence": {
+            "Type": 2,
+            "CountColumn": null,
+            "IsDistinct": false,
+            "Count": 1
+          }
+        }],
+        "Type": "ALL",
+        "DemographicCriteriaList": [],
+        "Groups": [],
+        "Count": null
+      },
+      "name": "Inpatient Visit",
+      "description": null
+    },
+    {
+      "expression": {
+        "CriteriaList": [],
+        "Type": "ALL",
+        "DemographicCriteriaList": [{
+          "Ethnicity": null,
+          "OccurrenceEndDate": null,
+          "Race": null,
+          "Gender": null,
+          "OccurrenceStartDate": null,
+          "Age": {
+            "Op": "gt",
+            "Extent": null,
+            "Value": 18
+          }
+        }],
+        "Groups": [],
+        "Count": null
+      },
+      "name": "At least 18 years old",
+      "description": null
+    },
+    {
+      "expression": {
+        "CriteriaList": [
+          {
+            "RestrictVisit": false,
+            "StartWindow": {
+              "UseEventEnd": false,
+              "Start": {
+                "Days": 30,
+                "Coeff": -1
+              },
+              "End": {
+                "Days": null,
+                "Coeff": 1
+              },
+              "UseIndexEnd": false
+            },
+            "IgnoreObservationPeriod": false,
+            "EndWindow": {
+              "UseEventEnd": false,
+              "Start": {
+                "Days": null,
+                "Coeff": -1
+              },
+              "End": {
+                "Days": 0,
+                "Coeff": 1
+              },
+              "UseIndexEnd": true
+            },
+            "Criteria": {"Measurement": {
+              "Operator": null,
+              "RangeHigh": null,
+              "MeasurementTypeExclude": false,
+              "ValueAsConcept": null,
+              "CorrelatedCriteria": null,
+              "RangeHighRatio": null,
+              "CodesetId": 5,
+              "ProviderSpecialty": null,
+              "Gender": null,
+              "Unit": null,
+              "RangeLowRatio": null,
+              "MeasurementType": null,
+              "MeasurementSourceConcept": null,
+              "VisitType": null,
+              "ValueAsNumber": null,
+              "First": null,
+              "OccurrenceStartDate": null,
+              "RangeLow": null,
+              "Abnormal": null,
+              "Age": null
+            }},
+            "Occurrence": {
+              "Type": 2,
+              "CountColumn": null,
+              "IsDistinct": false,
+              "Count": 1
+            }
+          },
+          {
+            "RestrictVisit": false,
+            "StartWindow": {
+              "UseEventEnd": false,
+              "Start": {
+                "Days": 30,
+                "Coeff": -1
+              },
+              "End": {
+                "Days": null,
+                "Coeff": 1
+              },
+              "UseIndexEnd": false
+            },
+            "IgnoreObservationPeriod": false,
+            "EndWindow": {
+              "UseEventEnd": false,
+              "Start": {
+                "Days": null,
+                "Coeff": -1
+              },
+              "End": {
+                "Days": 0,
+                "Coeff": 1
+              },
+              "UseIndexEnd": true
+            },
+            "Criteria": {"Measurement": {
+              "Operator": null,
+              "RangeHigh": null,
+              "MeasurementTypeExclude": false,
+              "ValueAsConcept": [
+                {
+                  "INVALID_REASON_CAPTION": "Unknown",
+                  "CONCEPT_ID": 4126681,
+                  "STANDARD_CONCEPT": null,
+                  "CONCEPT_CODE": "260373001",
+                  "VOCABULARY_ID": "SNOMED",
+                  "CONCEPT_NAME": "Detected",
+                  "DOMAIN_ID": "Meas Value",
+                  "STANDARD_CONCEPT_CAPTION": "Unknown",
+                  "CONCEPT_CLASS_ID": null,
+                  "INVALID_REASON": null
+                },
+                {
+                  "INVALID_REASON_CAPTION": "Unknown",
+                  "CONCEPT_ID": 45877985,
+                  "STANDARD_CONCEPT": null,
+                  "CONCEPT_CODE": "LA11882-0",
+                  "VOCABULARY_ID": "LOINC",
+                  "CONCEPT_NAME": "Detected",
+                  "DOMAIN_ID": "Meas Value",
+                  "STANDARD_CONCEPT_CAPTION": "Unknown",
+                  "CONCEPT_CLASS_ID": null,
+                  "INVALID_REASON": null
+                },
+                {
+                  "INVALID_REASON_CAPTION": "Unknown",
+                  "CONCEPT_ID": 9191,
+                  "STANDARD_CONCEPT": null,
+                  "CONCEPT_CODE": "10828004",
+                  "VOCABULARY_ID": "SNOMED",
+                  "CONCEPT_NAME": "Positive",
+                  "DOMAIN_ID": "Meas Value",
+                  "STANDARD_CONCEPT_CAPTION": "Unknown",
+                  "CONCEPT_CLASS_ID": null,
+                  "INVALID_REASON": null
+                },
+                {
+                  "INVALID_REASON_CAPTION": "Unknown",
+                  "CONCEPT_ID": 45884084,
+                  "STANDARD_CONCEPT": null,
+                  "CONCEPT_CODE": "LA6576-8",
+                  "VOCABULARY_ID": "LOINC",
+                  "CONCEPT_NAME": "Positive",
+                  "DOMAIN_ID": "Meas Value",
+                  "STANDARD_CONCEPT_CAPTION": "Unknown",
+                  "CONCEPT_CLASS_ID": null,
+                  "INVALID_REASON": null
+                },
+                {
+                  "INVALID_REASON_CAPTION": "Unknown",
+                  "CONCEPT_ID": 4181412,
+                  "STANDARD_CONCEPT": null,
+                  "CONCEPT_CODE": "52101004",
+                  "VOCABULARY_ID": "SNOMED",
+                  "CONCEPT_NAME": "Present",
+                  "DOMAIN_ID": "Meas Value",
+                  "STANDARD_CONCEPT_CAPTION": "Unknown",
+                  "CONCEPT_CLASS_ID": null,
+                  "INVALID_REASON": null
+                },
+                {
+                  "INVALID_REASON_CAPTION": "Unknown",
+                  "CONCEPT_ID": 45879438,
+                  "STANDARD_CONCEPT": null,
+                  "CONCEPT_CODE": "LA9633-4",
+                  "VOCABULARY_ID": "LOINC",
+                  "CONCEPT_NAME": "Present",
+                  "DOMAIN_ID": "Meas Value",
+                  "STANDARD_CONCEPT_CAPTION": "Unknown",
+                  "CONCEPT_CLASS_ID": null,
+                  "INVALID_REASON": null
+                }
+              ],
+              "CorrelatedCriteria": null,
+              "RangeHighRatio": null,
+              "CodesetId": 6,
+              "ProviderSpecialty": null,
+              "Gender": null,
+              "Unit": null,
+              "RangeLowRatio": null,
+              "MeasurementType": null,
+              "MeasurementSourceConcept": null,
+              "VisitType": null,
+              "ValueAsNumber": null,
+              "First": null,
+              "OccurrenceStartDate": null,
+              "RangeLow": null,
+              "Abnormal": null,
+              "Age": null
+            }},
+            "Occurrence": {
+              "Type": 2,
+              "CountColumn": null,
+              "IsDistinct": false,
+              "Count": 1
+            }
+          },
+          {
+            "RestrictVisit": false,
+            "StartWindow": {
+              "UseEventEnd": false,
+              "Start": {
+                "Days": 30,
+                "Coeff": -1
+              },
+              "End": {
+                "Days": null,
+                "Coeff": 1
+              },
+              "UseIndexEnd": false
+            },
+            "IgnoreObservationPeriod": false,
+            "EndWindow": {
+              "UseEventEnd": false,
+              "Start": {
+                "Days": null,
+                "Coeff": -1
+              },
+              "End": {
+                "Days": 0,
+                "Coeff": 1
+              },
+              "UseIndexEnd": true
+            },
+            "Criteria": {"Observation": {
+              "ValueAsConcept": [
+                {
+                  "INVALID_REASON_CAPTION": "Unknown",
+                  "CONCEPT_ID": 4126681,
+                  "STANDARD_CONCEPT": null,
+                  "CONCEPT_CODE": "260373001",
+                  "VOCABULARY_ID": "SNOMED",
+                  "CONCEPT_NAME": "Detected",
+                  "DOMAIN_ID": "Meas Value",
+                  "STANDARD_CONCEPT_CAPTION": "Unknown",
+                  "CONCEPT_CLASS_ID": null,
+                  "INVALID_REASON": null
+                },
+                {
+                  "INVALID_REASON_CAPTION": "Unknown",
+                  "CONCEPT_ID": 45877985,
+                  "STANDARD_CONCEPT": null,
+                  "CONCEPT_CODE": "LA11882-0",
+                  "VOCABULARY_ID": "LOINC",
+                  "CONCEPT_NAME": "Detected",
+                  "DOMAIN_ID": "Meas Value",
+                  "STANDARD_CONCEPT_CAPTION": "Unknown",
+                  "CONCEPT_CLASS_ID": null,
+                  "INVALID_REASON": null
+                },
+                {
+                  "INVALID_REASON_CAPTION": "Unknown",
+                  "CONCEPT_ID": 9191,
+                  "STANDARD_CONCEPT": null,
+                  "CONCEPT_CODE": "10828004",
+                  "VOCABULARY_ID": "SNOMED",
+                  "CONCEPT_NAME": "Positive",
+                  "DOMAIN_ID": "Meas Value",
+                  "STANDARD_CONCEPT_CAPTION": "Unknown",
+                  "CONCEPT_CLASS_ID": null,
+                  "INVALID_REASON": null
+                },
+                {
+                  "INVALID_REASON_CAPTION": "Unknown",
+                  "CONCEPT_ID": 45884084,
+                  "STANDARD_CONCEPT": null,
+                  "CONCEPT_CODE": "LA6576-8",
+                  "VOCABULARY_ID": "LOINC",
+                  "CONCEPT_NAME": "Positive",
+                  "DOMAIN_ID": "Meas Value",
+                  "STANDARD_CONCEPT_CAPTION": "Unknown",
+                  "CONCEPT_CLASS_ID": null,
+                  "INVALID_REASON": null
+                },
+                {
+                  "INVALID_REASON_CAPTION": "Unknown",
+                  "CONCEPT_ID": 4181412,
+                  "STANDARD_CONCEPT": null,
+                  "CONCEPT_CODE": "52101004",
+                  "VOCABULARY_ID": "SNOMED",
+                  "CONCEPT_NAME": "Present",
+                  "DOMAIN_ID": "Meas Value",
+                  "STANDARD_CONCEPT_CAPTION": "Unknown",
+                  "CONCEPT_CLASS_ID": null,
+                  "INVALID_REASON": null
+                },
+                {
+                  "INVALID_REASON_CAPTION": "Unknown",
+                  "CONCEPT_ID": 45879438,
+                  "STANDARD_CONCEPT": null,
+                  "CONCEPT_CODE": "LA9633-4",
+                  "VOCABULARY_ID": "LOINC",
+                  "CONCEPT_NAME": "Present",
+                  "DOMAIN_ID": "Meas Value",
+                  "STANDARD_CONCEPT_CAPTION": "Unknown",
+                  "CONCEPT_CLASS_ID": null,
+                  "INVALID_REASON": null
+                }
+              ],
+              "ObservationType": null,
+              "CorrelatedCriteria": null,
+              "ObservationTypeExclude": false,
+              "ValueAsString": null,
+              "CodesetId": 6,
+              "ProviderSpecialty": null,
+              "Gender": null,
+              "Unit": null,
+              "ObservationSourceConcept": null,
+              "VisitType": null,
+              "ValueAsNumber": null,
+              "Qualifier": null,
+              "First": null,
+              "OccurrenceStartDate": null,
+              "Age": null
+            }},
+            "Occurrence": {
+              "Type": 2,
+              "CountColumn": null,
+              "IsDistinct": false,
+              "Count": 1
+            }
+          },
+          {
+            "RestrictVisit": false,
+            "StartWindow": {
+              "UseEventEnd": false,
+              "Start": {
+                "Days": 30,
+                "Coeff": -1
+              },
+              "End": {
+                "Days": null,
+                "Coeff": 1
+              },
+              "UseIndexEnd": false
+            },
+            "IgnoreObservationPeriod": false,
+            "EndWindow": {
+              "UseEventEnd": false,
+              "Start": {
+                "Days": null,
+                "Coeff": -1
+              },
+              "End": {
+                "Days": 0,
+                "Coeff": 1
+              },
+              "UseIndexEnd": false
+            },
+            "Criteria": {"ConditionOccurrence": {
+              "OccurrenceEndDate": null,
+              "CorrelatedCriteria": null,
+              "ConditionTypeExclude": false,
+              "CodesetId": 7,
+              "ProviderSpecialty": null,
+              "Gender": null,
+              "VisitType": null,
+              "First": null,
+              "OccurrenceStartDate": null,
+              "ConditionType": null,
+              "ConditionSourceConcept": null,
+              "ConditionStatus": null,
+              "StopReason": null,
+              "Age": null
+            }},
+            "Occurrence": {
+              "Type": 2,
+              "CountColumn": null,
+              "IsDistinct": false,
+              "Count": 1
+            }
+          }
+        ],
+        "Type": "ANY",
+        "DemographicCriteriaList": [],
+        "Groups": [],
+        "Count": null
+      },
+      "name": "COVID-19 Infection",
+      "description": null
+    },
+    {
+      "expression": {
+        "CriteriaList": [{
+          "RestrictVisit": false,
+          "StartWindow": {
+            "UseEventEnd": false,
+            "Start": {
+              "Days": 30,
+              "Coeff": -1
+            },
+            "End": {
+              "Days": 0,
+              "Coeff": 1
+            },
+            "UseIndexEnd": false
+          },
+          "IgnoreObservationPeriod": false,
+          "EndWindow": null,
+          "Criteria": {"Observation": {
+            "ValueAsConcept": null,
+            "ObservationType": null,
+            "CorrelatedCriteria": null,
+            "ObservationTypeExclude": false,
+            "ValueAsString": null,
+            "CodesetId": 4,
+            "ProviderSpecialty": null,
+            "Gender": null,
+            "Unit": null,
+            "ObservationSourceConcept": null,
+            "VisitType": null,
+            "ValueAsNumber": null,
+            "Qualifier": null,
+            "First": null,
+            "OccurrenceStartDate": null,
+            "Age": null
+          }},
+          "Occurrence": {
+            "Type": 0,
+            "CountColumn": null,
+            "IsDistinct": false,
+            "Count": 0
+          }
+        }],
+        "Type": "ALL",
+        "DemographicCriteriaList": [],
+        "Groups": [],
+        "Count": null
+      },
+      "name": "No discharge before index start",
+      "description": null
+    },
+    {
+      "expression": {
+        "CriteriaList": [{
+          "RestrictVisit": false,
+          "StartWindow": {
+            "UseEventEnd": false,
+            "Start": {
+              "Days": 30,
+              "Coeff": -1
+            },
+            "End": {
+              "Days": null,
+              "Coeff": 1
+            },
+            "UseIndexEnd": false
+          },
+          "IgnoreObservationPeriod": false,
+          "EndWindow": null,
+          "Criteria": {"DrugExposure": {
+            "OccurrenceEndDate": null,
+            "CorrelatedCriteria": null,
+            "DrugSourceConcept": null,
+            "CodesetId": 8,
+            "DrugTypeExclude": false,
+            "Quantity": null,
+            "DrugType": null,
+            "ProviderSpecialty": null,
+            "EffectiveDrugDose": null,
+            "Gender": null,
+            "DaysSupply": null,
+            "DoseUnit": null,
+            "VisitType": null,
+            "Refills": null,
+            "First": null,
+            "OccurrenceStartDate": null,
+            "RouteConcept": null,
+            "StopReason": null,
+            "LotNumber": null,
+            "Age": null
+          }},
+          "Occurrence": {
+            "Type": 2,
+            "CountColumn": null,
+            "IsDistinct": false,
+            "Count": 1
+          }
+        }],
+        "Type": "ALL",
+        "DemographicCriteriaList": [],
+        "Groups": [],
+        "Count": null
+      },
+      "name": "Receiving Oxygen",
+      "description": null
+    }
+  ],
+  "PrimaryCriteria": {
+    "CriteriaList": [{"DrugExposure": {
+      "OccurrenceEndDate": null,
+      "CorrelatedCriteria": null,
+      "DrugSourceConcept": null,
+      "CodesetId": 10,
+      "DrugTypeExclude": true,
+      "Quantity": null,
+      "DrugType": null,
+      "ProviderSpecialty": null,
+      "EffectiveDrugDose": null,
+      "Gender": null,
+      "DaysSupply": null,
+      "DoseUnit": null,
+      "VisitType": null,
+      "Refills": null,
+      "First": null,
+      "OccurrenceStartDate": {
+        "Op": "gte",
+        "Extent": null,
+        "Value": "2020-01-01"
+      },
+      "RouteConcept": null,
+      "StopReason": null,
+      "LotNumber": null,
+      "Age": null
+    }}],
+    "PrimaryCriteriaLimit": {"Type": "First"},
+    "ObservationWindow": {
+      "PostDays": 0,
+      "PriorDays": 365
+    }
+  }
+}
