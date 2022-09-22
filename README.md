@@ -10,7 +10,7 @@ EHDEN COVID Use Case
 - Study lead forums tag: **[Ravinder Claire](https://forums.ohdsi.org/u/ravclaire) , [Christina Read](https://forums.ohdsi.org/u/christina_read) , [lead](https://forums.ohdsi.org/)]**
 - Study start date: **-**
 - Study end date: **-**
-- Protocol: [EHDEN Use Case Protocol.pdf](https://github.com/christinaread/EHDENUseCase/files/9027963/EHDEN.Use.Case.Protocol.pdf)
+- Protocol: [EHDEN Use Case Protocol.pdf](https://github.com/ohdsi-studies/EhdenCovidUseCase/blob/Minus-Criteria-1/documents/EHDEN%20Use%20Case%20Protocol.pdf)
 - Results explorer: **-**
 
 The aim of this study is to estimate treatment effects for COVID-19 treatments using data from the EHDEN network and to combine these observational results with data from randomised studies.
