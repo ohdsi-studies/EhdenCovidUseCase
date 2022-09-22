@@ -43,7 +43,7 @@ How to run
 
     ```r
     install.packages("renv")
-    download.file("https://raw.githubusercontent.com/ohdsi-studies/EhdenCovidUseCase/main/renv.lock", "renv.lock")
+    download.file("https://github.com/ohdsi-studies/EhdenCovidUseCase/blob/Minus-Criteria-1/renv.lock", "renv.lock")
     renv::init()
     ```  
     
