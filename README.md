@@ -1,5 +1,29 @@
-StudyPackage
-==============================
+EHDEN COVID Use Case
+=============
+
+<img src="https://camo.githubusercontent.com/6a807f81d8ed58fdaab1b8b8d7391a347907567ec8771dfb4d1b8faa7ba0e61b/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f53747564792532305374617475732d5265706f253230437265617465642d6c69676874677261792e737667" alt="Study Status: Protocol in Progress">
+
+- Analytics use case(s): Estimation
+- Study type: Clinical Application
+- Tags: OHDSI, COVID-19
+- Study lead: **-**
+- Study lead forums tag: **[Ravinder Claire](https://forums.ohdsi.org/u/ravclaire) , [Christina Read](https://forums.ohdsi.org/u/christina_read) , [lead](https://forums.ohdsi.org/)]**
+- Study start date: **-**
+- Study end date: **-**
+- Protocol: [EHDEN Use Case Protocol.pdf](https://github.com/christinaread/EHDENUseCase/files/9027963/EHDEN.Use.Case.Protocol.pdf)
+- Results explorer: **-**
+
+The aim of this study is to estimate treatment effects for COVID-19 treatments using data from the EHDEN network and to combine these observational results with data from randomised studies.
+
+Primary objectives: 
+1) To assess comparative effectiveness and safety among Tocilizumab, Baricitinib, and Remdesivir in hospitalised patients
+2) To assess comparative effectiveness and safety among Aspirin and Heparin in hospitalised patients 
+
+Subgroup Analyses:
+1) Effectiveness and safety in ICU patients  
+2) Effectiveness and safety in patients receiving corticosteroids
+3) Effectiveness and safety in patients receiving oxygen
+
 
 
 Requirements
@@ -19,7 +43,7 @@ How to run
 
     ```r
     install.packages("renv")
-    download.file("https://raw.githubusercontent.com/ohdsi-studies/StudyPackage/main/renv.lock", "renv.lock")
+    download.file("https://raw.githubusercontent.com/ohdsi-studies/EhdenCovidUseCase/main/renv.lock", "renv.lock")
     renv::init()
     ```  
     
