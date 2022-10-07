@@ -1,4 +1,6 @@
 EHDEN COVID Use Case
+This version contains the simplified PS models (no covariates, Age + sex, or CCI + Sex). For the model containing the full PS model, visit the branch "Hydrated Minus Criteria 1"
+
 =============
 
 <img src="https://camo.githubusercontent.com/6a807f81d8ed58fdaab1b8b8d7391a347907567ec8771dfb4d1b8faa7ba0e61b/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f53747564792532305374617475732d5265706f253230437265617465642d6c69676874677261792e737667" alt="Study Status: Protocol in Progress">
@@ -64,7 +66,7 @@ How to run
     minCellCount <- 5
 	
     # The folder where the study intermediate and result files will be written:
-    outputFolder <- "c:/EHDENUseCase3.2"
+    outputFolder <- "c:/EHDENUseCase4.2"
 	
     # Details for connecting to the server:
     # See ?DatabaseConnector::createConnectionDetails for help
