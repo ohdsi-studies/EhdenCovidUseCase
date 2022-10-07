@@ -52,7 +52,7 @@ How to run
 3. Once installed, you can execute the study by modifying and using the code below. For your convenience, this code is also provided under `extras/CodeToRun.R`:
 
     ```r
-    library(EHDENUseCase3.2)
+    library(EHDENUseCase4.2)
 
     # Optional: specify where the temporary files (used by the Andromeda package) will be created:
     options(andromedaTempFolder = "s:/andromedaTemp")
@@ -117,8 +117,8 @@ How to run
 
 License
 =======
-The EHDENUseCase3.2 package is licensed under Apache License 2.0
+The EHDENUseCase4.2 package is licensed under Apache License 2.0
 
 Development
 ===========
-EHDENUseCase3.2 was developed in ATLAS and R Studio.
+EHDENUseCase4.2 was developed in ATLAS and R Studio.
