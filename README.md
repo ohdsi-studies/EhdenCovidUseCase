@@ -55,7 +55,7 @@ How to run
 3. Once installed, you can execute the study by modifying and using the code below. For your convenience, this code is also provided under `extras/CodeToRun.R`:
 
     ```r
-    library(EHDENUseCase4.2)
+    library(EHDENUseCase4.3)
 
     # Optional: specify where the temporary files (used by the Andromeda package) will be created:
     options(andromedaTempFolder = "s:/andromedaTemp")
@@ -67,7 +67,7 @@ How to run
     minCellCount <- 5
 	
     # The folder where the study intermediate and result files will be written:
-    outputFolder <- "c:/EHDENUseCase4.2"
+    outputFolder <- "c:/EHDENUseCase4.3"
 	
     # Details for connecting to the server:
     # See ?DatabaseConnector::createConnectionDetails for help
@@ -120,8 +120,8 @@ How to run
 
 License
 =======
-The EHDENUseCase4.2 package is licensed under Apache License 2.0
+The EHDENUseCase4.3 package is licensed under Apache License 2.0
 
 Development
 ===========
-EHDENUseCase4.2 was developed in ATLAS and R Studio.
+EHDENUseCase4.3 was developed in ATLAS and R Studio.
