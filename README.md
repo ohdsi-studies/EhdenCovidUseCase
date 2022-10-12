@@ -1,6 +1,6 @@
 EHDEN COVID Use Case
 
-This version contains the simplified PS model with no covariates. For the study package containing the full PS model, visit the branch "Hydrated Minus Criteria 1"
+This version contains the simplified PS model with no covariates. For the study package containing the full PS model, visit the branch "Hydrated Minus Criteria 1".
 
 =============
 
