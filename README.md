@@ -1,6 +1,6 @@
 EHDEN COVID Use Case
 
-This version contains the simplified PS models (no covariates, Age + sex, or CCI + Sex). For the study package containing the full PS model, visit the branch "Hydrated Minus Criteria 1"
+This version contains a full PS model for only the comparisons between Remdesivir and Tocilizumab.
 
 =============
 
@@ -46,7 +46,7 @@ How to run
 
     ```r
     install.packages("renv")
-    download.file("https://raw.githubusercontent.com/ohdsi-studies/EhdenCovidUseCase/HydratedMinusCriteria1/renv.lock", "renv.lock")
+    download.file("https://raw.githubusercontent.com/ohdsi-studies/EHDENUseCase6.1RemToc/main/renv.lock", "renv.lock")
     renv::init()
     ```  
     
@@ -55,7 +55,7 @@ How to run
 3. Once installed, you can execute the study by modifying and using the code below. For your convenience, this code is also provided under `extras/CodeToRun.R`:
 
     ```r
-    library(EHDENUseCase4.3)
+    library(EHDENUseCase6.1RemToc)
 
     # Optional: specify where the temporary files (used by the Andromeda package) will be created:
     options(andromedaTempFolder = "s:/andromedaTemp")
@@ -67,7 +67,7 @@ How to run
     minCellCount <- 5
 	
     # The folder where the study intermediate and result files will be written:
-    outputFolder <- "c:/EHDENUseCase4.3"
+    outputFolder <- "c:/EHDENUseCase6.1RemToc"
 	
     # Details for connecting to the server:
     # See ?DatabaseConnector::createConnectionDetails for help
@@ -120,8 +120,8 @@ How to run
 
 License
 =======
-The EHDENUseCase4.3 package is licensed under Apache License 2.0
+The EHDENUseCase6.1RemToc package is licensed under Apache License 2.0
 
 Development
 ===========
-EHDENUseCase4.3 was developed in ATLAS and R Studio.
+EHDENUseCase6.1RemToc was developed in ATLAS and R Studio.
