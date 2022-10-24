@@ -43,7 +43,7 @@ How to run
 
     ```r
     install.packages("renv")
-    download.file("https://raw.githubusercontent.com/ohdsi-studies/EhdenCovidUseCase/HydratedMinusCriteria1/renv.lock", "renv.lock")
+    download.file("https://raw.githubusercontent.com/ohdsi-studies/EHDENUseCase6.5full/main/renv.lock", "renv.lock")
     renv::init()
     ```  
     
@@ -52,7 +52,7 @@ How to run
 3. Once installed, you can execute the study by modifying and using the code below. For your convenience, this code is also provided under `extras/CodeToRun.R`:
 
     ```r
-    library(EHDENUseCase3.2)
+    library(EHDENUseCase6.5full)
 
     # Optional: specify where the temporary files (used by the Andromeda package) will be created:
     options(andromedaTempFolder = "s:/andromedaTemp")
@@ -64,7 +64,7 @@ How to run
     minCellCount <- 5
 	
     # The folder where the study intermediate and result files will be written:
-    outputFolder <- "c:/EHDENUseCase3.2"
+    outputFolder <- "c:/EHDENUseCase6.5full"
 	
     # Details for connecting to the server:
     # See ?DatabaseConnector::createConnectionDetails for help
@@ -117,8 +117,8 @@ How to run
 
 License
 =======
-The EHDENUseCase3.2 package is licensed under Apache License 2.0
+The EHDENUseCase6.5full package is licensed under Apache License 2.0
 
 Development
 ===========
-EHDENUseCase3.2 was developed in ATLAS and R Studio.
+EHDENUseCase6.5full was developed in ATLAS and R Studio.
