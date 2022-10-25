@@ -46,7 +46,7 @@ How to run
 
     ```r
     install.packages("renv")
-    download.file("https://raw.githubusercontent.com/ohdsi-studies/EHDENUseCase6.3AgeSex/main/renv.lock", "renv.lock")
+    download.file("https://github.com/ohdsi-studies/EhdenCovidUseCase/blob/SimplifiedPSAgeSex/renv.lock", "renv.lock")
     renv::init()
     ```  
     
