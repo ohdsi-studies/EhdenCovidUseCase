@@ -1,6 +1,6 @@
 EHDEN COVID Use Case
 
-This version contains the simplified PS models (no covariates, Age + sex, or CCI + Sex). For the study package containing the full PS model, visit the branch "Hydrated Minus Criteria 1"
+Note: This is not the most updated version of this study package. This version contains the simplified PS models (no covariates, Age + sex, or CCI + Sex). For the most up to date study package containing the full PS model, visit the branch "Hydrated Minus Criteria 1"
 
 =============
 
