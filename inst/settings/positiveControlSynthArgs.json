@@ -24,7 +24,7 @@
     "convergenceType": "gradient",
     "tuneSwindle": 10,
     "maxBoundCount": 5,
-    "tolerance": 1.0E-6,
+    "tolerance": 0.000001,
     "algorithm": "ccd"
   },
   "washoutPeriod": 365,

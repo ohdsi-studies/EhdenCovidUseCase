@@ -1,6 +1,6 @@
-# Copyright 2020 Observational Health Data Sciences and Informatics
+# Copyright 2022 Observational Health Data Sciences and Informatics
 #
-# This file is part of EHDENCOVIDUseCase2
+# This file is part of StudyPackage
 # 
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -33,8 +33,11 @@
 #'
 #' @export
 prepareForEvidenceExplorer <- function(resultsZipFile, dataFolder) {
-  # resultsZipFile <- "c:/temp/ResultsMDCD.zip"
-  # dataFolder <- "c:/temp/shinyData"
+  resultsZipFile <- normalizePath(resultsZipFile, mustWork = FALSE)
+  dataFolder <- normalizePath(dataFolder, mustWork = FALSE)
+  if (!file.exists(resultsZipFile)) {
+    stop(sprintf("Cannot find file '%s'", resultsZipFile))
+  }
   if (!file.exists(dataFolder)) {
     dir.create(dataFolder, recursive = TRUE)
   }
@@ -59,7 +62,7 @@ prepareForEvidenceExplorer <- function(resultsZipFile, dataFolder) {
     tableName <- gsub(".csv$", "", file)
     table <- readr::read_csv(file.path(tempFolder, file), col_types = readr::cols())
     if (tableName %in% splittableTables) {
-      subsets <- split(table, list(table$target_id, table$comparator_id))
+      subsets <- split(table, paste(table$target_id, table$comparator_id))
       plyr::l_ply(subsets, processSubet, tableName = tableName)
     } else {
       saveRDS(table, file.path(dataFolder, sprintf("%s_%s.rds", tableName, databaseId)))  
@@ -84,10 +87,12 @@ prepareForEvidenceExplorer <- function(resultsZipFile, dataFolder) {
 #' 
 #' @export
 launchEvidenceExplorer <- function(dataFolder, blind = TRUE, launch.browser = TRUE) {
+  dataFolder <- normalizePath(dataFolder)
+  ensure_installed("shiny")
   ensure_installed("DT")
-  appDir <- system.file("shiny", "EvidenceExplorer", package = "EHDENCOVIDUseCase2")
+  appDir <- system.file("shiny", "EvidenceExplorer", package = "StudyPackage")
   .GlobalEnv$shinySettings <- list(dataFolder = dataFolder, blind = blind)
-  on.exit(rm(shinySettings, envir=.GlobalEnv))
+  on.exit(rm("shinySettings", envir = .GlobalEnv))
   shiny::runApp(appDir) 
 }
 

@@ -9,7 +9,14 @@ execute(
   cdmDatabaseSchema,
   cohortDatabaseSchema = cdmDatabaseSchema,
   cohortTable = "cohort",
-  oracleTempSchema = cohortDatabaseSchema,
+  cohortInclusionTable = paste0(cohortTable, "_inclusion"),
+  cohortInclusionResultTable = paste0(cohortTable, "_inclusion_result"),
+  cohortInclusionStatsTable = paste0(cohortTable, "_inclusion_stats"),
+  cohortSummaryStatsTable = paste0(cohortTable, "_summary_stats"),
+  cohortCensorStatsTable = paste0(cohortTable, "_censor_stats"),
+  oracleTempSchema = NULL,
+  tempEmulationSchema = getOption("sqlRenderTempEmulationSchema"),
+  verifyDependencies = TRUE,
   outputFolder,
   databaseId = "Unknown",
   databaseName = "Unknown",
@@ -35,12 +42,30 @@ schema name, for example 'cdm_data.dbo'.}
 write priviliges in this schema. Note that for SQL Server, this should
 include both the database and schema name, for example 'cdm_data.dbo'.}
 
-\item{cohortTable}{The name of the table that will be created in the work database schema.
-This table will hold the exposure and outcome cohorts used in this
-study.}
+\item{cohortTable}{Name of the cohort table.}
 
-\item{oracleTempSchema}{Should be used in Oracle to specify a schema where the user has write
-priviliges for storing temporary tables.}
+\item{cohortInclusionTable}{Name of the inclusion table, one of the tables for storing
+inclusion rule statistics.}
+
+\item{cohortInclusionResultTable}{Name of the inclusion result table, one of the tables for
+storing inclusion rule statistics.}
+
+\item{cohortInclusionStatsTable}{Name of the inclusion stats table, one of the tables for storing
+inclusion rule statistics.}
+
+\item{cohortSummaryStatsTable}{Name of the summary stats table, one of the tables for storing
+inclusion rule statistics.}
+
+\item{cohortCensorStatsTable}{Name of the censor stats table, one of the tables for storing
+inclusion rule statistics.}
+
+\item{oracleTempSchema}{DEPRECATED: use `tempEmulationSchema` instead.}
+
+\item{tempEmulationSchema}{Some database platforms like Oracle and Impala do not truly support temp tables. To
+emulate temp tables, provide a schema with write privileges where temp tables
+can be created.}
+
+\item{verifyDependencies}{Check whether correct package versions are installed?}
 
 \item{outputFolder}{Name of local folder to place results; make sure to use forward slashes
 (/). Do not use a folder on a network drive since this greatly impacts
@@ -72,7 +97,7 @@ in packaged results.}
 Execute the Study
 }
 \details{
-This function executes the EHDENCOVIDUseCase2 Study.
+This function executes the StudyPackage Study.
 
 The \code{createCohorts}, \code{synthesizePositiveControls}, \code{runAnalyses}, and \code{runDiagnostics} arguments
 are intended to be used to run parts of the full study at a time, but none of the parts are considered to be optional.

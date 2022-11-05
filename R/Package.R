@@ -1,8 +1,8 @@
 # @file Package.R
 #
-# Copyright 2020 Observational Health Data Sciences and Informatics
+# Copyright 2022 Observational Health Data Sciences and Informatics
 #
-# This file is part of EHDENCOVIDUseCase2
+# This file is part of StudyPackage
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -20,7 +20,7 @@
 "_PACKAGE"
 
 #' @importFrom stats aggregate density pnorm qnorm quantile
-#' @importFrom utils read.csv write.csv install.packages menu setTxtProgressBar txtProgressBar write.table
+#' @importFrom utils read.csv write.csv install.packages menu setTxtProgressBar txtProgressBar write.table installed.packages packageVersion
 #' @importFrom rlang .data
 #' @import dplyr
 #' @import DatabaseConnector

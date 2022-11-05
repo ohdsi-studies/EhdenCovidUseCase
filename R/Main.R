@@ -1,6 +1,6 @@
-# Copyright 2020 Observational Health Data Sciences and Informatics
+# Copyright 2022 Observational Health Data Sciences and Informatics
 #
-# This file is part of EHDENCOVIDUseCase2
+# This file is part of StudyPackage
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -17,7 +17,7 @@
 #' Execute the Study
 #'
 #' @details
-#' This function executes the EHDENCOVIDUseCase2 Study.
+#' This function executes the StudyPackage Study.
 #' 
 #' The \code{createCohorts}, \code{synthesizePositiveControls}, \code{runAnalyses}, and \code{runDiagnostics} arguments
 #' are intended to be used to run parts of the full study at a time, but none of the parts are considered to be optional.
@@ -31,11 +31,22 @@
 #' @param cohortDatabaseSchema Schema name where intermediate data can be stored. You will need to have
 #'                             write priviliges in this schema. Note that for SQL Server, this should
 #'                             include both the database and schema name, for example 'cdm_data.dbo'.
-#' @param cohortTable          The name of the table that will be created in the work database schema.
-#'                             This table will hold the exposure and outcome cohorts used in this
-#'                             study.
-#' @param oracleTempSchema     Should be used in Oracle to specify a schema where the user has write
-#'                             priviliges for storing temporary tables.
+#' @param cohortTable                  Name of the cohort table.
+#' @param cohortInclusionTable         Name of the inclusion table, one of the tables for storing
+#'                                     inclusion rule statistics.
+#' @param cohortInclusionResultTable   Name of the inclusion result table, one of the tables for
+#'                                     storing inclusion rule statistics.
+#' @param cohortInclusionStatsTable    Name of the inclusion stats table, one of the tables for storing
+#'                                     inclusion rule statistics.
+#' @param cohortSummaryStatsTable      Name of the summary stats table, one of the tables for storing
+#'                                     inclusion rule statistics.
+#' @param cohortCensorStatsTable       Name of the censor stats table, one of the tables for storing
+#'                                     inclusion rule statistics.
+#' @param oracleTempSchema    DEPRECATED: use `tempEmulationSchema` instead.
+#' @param tempEmulationSchema Some database platforms like Oracle and Impala do not truly support temp tables. To
+#'                            emulate temp tables, provide a schema with write privileges where temp tables
+#'                            can be created.
+#' @param verifyDependencies   Check whether correct package versions are installed?
 #' @param outputFolder         Name of local folder to place results; make sure to use forward slashes
 #'                             (/). Do not use a folder on a network drive since this greatly impacts
 #'                             performance.
@@ -74,7 +85,14 @@ execute <- function(connectionDetails,
                     cdmDatabaseSchema,
                     cohortDatabaseSchema = cdmDatabaseSchema,
                     cohortTable = "cohort",
-                    oracleTempSchema = cohortDatabaseSchema,
+                    cohortInclusionTable = paste0(cohortTable, "_inclusion"),
+                    cohortInclusionResultTable = paste0(cohortTable, "_inclusion_result"),
+                    cohortInclusionStatsTable = paste0(cohortTable, "_inclusion_stats"),
+                    cohortSummaryStatsTable = paste0(cohortTable, "_summary_stats"),
+                    cohortCensorStatsTable = paste0(cohortTable, "_censor_stats"),
+                    oracleTempSchema = NULL,
+                    tempEmulationSchema = getOption("sqlRenderTempEmulationSchema"),
+                    verifyDependencies = TRUE,
                     outputFolder,
                     databaseId = "Unknown",
                     databaseName = "Unknown",
@@ -84,22 +102,46 @@ execute <- function(connectionDetails,
                     runAnalyses = TRUE,
                     packageResults = TRUE,
                     maxCores = 4,
-                    minCellCount= 5) {
-  if (!file.exists(outputFolder))
+                    minCellCount = 5) {
+  outputFolder <- normalizePath(outputFolder, mustWork = FALSE)
+  if (!file.exists(outputFolder)) {
     dir.create(outputFolder, recursive = TRUE)
+  }
 
   ParallelLogger::addDefaultFileLogger(file.path(outputFolder, "log.txt"))
   ParallelLogger::addDefaultErrorReportLogger(file.path(outputFolder, "errorReportR.txt"))
   on.exit(ParallelLogger::unregisterLogger("DEFAULT_FILE_LOGGER", silent = TRUE))
   on.exit(ParallelLogger::unregisterLogger("DEFAULT_ERRORREPORT_LOGGER", silent = TRUE), add = TRUE)
   
+  if (!is.null(oracleTempSchema) && oracleTempSchema != "") {
+    warning("The 'oracleTempSchema' argument is deprecated. Use 'tempEmulationSchema' instead.")
+    tempEmulationSchema <- oracleTempSchema
+  }
+  if (connectionDetails$dbms %in% c("oracle", "bigquery", "impala", "spark") && is.null(tempEmulationSchema)) {
+    stop(sprintf("DBMS '%s' requires 'tempEmulationSchema' to be set.", connectionDetails$dbms))
+  }
+  if (!is.null(getOption("andromedaTempFolder")) && !file.exists(getOption("andromedaTempFolder"))) {
+    warning("andromedaTempFolder '", getOption("andromedaTempFolder"), "' not found. Attempting to create folder")
+    dir.create(getOption("andromedaTempFolder"), recursive = TRUE)
+  }
+  
+  if (verifyDependencies) {
+    message("Checking whether correct package versions are installed")
+    verifyDependencies()
+  }
+  
   if (createCohorts) {
-    ParallelLogger::logInfo("Creating exposure and outcome cohorts")
+    message("Creating exposure and outcome cohorts")
     createCohorts(connectionDetails = connectionDetails,
                   cdmDatabaseSchema = cdmDatabaseSchema,
                   cohortDatabaseSchema = cohortDatabaseSchema,
-                  cohortTable = cohortTable,
-                  oracleTempSchema = oracleTempSchema,
+                  cohortTableNames = list(cohortTable = cohortTable,
+                                          cohortInclusionTable = cohortInclusionTable,
+                                          cohortInclusionResultTable = cohortInclusionResultTable,
+                                          cohortInclusionStatsTable = cohortInclusionStatsTable,
+                                          cohortSummaryStatsTable = cohortSummaryStatsTable,
+                                          cohortCensorStatsTable = cohortCensorStatsTable),
+                  tempEmulationSchema = tempEmulationSchema,
                   outputFolder = outputFolder)
   }
   
@@ -107,34 +149,36 @@ execute <- function(connectionDetails,
   doPositiveControlSynthesis = TRUE
   if (doPositiveControlSynthesis) {
     if (synthesizePositiveControls) {
-      ParallelLogger::logInfo("Synthesizing positive controls")
+      message("Synthesizing positive controls")
       synthesizePositiveControls(connectionDetails = connectionDetails,
                                  cdmDatabaseSchema = cdmDatabaseSchema,
                                  cohortDatabaseSchema = cohortDatabaseSchema,
                                  cohortTable = cohortTable,
-                                 oracleTempSchema = oracleTempSchema,
+                                 tempEmulationSchema = tempEmulationSchema,
                                  outputFolder = outputFolder,
                                  maxCores = maxCores)
     }
   }
   
   if (runAnalyses) {
-    ParallelLogger::logInfo("Running CohortMethod analyses")
+    message("Running CohortMethod analyses")
     runCohortMethod(connectionDetails = connectionDetails,
                     cdmDatabaseSchema = cdmDatabaseSchema,
                     cohortDatabaseSchema = cohortDatabaseSchema,
                     cohortTable = cohortTable,
-                    oracleTempSchema = oracleTempSchema,
+                    tempEmulationSchema = tempEmulationSchema,
                     outputFolder = outputFolder,
                     maxCores = maxCores)
   }
   
   if (packageResults) {
-    ParallelLogger::logInfo("Packaging results")
+    message("Packaging results")
     exportResults(outputFolder = outputFolder,
                   databaseId = databaseId,
                   databaseName = databaseName,
                   databaseDescription = databaseDescription,
+                  connectionDetails = connectionDetails,
+                  cdmDatabaseSchema = cdmDatabaseSchema,
                   minCellCount = minCellCount,
                   maxCores = maxCores)
   }

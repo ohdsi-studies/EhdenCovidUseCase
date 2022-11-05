@@ -1,6 +1,6 @@
-# Copyright 2020 Observational Health Data Sciences and Informatics
+# Copyright 2022 Observational Health Data Sciences and Informatics
 #
-# This file is part of EHDENCOVIDUseCase2
+# This file is part of StudyPackage
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -14,26 +14,12 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-#' Export all results to tables
-#'
-#' @description
-#' Outputs all results to a folder called 'export', and zips them.
-#'
-#' @param outputFolder          Name of local folder to place results; make sure to use forward slashes
-#'                              (/). Do not use a folder on a network drive since this greatly impacts
-#'                              performance.
-#' @param databaseId            A short string for identifying the database (e.g. 'Synpuf').
-#' @param databaseName          The full name of the database.
-#' @param databaseDescription   A short description (several sentences) of the database.
-#' @param minCellCount          The minimum cell count for fields contains person counts or fractions.
-#' @param maxCores              How many parallel cores should be used? If more cores are made
-#'                              available this can speed up the analyses.
-#'
-#' @export
 exportResults <- function(outputFolder,
                           databaseId,
                           databaseName,
                           databaseDescription,
+                          connectionDetails,
+                          cdmDatabaseSchema,
                           minCellCount = 5,
                           maxCores) {
   exportFolder <- file.path(outputFolder, "export")
@@ -55,7 +41,9 @@ exportResults <- function(outputFolder,
                  databaseId = databaseId,
                  databaseName = databaseName,
                  databaseDescription = databaseDescription,
-                 minCellCount = minCellCount)
+                 minCellCount = minCellCount,
+                 connectionDetails = connectionDetails,
+                 cdmDatabaseSchema = cdmDatabaseSchema)
   
   exportMainResults(outputFolder = outputFolder,
                     exportFolder = exportFolder,
@@ -70,24 +58,24 @@ exportResults <- function(outputFolder,
                     maxCores = maxCores)
   
   # Add all to zip file -------------------------------------------------------------------------------
-  ParallelLogger::logInfo("Adding results to zip file")
+  message("Adding results to zip file")
   zipName <- file.path(exportFolder, sprintf("Results_%s.zip", databaseId))
   files <- list.files(exportFolder, pattern = ".*\\.csv$")
   oldWd <- setwd(exportFolder)
   on.exit(setwd(oldWd))
   DatabaseConnector::createZipFile(zipFile = zipName, files = files)
-  ParallelLogger::logInfo("Results are ready for sharing at:", zipName)
+  message("Results are ready for sharing at:", zipName)
 }
 
 exportAnalyses <- function(outputFolder, exportFolder) {
-  ParallelLogger::logInfo("Exporting analyses")
-  ParallelLogger::logInfo("- cohort_method_analysis table")
+  message("Exporting analyses")
+  message("- cohort_method_analysis table")
   
   tempFileName <- tempfile()
   
   cmAnalysisListFile <- system.file("settings",
                                     "cmAnalysisList.json",
-                                    package = "EHDENCOVIDUseCase2")
+                                    package = "StudyPackage")
   cmAnalysisList <- CohortMethod::loadCmAnalysisList(cmAnalysisListFile)
   cmAnalysisToRow <- function(cmAnalysis) {
     ParallelLogger::saveSettingsToJson(cmAnalysis, tempFileName)
@@ -105,7 +93,7 @@ exportAnalyses <- function(outputFolder, exportFolder) {
   readr::write_csv(cohortMethodAnalysis, fileName)
   
   
-  ParallelLogger::logInfo("- covariate_analysis table")
+  message("- covariate_analysis table")
   reference <- readRDS(file.path(outputFolder, "cmOutput", "outcomeModelReference.rds"))
   getCovariateAnalyses <- function(cmAnalysis) {
     cmDataFolder <- reference$cohortMethodDataFile[reference$analysisId == cmAnalysis$analysisId][1]
@@ -123,19 +111,18 @@ exportAnalyses <- function(outputFolder, exportFolder) {
 }
 
 exportExposures <- function(outputFolder, exportFolder) {
-  ParallelLogger::logInfo("Exporting exposures")
-  ParallelLogger::logInfo("- exposure_of_interest table")
-  pathToCsv <- system.file("settings", "TcosOfInterest.csv", package = "EHDENCOVIDUseCase2")
+  message("Exporting exposures")
+  message("- exposure_of_interest table")
+  pathToCsv <- system.file("settings", "TcosOfInterest.csv", package = "StudyPackage")
   tcosOfInterest <- read.csv(pathToCsv, stringsAsFactors = FALSE)
-  pathToCsv <- system.file("settings", "CohortsToCreate.csv", package = "EHDENCOVIDUseCase2")
+  pathToCsv <- system.file("Cohorts.csv", package = "StudyPackage")
   cohortsToCreate <- read.csv(pathToCsv)
   createExposureRow <- function(exposureId) {
-    atlasName <- as.character(cohortsToCreate$atlasName[cohortsToCreate$cohortId == exposureId])
-    name <- as.character(cohortsToCreate$name[cohortsToCreate$cohortId == exposureId])
-    cohortFileName <- system.file("cohorts", paste0(name, ".json"), package = "EHDENCOVIDUseCase2")
+    cohortName <- as.character(cohortsToCreate$cohortName[cohortsToCreate$cohortId == exposureId])
+    cohortFileName <- system.file("cohorts", paste0(exposureId, ".json"), package = "StudyPackage")
     definition <- readChar(cohortFileName, file.info(cohortFileName)$size)
     return(tibble::tibble(exposureId = exposureId,
-                          exposureName = atlasName,
+                          exposureName = cohortName,
                           definition = definition))
   }
   exposuresOfInterest <- unique(c(tcosOfInterest$targetId, tcosOfInterest$comparatorId))
@@ -147,17 +134,16 @@ exportExposures <- function(outputFolder, exportFolder) {
 }
 
 exportOutcomes <- function(outputFolder, exportFolder) {
-  ParallelLogger::logInfo("Exporting outcomes")
-  ParallelLogger::logInfo("- outcome_of_interest table")
-  pathToCsv <- system.file("settings", "CohortsToCreate.csv", package = "EHDENCOVIDUseCase2")
+  message("Exporting outcomes")
+  message("- outcome_of_interest table")
+  pathToCsv <- system.file("Cohorts.csv", package = "StudyPackage")
   cohortsToCreate <- read.csv(pathToCsv)
   createOutcomeRow <- function(outcomeId) {
-    atlasName <- as.character(cohortsToCreate$atlasName[cohortsToCreate$cohortId == outcomeId])
-    name <- as.character(cohortsToCreate$name[cohortsToCreate$cohortId == outcomeId])
-    cohortFileName <- system.file("cohorts", paste0(name, ".json"), package = "EHDENCOVIDUseCase2")
+    cohortName <- as.character(cohortsToCreate$cohortName[cohortsToCreate$cohortId == outcomeId])
+    cohortFileName <- system.file("cohorts", paste0(outcomeId, ".json"), package = "StudyPackage")
     definition <- readChar(cohortFileName, file.info(cohortFileName)$size)
     return(tibble::tibble(outcomeId = outcomeId,
-                          outcomeName = atlasName,
+                          outcomeName = cohortName,
                           definition = definition))
   }
   outcomesOfInterest <- getOutcomesOfInterest()
@@ -168,8 +154,8 @@ exportOutcomes <- function(outputFolder, exportFolder) {
   readr::write_csv(outcomeOfInterest, fileName) 
   
   
-  ParallelLogger::logInfo("- negative_control_outcome table")
-  pathToCsv <- system.file("settings", "NegativeControls.csv", package = "EHDENCOVIDUseCase2")
+  message("- negative_control_outcome table")
+  pathToCsv <- system.file("settings", "NegativeControls.csv", package = "StudyPackage")
   negativeControls <- read.csv(pathToCsv)
   negativeControls <- negativeControls[tolower(negativeControls$type) == "outcome", ]
   negativeControls <- negativeControls[, c("outcomeId", "outcomeName")]
@@ -181,7 +167,7 @@ exportOutcomes <- function(outputFolder, exportFolder) {
   synthesisSummaryFile <- file.path(outputFolder, "SynthesisSummary.csv")
   if (file.exists(synthesisSummaryFile)) {
     positiveControls <- read.csv(synthesisSummaryFile, stringsAsFactors = FALSE)
-    pathToCsv <- system.file("settings", "NegativeControls.csv", package = "EHDENCOVIDUseCase2")
+    pathToCsv <- system.file("settings", "NegativeControls.csv", package = "StudyPackage")
     negativeControls <- read.csv(pathToCsv)
     positiveControls <- merge(positiveControls,
                               negativeControls[, c("outcomeId", "outcomeName")])
@@ -209,8 +195,10 @@ exportMetadata <- function(outputFolder,
                            databaseId,
                            databaseName,
                            databaseDescription,
+                           connectionDetails,
+                           cdmDatabaseSchema,
                            minCellCount) {
-  ParallelLogger::logInfo("Exporting metadata")
+  message("Exporting metadata")
   
   getInfo <- function(row) {
     cmData <- CohortMethod::loadCohortMethodData(file.path(outputFolder, "cmOutput", row$cohortMethodDataFile))
@@ -237,15 +225,26 @@ exportMetadata <- function(outputFolder,
   info <- lapply(reference, getInfo)
   info <- bind_rows(info)
   
-  ParallelLogger::logInfo("- database table")
-  database <- tibble::tibble(database_id = databaseId,
-                             database_name = databaseName,
-                             description = databaseDescription,
-                             is_meta_analysis = 0)
+  message("- database table")
+  connection <- DatabaseConnector::connect(connectionDetails)
+  on.exit(DatabaseConnector::disconnect(connection))
+  observationPeriodRange <- getObservationPeriodDateRange(connection = connection,
+                                                          cdmDatabaseSchema = cdmDatabaseSchema)
+  vocabularyVersion <- getVocabularyVersion(connection = connection,
+                                            cdmDatabaseSchema = cdmDatabaseSchema)
+  database <- tibble(databaseId = databaseId,
+                     databaseName = databaseName,
+                     description = databaseDescription,
+                     vocabularyVersion = vocabularyVersion,
+                     minObsPeriodDate = observationPeriodRange$minDate,
+                     maxObsPeriodDate = observationPeriodRange$maxDate,
+                     studyPackageVersion = utils::packageVersion("StudyPackage"),
+                     isMetaAnalysis = 0)
+  colnames(database) <- SqlRender::camelCaseToSnakeCase(colnames(database))
   fileName <- file.path(exportFolder, "database.csv")
   readr::write_csv(database, fileName)
   
-  ParallelLogger::logInfo("- exposure_summary table")
+  message("- exposure_summary table")
   minDates <- rbind(tibble::tibble(exposureId = info$targetId,
                                    minDate = info$targetMinDate),
                     tibble::tibble(exposureId = info$comparatorId,
@@ -262,7 +261,7 @@ exportMetadata <- function(outputFolder,
   fileName <- file.path(exportFolder, "exposure_summary.csv")
   readr::write_csv(exposureSummary, fileName)
   
-  ParallelLogger::logInfo("- comparison_summary table")
+  message("- comparison_summary table")
   minDates <- aggregate(comparisonMinDate ~ targetId + comparatorId, info, min)
   maxDates <- aggregate(comparisonMaxDate ~ targetId + comparatorId, info, max)
   comparisonSummary <- merge(minDates, maxDates)
@@ -273,7 +272,7 @@ exportMetadata <- function(outputFolder,
   fileName <- file.path(exportFolder, "comparison_summary.csv")
   readr::write_csv(comparisonSummary, fileName)
   
-  ParallelLogger::logInfo("- attrition table")
+  message("- attrition table")
   fileName <- file.path(exportFolder, "attrition.csv")
   if (file.exists(fileName)) {
     unlink(fileName)
@@ -329,10 +328,10 @@ exportMetadata <- function(outputFolder,
   setTxtProgressBar(pb, 1)
   close(pb)
   
-  ParallelLogger::logInfo("- covariate table")
+  message("- covariate table")
   reference <- readRDS(file.path(outputFolder, "cmOutput", "outcomeModelReference.rds"))
   getCovariates <- function(analysisId) {
-    cmDataFolder <- reference$cohortMethodDataFile[analysisId][1]
+    cmDataFolder <- reference$cohortMethodDataFile[reference$analysisId==analysisId][1]
     cmData <- CohortMethod::loadCohortMethodData(file.path(outputFolder, "cmOutput", cmDataFolder))
     covariateRef <- collect(cmData$covariateRef)
     covariateRef <- covariateRef[, c("covariateId", "covariateName", "analysisId")]
@@ -349,7 +348,7 @@ exportMetadata <- function(outputFolder,
   rm(covariates)  # Free up memory
   
   
-  ParallelLogger::logInfo("- cm_follow_up_dist table")
+  message("- cm_follow_up_dist table")
   getResult <- function(i) {
     if (reference$strataFile[i] == "") {
       strataPop <- readRDS(file.path(outputFolder,
@@ -400,13 +399,13 @@ enforceMinCellValue <- function(data, fieldName, minValues, silent = FALSE) {
   toCensor <- !is.na(pull(data, fieldName)) & pull(data, fieldName) < minValues & pull(data, fieldName) != 0
   if (!silent) {
     percent <- round(100 * sum(toCensor)/nrow(data), 1)
-    ParallelLogger::logInfo("   censoring ",
-                            sum(toCensor),
-                            " values (",
-                            percent,
-                            "%) from ",
-                            fieldName,
-                            " because value below minimum")
+    message("   censoring ",
+            sum(toCensor),
+            " values (",
+            percent,
+            "%) from ",
+            fieldName,
+            " because value below minimum")
   }
   if (length(minValues) == 1) {
     data[toCensor, fieldName] <- -minValues
@@ -422,13 +421,13 @@ exportMainResults <- function(outputFolder,
                               databaseId,
                               minCellCount,
                               maxCores) {
-  ParallelLogger::logInfo("Exporting main results")
+  message("Exporting main results")
   
   
-  ParallelLogger::logInfo("- cohort_method_result table")
+  message("- cohort_method_result table")
   analysesSum <- readr::read_csv(file.path(outputFolder, "analysisSummary.csv"), col_types = readr::cols())
   allControls <- getAllControls(outputFolder)
-  ParallelLogger::logInfo("  Performing empirical calibration on main effects")
+  message("  Performing empirical calibration on main effects")
   cluster <- ParallelLogger::makeCluster(min(4, maxCores))
   subsets <- split(analysesSum,
                    paste(analysesSum$targetId, analysesSum$comparatorId, analysesSum$analysisId))
@@ -450,7 +449,42 @@ exportMainResults <- function(outputFolder,
   readr::write_csv(results, fileName)
   rm(results)  # Free up memory
   
-  ParallelLogger::logInfo("- cm_interaction_result table")
+  message("- likelihood_profile table")
+  reference <- readRDS(file.path(outputFolder, "cmOutput", "outcomeModelReference.rds"))
+  fileName <- file.path(exportFolder, "likelihood_profile.csv")
+  if (file.exists(fileName)) {
+    unlink(fileName)
+  }
+  first <- TRUE
+  pb <- txtProgressBar(style = 3)
+  for (i in 1:nrow(reference)) {
+    if (reference$outcomeModelFile[i] != "") {
+      outcomeModel <- readRDS(file.path(outputFolder, "cmOutput", reference$outcomeModelFile[i]))
+      profile <- outcomeModel$logLikelihoodProfile
+      if (!is.null(profile)) {
+        profile <- data.frame(targetId = reference$targetId[i],
+                              comparatorId = reference$comparatorId[i],
+                              outcomeId = reference$outcomeId[i],
+                              analysisId = reference$analysisId[i],
+                              logHazardRatio = as.numeric(names(profile)),
+                              logLikelihood = profile - max(profile))
+        colnames(profile) <- SqlRender::camelCaseToSnakeCase(colnames(profile))
+        write.table(x = profile,
+                    file = fileName,
+                    row.names = FALSE,
+                    col.names = first,
+                    sep = ",",
+                    dec = ".",
+                    qmethod = "double",
+                    append = !first)
+        first <- FALSE
+      }
+    }
+    setTxtProgressBar(pb, i/nrow(reference))
+  }
+  close(pb)
+  
+  message("- cm_interaction_result table")
   reference <- readRDS(file.path(outputFolder, "cmOutput", "outcomeModelReference.rds"))
   loadInteractionsFromOutcomeModel <- function(i) {
     outcomeModel <- readRDS(file.path(outputFolder,
@@ -497,7 +531,7 @@ exportMainResults <- function(outputFolder,
                               .progress = "text")
   interactions <- bind_rows(interactions)
   if (nrow(interactions) > 0) {
-    ParallelLogger::logInfo("  Performing empirical calibration on interaction effects")
+    message("  Performing empirical calibration on interaction effects")
     allControls <- getAllControls(outputFolder)
     negativeControls <- allControls[allControls$targetEffectSize == 1, ]
     cluster <- ParallelLogger::makeCluster(min(4, maxCores))
@@ -526,37 +560,56 @@ exportMainResults <- function(outputFolder,
 calibrate <- function(subset, allControls) {
   ncs <- subset[subset$outcomeId %in% allControls$outcomeId[allControls$targetEffectSize == 1], ]
   ncs <- ncs[!is.na(ncs$seLogRr), ]
-  if (nrow(ncs) > 5) {
-    null <- EmpiricalCalibration::fitMcmcNull(ncs$logRr, ncs$seLogRr)
-    calibratedP <- EmpiricalCalibration::calibrateP(null = null,
-                                                    logRr = subset$logRr,
-                                                    seLogRr = subset$seLogRr)
-    subset$calibratedP <- calibratedP$p
-  } else {
+  if (nrow(ncs) <= 5) {
     subset$calibratedP <- rep(NA, nrow(subset))
-  }
-  pcs <- subset[subset$outcomeId %in% allControls$outcomeId[allControls$targetEffectSize != 1], ]
-  pcs <- pcs[!is.na(pcs$seLogRr), ]
-  if (nrow(pcs) > 5) {
-    controls <- merge(subset, allControls[, c("targetId", "comparatorId", "outcomeId", "targetEffectSize")])
-    model <- EmpiricalCalibration::fitSystematicErrorModel(logRr = controls$logRr,
-                                                           seLogRr = controls$seLogRr,
-                                                           trueLogRr = log(controls$targetEffectSize),
-                                                           estimateCovarianceMatrix = FALSE)
-    calibratedCi <- EmpiricalCalibration::calibrateConfidenceInterval(logRr = subset$logRr,
-                                                                      seLogRr = subset$seLogRr,
-                                                                      model = model)
-    subset$calibratedRr <- exp(calibratedCi$logRr)
-    subset$calibratedCi95Lb <- exp(calibratedCi$logLb95Rr)
-    subset$calibratedCi95Ub <- exp(calibratedCi$logUb95Rr)
-    subset$calibratedLogRr <- calibratedCi$logRr
-    subset$calibratedSeLogRr <- calibratedCi$seLogRr
-  } else {
     subset$calibratedRr <- rep(NA, nrow(subset))
     subset$calibratedCi95Lb <- rep(NA, nrow(subset))
     subset$calibratedCi95Ub <- rep(NA, nrow(subset))
     subset$calibratedLogRr <- rep(NA, nrow(subset))
     subset$calibratedSeLogRr <- rep(NA, nrow(subset))
+  } else {
+    null <- EmpiricalCalibration::fitMcmcNull(ncs$logRr, ncs$seLogRr)
+    calibratedP <- EmpiricalCalibration::calibrateP(null = null,
+                                                    logRr = subset$logRr,
+                                                    seLogRr = subset$seLogRr)
+    subset$calibratedP <- calibratedP$p
+    if (any(allControls$targetEffectSize != 1)) {
+      # Positive controls were synthesized
+      pcs <- subset[subset$outcomeId %in% allControls$outcomeId[allControls$targetEffectSize != 1], ]
+      pcs <- pcs[!is.na(pcs$seLogRr), ]
+      if (nrow(pcs) > 5) {
+        controls <- merge(subset, allControls[, c("targetId", "comparatorId", "outcomeId", "targetEffectSize")])
+        model <- EmpiricalCalibration::fitSystematicErrorModel(logRr = controls$logRr,
+                                                               seLogRr = controls$seLogRr,
+                                                               trueLogRr = log(controls$targetEffectSize),
+                                                               estimateCovarianceMatrix = FALSE)
+        calibratedCi <- EmpiricalCalibration::calibrateConfidenceInterval(logRr = subset$logRr,
+                                                                          seLogRr = subset$seLogRr,
+                                                                          model = model)
+        subset$calibratedRr <- exp(calibratedCi$logRr)
+        subset$calibratedCi95Lb <- exp(calibratedCi$logLb95Rr)
+        subset$calibratedCi95Ub <- exp(calibratedCi$logUb95Rr)
+        subset$calibratedLogRr <- calibratedCi$logRr
+        subset$calibratedSeLogRr <- calibratedCi$seLogRr
+      } else {
+        subset$calibratedRr <- rep(NA, nrow(subset))
+        subset$calibratedCi95Lb <- rep(NA, nrow(subset))
+        subset$calibratedCi95Ub <- rep(NA, nrow(subset))
+        subset$calibratedLogRr <- rep(NA, nrow(subset))
+        subset$calibratedSeLogRr <- rep(NA, nrow(subset))
+      }
+    } else {
+      # No positive controls were synthesized
+      model <- EmpiricalCalibration::convertNullToErrorModel(null)
+      calibratedCi <- EmpiricalCalibration::calibrateConfidenceInterval(logRr = subset$logRr,
+                                                                        seLogRr = subset$seLogRr,
+                                                                        model = model)
+      subset$calibratedRr <- exp(calibratedCi$logRr)
+      subset$calibratedCi95Lb <- exp(calibratedCi$logLb95Rr)
+      subset$calibratedCi95Ub <- exp(calibratedCi$logUb95Rr)
+      subset$calibratedLogRr <- calibratedCi$logRr
+      subset$calibratedSeLogRr <- calibratedCi$seLogRr
+    }
   }
   subset$i2 <- rep(NA, nrow(subset))
   subset <- subset[, c("targetId",
@@ -629,8 +682,8 @@ exportDiagnostics <- function(outputFolder,
                               databaseId,
                               minCellCount,
                               maxCores) {
-  ParallelLogger::logInfo("Exporting diagnostics")
-  ParallelLogger::logInfo("- covariate_balance table")
+  message("Exporting diagnostics")
+  message("- covariate_balance table")
   fileName <- file.path(exportFolder, "covariate_balance.csv")
   if (file.exists(fileName)) {
     unlink(fileName)
@@ -742,7 +795,7 @@ exportDiagnostics <- function(outputFolder,
   }
   close(pb)
   
-  ParallelLogger::logInfo("- preference_score_dist table")
+  message("- preference_score_dist table")
   reference <- readRDS(file.path(outputFolder, "cmOutput", "outcomeModelReference.rds"))
   preparePlot <- function(row, reference) {
     idx <- reference$analysisId == row$analysisId &
@@ -785,7 +838,7 @@ exportDiagnostics <- function(outputFolder,
   readr::write_csv(data, fileName)
   
   
-  ParallelLogger::logInfo("- propensity_model table")
+  message("- propensity_model table")
   getPsModel <- function(row, reference) {
     idx <- reference$analysisId == row$analysisId &
       reference$targetId == row$targetId &
@@ -828,8 +881,8 @@ exportDiagnostics <- function(outputFolder,
   readr::write_csv(data, fileName)
   
   
-  ParallelLogger::logInfo("- kaplan_meier_dist table")
-  ParallelLogger::logInfo("  Computing KM curves")
+  message("- kaplan_meier_dist table")
+  message("  Computing KM curves")
   reference <- readRDS(file.path(outputFolder, "cmOutput", "outcomeModelReference.rds"))
   outcomesOfInterest <- getOutcomesOfInterest()
   reference <- reference[reference$outcomeId %in% outcomesOfInterest, ]
@@ -844,7 +897,7 @@ exportDiagnostics <- function(outputFolder,
     dir.create(tempFolder)
   }
   cluster <- ParallelLogger::makeCluster(min(4, maxCores))
-  ParallelLogger::clusterRequire(cluster, "EHDENCOVIDUseCase2")
+  ParallelLogger::clusterRequire(cluster, "StudyPackage")
   tasks <- split(reference, seq(nrow(reference)))
   ParallelLogger::clusterApply(cluster,
                                tasks,
@@ -854,7 +907,7 @@ exportDiagnostics <- function(outputFolder,
                                databaseId = databaseId,
                                minCellCount = minCellCount)
   ParallelLogger::stopCluster(cluster)
-  ParallelLogger::logInfo("  Writing to single csv file")
+  message("  Writing to single csv file")
   saveKmToCsv <- function(file, first, outputFile) {
     data <- readRDS(file)
     if (!is.null(data)) {
@@ -1051,4 +1104,26 @@ prepareKaplanMeier <- function(population) {
   data <- data[order(data$time), ]
   data <- data[!duplicated(data[, -1]), ]
   return(data)
+}
+
+getVocabularyVersion <- function(connection, cdmDatabaseSchema) {
+  sql <- "SELECT vocabulary_version FROM @cdm_database_schema.vocabulary WHERE vocabulary_id = 'None';"
+  vocabularyVersion <- DatabaseConnector::renderTranslateQuerySql(connection = connection,
+                                                                  sql = sql,
+                                                                  cdm_database_schema = cdmDatabaseSchema,
+                                                                  snakeCaseToCamelCase = TRUE)
+  if (nrow(vocabularyVersion > 0)) {
+    return(vocabularyVersion[1, 1])
+  } else {
+    return("Unknown")
+  }
+}
+
+getObservationPeriodDateRange <- function(connection, cdmDatabaseSchema) {
+  sql <- "SELECT MIN(observation_period_start_date) min_date, MAX(observation_period_end_date) max_date FROM @cdm_database_schema.observation_period;"
+  observationPeriodDateRange <- DatabaseConnector::renderTranslateQuerySql(connection = connection,
+                                                                           sql = sql,
+                                                                           cdm_database_schema = cdmDatabaseSchema,
+                                                                           snakeCaseToCamelCase = TRUE)
+  return(observationPeriodDateRange)
 }

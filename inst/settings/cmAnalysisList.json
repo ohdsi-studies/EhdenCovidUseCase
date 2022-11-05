@@ -222,7 +222,7 @@
         "convergenceType": "gradient",
         "tuneSwindle": 10,
         "maxBoundCount": 5,
-        "tolerance": 2.0E-7,
+        "tolerance": 2E-7,
         "algorithm": "ccd"
       },
       "attr_class": "args",
@@ -272,7 +272,7 @@
         "convergenceType": "gradient",
         "tuneSwindle": 10,
         "maxBoundCount": 5,
-        "tolerance": 2.0E-7,
+        "tolerance": 2E-7,
         "algorithm": "ccd"
       },
       "modelType": "logistic",
@@ -506,7 +506,7 @@
         "convergenceType": "gradient",
         "tuneSwindle": 10,
         "maxBoundCount": 5,
-        "tolerance": 2.0E-7,
+        "tolerance": 2E-7,
         "algorithm": "ccd"
       },
       "attr_class": "args",
@@ -556,7 +556,7 @@
         "convergenceType": "gradient",
         "tuneSwindle": 10,
         "maxBoundCount": 5,
-        "tolerance": 2.0E-7,
+        "tolerance": 2E-7,
         "algorithm": "ccd"
       },
       "modelType": "cox",
@@ -790,7 +790,7 @@
         "convergenceType": "gradient",
         "tuneSwindle": 10,
         "maxBoundCount": 5,
-        "tolerance": 2.0E-7,
+        "tolerance": 2E-7,
         "algorithm": "ccd"
       },
       "attr_class": "args",
@@ -840,7 +840,7 @@
         "convergenceType": "gradient",
         "tuneSwindle": 10,
         "maxBoundCount": 5,
-        "tolerance": 2.0E-7,
+        "tolerance": 2E-7,
         "algorithm": "ccd"
       },
       "modelType": "logistic",
@@ -1074,7 +1074,7 @@
         "convergenceType": "gradient",
         "tuneSwindle": 10,
         "maxBoundCount": 5,
-        "tolerance": 2.0E-7,
+        "tolerance": 2E-7,
         "algorithm": "ccd"
       },
       "attr_class": "args",
@@ -1124,7 +1124,7 @@
         "convergenceType": "gradient",
         "tuneSwindle": 10,
         "maxBoundCount": 5,
-        "tolerance": 2.0E-7,
+        "tolerance": 2E-7,
         "algorithm": "ccd"
       },
       "modelType": "cox",

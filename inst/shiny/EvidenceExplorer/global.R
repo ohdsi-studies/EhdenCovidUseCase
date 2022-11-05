@@ -1,7 +1,7 @@
 source("DataPulls.R")
 source("PlotsAndTables.R")
 
-# shinySettings <- list(dataFolder = "c:/temp/Gowtham/data", blind = TRUE)
+# shinySettings <- list(dataFolder = "D:\\StudyPackage\\export\\shinyData", blind = F)
 dataFolder <- shinySettings$dataFolder
 blind <- shinySettings$blind
 connection <- NULL
@@ -35,17 +35,30 @@ loadFile <- function(file, removePart) {
     colnames(newData) <- SqlRender::snakeCaseToCamelCase(colnames(newData))
     if (exists(camelCaseName, envir = .GlobalEnv)) {
       existingData <- get(camelCaseName, envir = .GlobalEnv)
-      newData <- rbind(existingData, newData)
+      newData$tau <- NULL
+      newData$traditionalLogRr <- NULL
+      newData$traditionalSeLogRr <- NULL
+      if (!all(colnames(newData) %in% colnames(existingData))) {
+         stop(sprintf("Columns names do not match in %s. \nObserved:\n %s, \nExpecting:\n %s", 
+                      file,
+                      paste(colnames(newData), collapse = ", "),
+                      paste(colnames(existingData), collapse = ", ")))
+                      
+      }
+      newData <- dplyr::bind_rows(existingData, newData)
       newData <- unique(newData)
     }
     assign(camelCaseName, newData, envir = .GlobalEnv)
   }
   invisible(NULL)
 }
+# removePart <- removeParts[3]
+file <- files[grepl(removePart, files)][1]
 for (removePart in removeParts) {
-  lapply(files[grepl(removePart, files)], loadFile, removePart)
+  invisible(lapply(files[grepl(removePart, files)], loadFile, removePart))
 }
 
 tcos <- unique(cohortMethodResult[, c("targetId", "comparatorId", "outcomeId")])
 tcos <- tcos[tcos$outcomeId %in% outcomeOfInterest$outcomeId, ]
+metaAnalysisDbIds <- database$databaseId[database$isMetaAnalysis == 1]
                

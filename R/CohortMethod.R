@@ -1,6 +1,6 @@
-# Copyright 2020 Observational Health Data Sciences and Informatics
+# Copyright 2022 Observational Health Data Sciences and Informatics
 #
-# This file is part of EHDENCOVIDUseCase2
+# This file is part of StudyPackage
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -14,37 +14,11 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-#' Run CohortMethod package
-#'
-#' @details
-#' Run the CohortMethod package, which implements the comparative cohort design.
-#'
-#' @param connectionDetails    An object of type \code{connectionDetails} as created using the
-#'                             \code{\link[DatabaseConnector]{createConnectionDetails}} function in the
-#'                             DatabaseConnector package.
-#' @param cdmDatabaseSchema    Schema name where your patient-level data in OMOP CDM format resides.
-#'                             Note that for SQL Server, this should include both the database and
-#'                             schema name, for example 'cdm_data.dbo'.
-#' @param cohortDatabaseSchema Schema name where intermediate data can be stored. You will need to have
-#'                             write priviliges in this schema. Note that for SQL Server, this should
-#'                             include both the database and schema name, for example 'cdm_data.dbo'.
-#' @param cohortTable          The name of the table that will be created in the work database schema.
-#'                             This table will hold the exposure and outcome cohorts used in this
-#'                             study.
-#' @param oracleTempSchema     Should be used in Oracle to specify a schema where the user has write
-#'                             priviliges for storing temporary tables.
-#' @param outputFolder         Name of local folder where the results were generated; make sure to use forward slashes
-#'                             (/). Do not use a folder on a network drive since this greatly impacts
-#'                             performance.
-#' @param maxCores             How many parallel cores should be used? If more cores are made available
-#'                             this can speed up the analyses.
-#'
-#' @export
 runCohortMethod <- function(connectionDetails,
                             cdmDatabaseSchema,
                             cohortDatabaseSchema,
                             cohortTable,
-                            oracleTempSchema,
+                            tempEmulationSchema,
                             outputFolder,
                             maxCores) {
   cmOutputFolder <- file.path(outputFolder, "cmOutput")
@@ -53,7 +27,7 @@ runCohortMethod <- function(connectionDetails,
   }
   cmAnalysisListFile <- system.file("settings",
                                     "cmAnalysisList.json",
-                                    package = "EHDENCOVIDUseCase2")
+                                    package = "StudyPackage")
   cmAnalysisList <- CohortMethod::loadCmAnalysisList(cmAnalysisListFile)
   tcosList <- createTcos(outputFolder = outputFolder)
   outcomesOfInterest <- getOutcomesOfInterest()
@@ -64,7 +38,7 @@ runCohortMethod <- function(connectionDetails,
                                          outcomeDatabaseSchema = cohortDatabaseSchema,
                                          outcomeTable = cohortTable,
                                          outputFolder = cmOutputFolder,
-                                         oracleTempSchema = oracleTempSchema,
+                                         tempEmulationSchema = tempEmulationSchema,
                                          cmAnalysisList = cmAnalysisList,
                                          targetComparatorOutcomesList = tcosList,
                                          getDbCohortMethodDataThreads = min(3, maxCores),
@@ -77,7 +51,7 @@ runCohortMethod <- function(connectionDetails,
                                          refitPsForEveryOutcome = FALSE,
                                          outcomeIdsOfInterest = outcomesOfInterest)
   
-  ParallelLogger::logInfo("Summarizing results")
+  message("Summarizing results")
   analysisSummary <- CohortMethod::summarizeAnalyses(referenceTable = results, 
                                                      outputFolder = cmOutputFolder)
   analysisSummary <- addCohortNames(analysisSummary, "targetId", "targetName")
@@ -86,7 +60,7 @@ runCohortMethod <- function(connectionDetails,
   analysisSummary <- addAnalysisDescription(analysisSummary, "analysisId", "analysisDescription")
   write.csv(analysisSummary, file.path(outputFolder, "analysisSummary.csv"), row.names = FALSE)
   
-  ParallelLogger::logInfo("Computing covariate balance") 
+  message("Computing covariate balance") 
   balanceFolder <- file.path(outputFolder, "balance")
   if (!file.exists(balanceFolder)) {
     dir.create(balanceFolder)
@@ -118,7 +92,7 @@ computeCovariateBalance <- function(row, cmOutputFolder, balanceFolder) {
 addAnalysisDescription <- function(data, IdColumnName = "analysisId", nameColumnName = "analysisDescription") {
   cmAnalysisListFile <- system.file("settings",
                                     "cmAnalysisList.json",
-                                    package = "EHDENCOVIDUseCase2")
+                                    package = "StudyPackage")
   cmAnalysisList <- CohortMethod::loadCmAnalysisList(cmAnalysisListFile)
   idToName <- lapply(cmAnalysisList, function(x) data.frame(analysisId = x$analysisId, description = as.character(x$description)))
   idToName <- do.call("rbind", idToName)
@@ -128,13 +102,13 @@ addAnalysisDescription <- function(data, IdColumnName = "analysisId", nameColumn
   # Change order of columns:
   idCol <- which(colnames(data) == IdColumnName)
   if (idCol < ncol(data) - 1) {
-    data <- data[, c(1:idCol, ncol(data) , (idCol+1):(ncol(data)-1))]
+    data <- data[, c(1:idCol, ncol(data) , (idCol + 1):(ncol(data) - 1))]
   }
   return(data)
 }
 
 createTcos <- function(outputFolder) {
-  pathToCsv <- system.file("settings", "TcosOfInterest.csv", package = "EHDENCOVIDUseCase2")
+  pathToCsv <- system.file("settings", "TcosOfInterest.csv", package = "StudyPackage")
   tcosOfInterest <- read.csv(pathToCsv, stringsAsFactors = FALSE)
   allControls <- getAllControls(outputFolder)
   tcs <- unique(rbind(tcosOfInterest[, c("targetId", "comparatorId")],
@@ -155,7 +129,7 @@ createTcos <- function(outputFolder) {
     if (length(includeConceptIds) == 1 && is.na(includeConceptIds)) {
       includeConceptIds <- c()
     } else if (length(includeConceptIds) > 0) {
-      includeConceptIds <- as.numeric(strsplit(excludeConceptIds, split = ";")[[1]])
+      includeConceptIds <- as.numeric(strsplit(includeConceptIds, split = ";")[[1]])
     }
     tco <- CohortMethod::createTargetComparatorOutcomes(targetId = targetId,
                                                         comparatorId = comparatorId,
@@ -169,7 +143,7 @@ createTcos <- function(outputFolder) {
 }
 
 getOutcomesOfInterest <- function() {
-  pathToCsv <- system.file("settings", "TcosOfInterest.csv", package = "EHDENCOVIDUseCase2")
+  pathToCsv <- system.file("settings", "TcosOfInterest.csv", package = "StudyPackage")
   tcosOfInterest <- read.csv(pathToCsv, stringsAsFactors = FALSE) 
   outcomeIds <- as.character(tcosOfInterest$outcomeIds)
   outcomeIds <- do.call("c", (strsplit(outcomeIds, split = ";")))
@@ -184,7 +158,7 @@ getAllControls <- function(outputFolder) {
     allControls <- read.csv(allControlsFile)
   } else {
     # Include only negative controls
-    pathToCsv <- system.file("settings", "NegativeControls.csv", package = "EHDENCOVIDUseCase2")
+    pathToCsv <- system.file("settings", "NegativeControls.csv", package = "StudyPackage")
     allControls <- read.csv(pathToCsv)
     allControls$oldOutcomeId <- allControls$outcomeId
     allControls$targetEffectSize <- rep(1, nrow(allControls))

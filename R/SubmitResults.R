@@ -1,6 +1,6 @@
-# Copyright 2020 Observational Health Data Sciences and Informatics
+# Copyright 2022 Observational Health Data Sciences and Informatics
 #
-# This file is part of EHDENCOVIDUseCase2
+# This file is part of StudyPackage
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -27,6 +27,7 @@
 #'                             performance.                             
 #' @export
 uploadResults <- function(outputFolder, privateKeyFileName, userName) {
+  outputFolder <- normalizePath(outputFolder)
   fileName <- list.files(outputFolder, "^Results_.*.zip$", full.names = TRUE)
   if (length(fileName) == 0) {
     stop("Could find results file in folder. Did you run (and complete) execute?") 
@@ -38,5 +39,5 @@ uploadResults <- function(outputFolder, privateKeyFileName, userName) {
                                userName = userName,
                                remoteFolder = "cohortEvaluation",
                                fileName = fileName)
-  ParallelLogger::logInfo("Finished uploading")
+  message("Finished uploading")
 }
