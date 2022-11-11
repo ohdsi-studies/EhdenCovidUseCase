@@ -114,8 +114,8 @@ How to run
 
 License
 =======
-The EHDENUseCase4.3 package is licensed under Apache License 2.0
+The EHDENUseCase7 package is licensed under Apache License 2.0
 
 Development
 ===========
-EHDENUseCase4.3 was developed in ATLAS and R Studio.
+EHDENUseCase7 was developed in ATLAS and R Studio.
