@@ -46,7 +46,7 @@ How to run
 
     ```r
     install.packages("renv")
-    download.file("https://raw.githubusercontent.com/ohdsi-studies/EhdenCovidUseCase/HydratedMinusCriteria1/renv.lock", "renv.lock")
+    download.file("https://github.com/ohdsi-studies/EhdenCovidUseCase/blob/RemTocNoSubgroupsAgeSex/renv.lock", "renv.lock")
     renv::init()
     ```  
     
@@ -55,7 +55,7 @@ How to run
 3. Once installed, you can execute the study by modifying and using the code below. For your convenience, this code is also provided under `extras/CodeToRun.R`:
 
     ```r
-    library(EHDENUseCase4.3)
+    library(EHDENUseCase7.3RemTocNoSubgroupsAgeSex)
 
     # Optional: specify where the temporary files (used by the Andromeda package) will be created:
     options(andromedaTempFolder = "s:/andromedaTemp")
@@ -67,7 +67,7 @@ How to run
     minCellCount <- 5
 	
     # The folder where the study intermediate and result files will be written:
-    outputFolder <- "c:/EHDENUseCase4.3"
+    outputFolder <- "c:/EHDENUseCase7.3RemTocNoSubgroupsAgeSex"
 	
     # Details for connecting to the server:
     # See ?DatabaseConnector::createConnectionDetails for help
