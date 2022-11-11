@@ -1,6 +1,6 @@
 EHDEN COVID Use Case
 
-This version contains the simplified PS models (no covariates, Age + sex, or CCI + Sex). For the study package containing the full PS model, visit the branch "Hydrated Minus Criteria 1"
+This version contains comparisons for Remdesivir and Tocilizumab users with no subgroups and a fulll propensity model. 
 
 =============
 
@@ -20,13 +20,6 @@ The aim of this study is to estimate treatment effects for COVID-19 treatments u
 
 Primary objectives: 
 1) To assess comparative effectiveness and safety among Tocilizumab, Baricitinib, and Remdesivir in hospitalised patients
-2) To assess comparative effectiveness and safety among Aspirin and Heparin in hospitalised patients 
-
-Subgroup Analyses:
-1) Effectiveness and safety in ICU patients  
-2) Effectiveness and safety in patients receiving corticosteroids
-3) Effectiveness and safety in patients receiving oxygen
-
 
 
 Requirements
@@ -46,7 +39,7 @@ How to run
 
     ```r
     install.packages("renv")
-    download.file("https://raw.githubusercontent.com/ohdsi-studies/EhdenCovidUseCase/HydratedMinusCriteria1/renv.lock", "renv.lock")
+    download.file("https://github.com/ohdsi-studies/EhdenCovidUseCase/blob/RemTocNoSubgroupsFullModel/renv.lock", "renv.lock")
     renv::init()
     ```  
     
@@ -55,7 +48,7 @@ How to run
 3. Once installed, you can execute the study by modifying and using the code below. For your convenience, this code is also provided under `extras/CodeToRun.R`:
 
     ```r
-    library(EHDENUseCase4.3)
+    library(EHDENUseCase7.1RemTocNoSubgroups)
 
     # Optional: specify where the temporary files (used by the Andromeda package) will be created:
     options(andromedaTempFolder = "s:/andromedaTemp")
@@ -67,7 +60,7 @@ How to run
     minCellCount <- 5
 	
     # The folder where the study intermediate and result files will be written:
-    outputFolder <- "c:/EHDENUseCase4.3"
+    outputFolder <- "c:/EHDENUseCase7.1RemTocNoSubgroups"
 	
     # Details for connecting to the server:
     # See ?DatabaseConnector::createConnectionDetails for help
@@ -106,6 +99,7 @@ How to run
             packageResults = TRUE,
             maxCores = maxCores)
     ```
+
 
 4. Email results to christina.read@nice.org.uk and ravinder.claire@nice.org.uk
 		
