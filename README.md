@@ -4,6 +4,7 @@ EHDENCovidUseCaseCD
 This repository contains Cohort Diagnostics for the EHDEN Covid Use Case Study. To run the Cohort Diagnostics, download this repository and follow the directions below.
 
 # Install Package
+#download EHDEN Use Case Hydrated Minus Criteria 1 full repository
 #load renv and install package (this must be done before running the following steps, or the package will not install correctly)
 
 renv::init()
@@ -53,7 +54,7 @@ cohortDefinitionSet <- CohortGenerator::getCohortDefinitionSet(
   settingsFileName = "Cohorts.csv",
   jsonFolder = "cohorts",
   sqlFolder = "sql/sql_server",
-  packageName = "EHDENCovidUseCaseCohortDiagnostics"
+  packageName = "EHDENUseCase6.5full"
   )
 
 #run this to make sure the CohortDefinitionSet has loaded correctly from the study package
