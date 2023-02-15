@@ -49,7 +49,7 @@ How to run
     
     If renv mentions that the project already has a lockfile select "*1: Restore the project from the lockfile.*".
 
-3. Once installed, you can execute the study by modifying and using the code below. For your convenience, this code is also provided under `extras/CodeToRun.R`:
+3. Once installed, you can execute the study by clicking "build" and installing the study package, then modifying and using the code below. For your convenience, this code is also provided under `extras/CodeToRun.R`:
 
     ```r
     library(EHDENUseCase6.5full)
