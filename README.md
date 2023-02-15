@@ -46,7 +46,7 @@ cohortDefinitionSet <- CohortGenerator::getCohortDefinitionSet(
 
 cohortTableNames <- CohortGenerator::getCohortTableNames(cohortTable = "cohort")
 
-# Next create the tables on the database
+#Next create the tables on the database
 CohortGenerator::createCohortTables(
   connectionDetails = connectionDetails,
   cohortTableNames = cohortTableNames,
@@ -54,7 +54,7 @@ CohortGenerator::createCohortTables(
   incremental = FALSE
 )
 
-# Generate the cohort set
+#Generate the cohort set
 CohortGenerator::generateCohortSet(
   connectionDetails = connectionDetails,
   cdmDatabaseSchema = cdmDatabaseSchema,
