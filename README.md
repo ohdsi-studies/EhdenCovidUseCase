@@ -8,7 +8,7 @@ This repository contains Cohort Diagnostics for the EHDEN Covid Use Case Study. 
 
 renv::init()
 
-#in the "Build" menu, click "install package"
+#in the "Build" menu, click "install" to install the package
 
 
 # Download Cohort Diagnostics
@@ -53,7 +53,7 @@ cohortDefinitionSet <- CohortGenerator::getCohortDefinitionSet(
   settingsFileName = "Cohorts.csv",
   jsonFolder = "cohorts",
   sqlFolder = "sql/sql_server",
-  packageName = "EHDENUseCase6.5full"
+  packageName = "EHDENCovidUseCaseCohortDiagnostics"
   )
 
 #run this to make sure the CohortDefinitionSet has loaded correctly from the study package
