@@ -43,7 +43,7 @@ How to run
 
     ```r
     install.packages("renv")
-    download.file("https://raw.githubusercontent.com/ohdsi-studies/EHDENUseCase6.5full/main/renv.lock", "renv.lock")
+    download.file("https://raw.githubusercontent.com/ohdsi-studies/HydratedMinusCriteria1/main/renv.lock", "renv.lock")
     renv::init()
     ```  
     
