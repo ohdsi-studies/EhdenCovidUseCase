@@ -1,5 +1,27 @@
-8
-==============================
+EHDEN COVID Use Case
+This version contains simplified PS models (Age + sex, or CCI + Sex) as well as comparisons between Remdesivir and Tocilizumab with and without corticosteroids.
+=============
+- Analytics use case(s): Estimation
+- Study type: Clinical Application
+- Tags: OHDSI, COVID-19
+- Study lead: **-**
+- Study lead forums tag: **[Ravinder Claire](https://forums.ohdsi.org/u/ravclaire) , [Christina Read](https://forums.ohdsi.org/u/christina_read) , [lead](https://forums.ohdsi.org/)]**
+- Study start date: **-**
+- Study end date: **-**
+- Protocol: [EHDEN Use Case Protocol.pdf](https://github.com/ohdsi-studies/EhdenCovidUseCase/blob/Minus-Criteria-1/documents/EHDEN%20Use%20Case%20Protocol.pdf)
+- Results explorer: **-**
+
+The aim of this study is to estimate treatment effects for COVID-19 treatments using data from the EHDEN network and to combine these observational results with data from randomised studies.
+
+Primary objectives: 
+1) To assess comparative effectiveness and safety among Tocilizumab, Baricitinib, and Remdesivir in hospitalised patients
+2) To assess comparative effectiveness and safety among Aspirin and Heparin in hospitalised patients 
+
+Subgroup Analyses:
+1) Effectiveness and safety in ICU patients  
+2) Effectiveness and safety in patients receiving corticosteroids
+3) Effectiveness and safety in patients receiving oxygen
+
 
 
 Requirements
@@ -19,7 +41,7 @@ How to run
 
     ```r
     install.packages("renv")
-    download.file("https://raw.githubusercontent.com/ohdsi-studies/8/main/renv.lock", "renv.lock")
+    download.file("https://github.com/ohdsi-studies/EhdenCovidUseCase/blob/CorticosteroidsComparison/renv.lock", "renv.lock")
     renv::init()
     ```  
     
@@ -40,7 +62,7 @@ How to run
     minCellCount <- 5
 	
     # The folder where the study intermediate and result files will be written:
-    outputFolder <- "c:/8"
+    outputFolder <- "c:/EHDENUseCase4.3"
 	
     # Details for connecting to the server:
     # See ?DatabaseConnector::createConnectionDetails for help
@@ -80,13 +102,7 @@ How to run
             maxCores = maxCores)
     ```
 
-4. Upload the file ```export/Results_<DatabaseId>.zip``` in the output folder to the study coordinator:
-
-	```r
-	uploadResults(outputFolder, privateKeyFileName = "<file>", userName = "<name>")
-	```
-	
-	Where ```<file>``` and ```<name<``` are the credentials provided to you personally by the study coordinator.
+4. Email results to christina.read@nice.org.uk and ravinder.claire@nice.org.uk
 		
 5. To view the results, use the Shiny app:
 
@@ -99,12 +115,8 @@ How to run
 
 License
 =======
-The 8 package is licensed under Apache License 2.0
+The EHDENUseCase8 package is licensed under Apache License 2.0
 
 Development
 ===========
-8 was developed in ATLAS and R Studio.
-
-### Development status
-
-Unknown
+EHDENUseCase8 was developed in ATLAS and R Studio.
