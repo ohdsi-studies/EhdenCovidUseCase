@@ -1,6 +1,8 @@
 EHDEN COVID Use Case
-This version contains simplified PS models (Age + sex, or CCI + Sex) as well as comparisons between Remdesivir and Tocilizumab with and without corticosteroids.
 =============
+This version contains simplified PS models (Age + sex, or CCI + Sex) as well as comparisons between Remdesivir and Tocilizumab with and without corticosteroids.
+
+
 - Analytics use case(s): Estimation
 - Study type: Clinical Application
 - Tags: OHDSI, COVID-19
