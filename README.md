@@ -19,7 +19,7 @@ How to run
 
     ```r
     install.packages("renv")
-    download.file("https://raw.githubusercontent.com/ohdsi-studies/EHDENUseCase8/main/renv.lock", "renv.lock")
+    download.file("https://github.com/ohdsi-studies/EhdenCovidUseCase/blob/CorticosteroidsComparison/renv.lock", "renv.lock")
     renv::init()
     ```  
     
