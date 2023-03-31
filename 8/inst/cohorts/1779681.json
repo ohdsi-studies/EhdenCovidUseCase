@@ -1,0 +1,85 @@
+{
+  "ExpressionLimit": {"Type": "First"},
+  "CollapseSettings": {
+    "CollapseType": "ERA",
+    "EraPad": 30
+  },
+  "CensorWindow": {
+    "StartDate": null,
+    "EndDate": null
+  },
+  "ConceptSets": [{
+    "expression": {"items": [{
+      "isExcluded": false,
+      "concept": {
+        "INVALID_REASON_CAPTION": "Valid",
+        "CONCEPT_ID": 4203130,
+        "STANDARD_CONCEPT": "S",
+        "CONCEPT_CODE": "308283009",
+        "VOCABULARY_ID": "SNOMED",
+        "CONCEPT_NAME": "Discharge from hospital",
+        "DOMAIN_ID": "Observation",
+        "STANDARD_CONCEPT_CAPTION": "Standard",
+        "CONCEPT_CLASS_ID": "Procedure",
+        "INVALID_REASON": "V"
+      },
+      "includeMapped": false,
+      "includeDescendants": true
+    }]},
+    "name": "Discharge from Hospital (EHDEN Use Case)",
+    "id": 0
+  }],
+  "EndStrategy": {"DateOffset": {
+    "DateField": "EndDate",
+    "Offset": 1
+  }},
+  "cdmVersionRange": ">=5.0.0",
+  "CensoringCriteria": [],
+  "Title": null,
+  "AdditionalCriteria": null,
+  "QualifiedLimit": {"Type": "First"},
+  "InclusionRules": [],
+  "PrimaryCriteria": {
+    "CriteriaList": [
+      {"VisitOccurrence": {
+        "OccurrenceEndDate": null,
+        "VisitLength": null,
+        "CorrelatedCriteria": null,
+        "VisitSourceConcept": null,
+        "CodesetId": 0,
+        "VisitTypeExclude": false,
+        "ProviderSpecialty": null,
+        "Gender": null,
+        "PlaceOfServiceLocation": null,
+        "PlaceOfService": null,
+        "VisitType": null,
+        "First": null,
+        "OccurrenceStartDate": null,
+        "Age": null
+      }},
+      {"Observation": {
+        "ValueAsConcept": null,
+        "ObservationType": null,
+        "CorrelatedCriteria": null,
+        "ObservationTypeExclude": false,
+        "ValueAsString": null,
+        "CodesetId": 0,
+        "ProviderSpecialty": null,
+        "Gender": null,
+        "Unit": null,
+        "ObservationSourceConcept": null,
+        "VisitType": null,
+        "ValueAsNumber": null,
+        "Qualifier": null,
+        "First": null,
+        "OccurrenceStartDate": null,
+        "Age": null
+      }}
+    ],
+    "PrimaryCriteriaLimit": {"Type": "First"},
+    "ObservationWindow": {
+      "PostDays": 0,
+      "PriorDays": 0
+    }
+  }
+}
